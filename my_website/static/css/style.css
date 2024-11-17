@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Light background on hover */
+    border-radius: 8px; /* Match the active link's rounded corners */
+}
+
+nav .active a {
+    padding: 0.5rem 1rem; /* Add padding to create space inside the box */
+    border: 2px solid white; /* Surround the link with a yellow border */
+    border-radius: 8px; /* Optional: Make the corners rounded */
+    background-color: #333 /* Optional: Add a subtle background */
+    color: white; /* Keep the text color consistent */
+    font-weight: bold; /* Make the text bold */
+    text-decoration: none; /* Remove underline */
+}
+
+main {
+    padding: 2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #333;
+    color: white;
+}

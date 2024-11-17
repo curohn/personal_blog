@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+       <nav>
+            <ul>
+                <li class="{% if request.endpoint == 'home' %}active{% endif %}">
+                    <a href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="{% if request.endpoint == 'resume' %}active{% endif %}">
+                    <a href="{{ url_for('resume') }}">Resume</a>
+                </li>
+                <li class="{% if request.endpoint == 'blog' %}active{% endif %}">
+                    <a href="{{ url_for('blog') }}">Blog</a>
+                </li>
+                <li class="{% if request.endpoint == 'contact' %}active{% endif %}">
+                    <a href="{{ url_for('contact') }}">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>© 2024 Your Name</p>
+    </footer>
+</body>
+</html>
