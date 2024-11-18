@@ -1,14 +1,22 @@
 body {
-    font-family: Arial, sans-serif;
+    background-color: #F2EEDD;
+    color: #F2EEDD; /* Timid White */
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
+    opacity: 0;
+    animation: fadeIn 0.2s ease-in-out forwards;
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
 
+/* Navigation Bar */
 header {
-    background: #333;
-    color: white;
+    background-color: #4E5754; /* Ashwood Moss */
+    color: #F2EEDD; /* Timid White */
     padding: 1rem;
 }
 
@@ -21,19 +29,69 @@ nav ul {
 }
 
 nav a {
-    padding: 0.5rem 1rem;
+    color: #F2EEDD; /* Timid White */
     text-decoration: none;
-    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
 }
 
 nav a:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Light background on hover */
-    border-radius: 8px; /* Match the active link's rounded corners */
+    background-color: #5B6F5A; /* Dill Weed */
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+button {
+    background-color: #4E5754; /* Ashwood Moss *
+    color: #F2EEDD; /* Timid White */
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4E5754; /* Ashwood Moss */
+}
+
+.btn {
+    background-color: #4E5754; /* Ashwood Moss */
+    color: #F2EEDD; /* Timid White */
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0.5rem;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #4E5754; /* Ashwood Moss */
+}
+
+/* Links and Highlights */
+a {
+    color: #F2EEDD; /* Timid White */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #C9D5B1; /* Spring Bud */
+}
+
+iframe {
+    border: none;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%; /* Ensure it doesn't overflow on small screens */
 }
 
 nav .active a {
     padding: 0.5rem 1rem; /* Add padding to create space inside the box */
-    border: 2px solid white; /* Surround the link with a yellow border */
+    border: 2px solid #F4EFEA; /* Surround the link with a yellow border */
     border-radius: 8px; /* Optional: Make the corners rounded */
     background-color: #333 /* Optional: Add a subtle background */
     color: white; /* Keep the text color consistent */
@@ -41,13 +99,104 @@ nav .active a {
     text-decoration: none; /* Remove underline */
 }
 
+/* Main Content */
 main {
     padding: 2rem;
+    background-color: #F2EEDD; /* Timid White */
+    color: #4E5754; /* Ashwood Moss */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Headings */
+h1, h2, h3 {
+    color: #4E5754; /* Ashwood Moss */
 }
 
 footer {
+    background-color: #A38F7B; /* Quincy Tan */
+    color: #F2EEDD; /* Timid White */
     text-align: center;
     padding: 1rem;
-    background: #333;
-    color: white;
+}
+
+/* Projects */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.project-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #F2EEDD; /* Timid White */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+/* Project Page Layout */
+.project-page {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Sidebar Styles */
+.project-nav {
+    width: 20%; /* Sidebar width */
+    background-color: #F2EEDD; /* Timid White */
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-nav h3 {
+    color: #4E5754; /* Ashwood Moss */
+    margin-bottom: 1rem;
+}
+
+.project-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.project-nav li a {
+    text-decoration: none;
+    color: #4E5754; /* Ashwood Moss */
+    font-weight: bold;
+}
+
+.project-nav li.active a {
+    color: #5B6F5A; /* Dill Weed */
+    text-decoration: underline;
+}
+
+.project-nav li a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Styles */
+.project-content {
+    width: 75%; /* Main content width */
+    background-color: #F2EEDD; 
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

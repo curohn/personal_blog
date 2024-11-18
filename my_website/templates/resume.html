@@ -2,5 +2,19 @@
 
 {% block content %}
 <h1>My Resume</h1>
-<p>Here is my professional experience and skills.</p>
+<p>Below is my resume. You can also download a copy using the button below:</p>
+
+<!-- Download Button -->
+<a href="{{ url_for('download_resume') }}" class="btn">Download Resume</a>
+
+
+<!-- Embed the PDF -->
+<iframe 
+    src="{{ url_for('static', filename='curran_john_resume.pdf') }}" 
+    width="80%" 
+    height="1000px"
+    style="border: none; display: block; margin: 0 auto;">
+</iframe>
+
+
 {% endblock %}

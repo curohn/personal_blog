@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="project-page">
+    <!-- Left Sidebar -->
+    <aside class="project-nav">
+        <h3>Other Projects</h3>
+        <ul>
+            {% for other_project in projects %}
+            <li class="{% if other_project['id'] == project['id'] %}active{% endif %}">
+                <a href="{{ other_project['detail_url'] }}">{{ other_project['title'] }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="project-content">
+        <h1>{{ project['title'] }}</h1>
+        <img src="{{ url_for('static', filename=project['image']) }}" alt="{{ project['title'] }}">
+        <p>{{ project['description'] }}</p>
+
+        <h2>Methodology</h2>
+        <p>{{ project['methodology'] }}</p>
+
+        <h2>Code</h2>
+        <pre>{{ project['code'] }}</pre>
+
+        <h2>Graphs</h2>
+        {% for graph in project['graphs'] %}
+        <img src="{{ url_for('static', filename=graph) }}" alt="Graph">
+        {% endfor %}
+
+        <a href="/projects" class="btn">Back to Projects</a>
+    </div>
+</div>
+{% endblock %}

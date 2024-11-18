@@ -13,6 +13,9 @@
                 <li class="{% if request.endpoint == 'home' %}active{% endif %}">
                     <a href="{{ url_for('home') }}">Home</a>
                 </li>
+                <li class="{% if request.endpoint == 'projects' %}active{% endif %}">
+                    <a href="{{ url_for('projects') }}">Projects</a>
+                </li>
                 <li class="{% if request.endpoint == 'resume' %}active{% endif %}">
                     <a href="{{ url_for('resume') }}">Resume</a>
                 </li>

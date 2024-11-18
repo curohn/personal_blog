@@ -1,15 +1,16 @@
 # To Do
 - [x] /contact: send email to me
-- [ ] /resume: Display preview of resume in PDF form
-- [ ] /resume: Download resume button
+- [x] /resume: Display preview of resume in PDF form
+- [x] /resume: Download resume button
 - [ ] /resume: vis.js for visual timeline of professional experience
-- [ ] New page: portfolio/projects with descriptions, links, and images for your GitHub projects
+- [x] New page: portfolio/projects with descriptions, links, and images for your GitHub projects
 - [ ] SEO: add meta tags 
 - [ ] /blog: add markdown for blog
-- [ ] Light & Dark Mode toggles
-- [ ] Animations
+- [ ] ~~Light & Dark Mode toggles~~
+- [x] Animations for page loads
 - [ ] Favicon
 - [ ] Google Analytics
 - [ ] Buy domain
 - [ ] Hosting
 - [ ] Logo
+- [x] New theme
