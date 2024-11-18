@@ -1,8 +1,23 @@
 from flask import Flask, render_template, request
+from flask_mail import Mail, Message
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 # Create a Flask application instance
 app = Flask(__name__)
+
+# Email configuration
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+app.config['MAIL_DEFAULT_SENDER'] = 'curran.john35@gmail.com'
+
+mail = Mail(app)
+
 
 # Define routes for different pages
 @app.route('/')
@@ -26,12 +41,25 @@ def blog():
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['email']
-        message = request.form['message']
-        print(f"Message received from {name} ({email}): {message}")
-        return "Thank you for your message!"
+        name = request.form.get('name')
+        email = request.form.get('email')
+        message = request.form.get('message')
+
+        # Send email
+        recipient_email = os.getenv('RECIPIENT_EMAIL')
+        msg = Message(
+            subject=f"New Contact Form Submission from {name}",
+            sender=email,
+            recipients=[recipient_email], 
+            body=f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
+        )
+
+        mail.send(msg)
+        return render_template('thank_you.html')  # Render the thank you page
+
     return render_template('contact.html')
+
+
 
 
 # Run the Flask app in debug mode

@@ -1,2 +1,15 @@
 # To Do
-- [ ] /contact: send the form data to your email using an SMTP server
+- [x] /contact: send email to me
+- [ ] /resume: Display preview of resume in PDF form
+- [ ] /resume: Download resume button
+- [ ] /resume: vis.js for visual timeline of professional experience
+- [ ] New page: portfolio/projects with descriptions, links, and images for your GitHub projects
+- [ ] SEO: add meta tags 
+- [ ] /blog: add markdown for blog
+- [ ] Light & Dark Mode toggles
+- [ ] Animations
+- [ ] Favicon
+- [ ] Google Analytics
+- [ ] Buy domain
+- [ ] Hosting
+- [ ] Logo
