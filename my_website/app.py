@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 import os
 from datetime import datetime
 
-
 load_dotenv()
 
 # Create a Flask application instance
@@ -47,23 +46,21 @@ def projects():
 projects = [
     {
         "id": 1,
-        "title": "PLACEHOLDER:Sales Analysis Dashboard",
-        "description": "A detailed analysis of regional sales trends using Python and Tableau.",
+        "title": "Global Temperatures Analysis",
+        "description": "A time series analysis of global surface temperatures. Used to demonstrate experience with linear regression in python.",
         "image": "sales_dashboard.png",
-        "detail_url": "/projects/sales-analysis",
-        "methodology": """
-            PLACEHOLDER: 
-            - Cleaned and transformed raw sales data using Python (Pandas, NumPy).
-            - Built interactive dashboards using Tableau for regional comparisons.
-            - Analyzed year-over-year trends to identify growth opportunities.
+        "detail_url": "/projects/global-temperature-analysis",
+        "github_url": "https://github.com/curohn/global_temperatures/tree/main",
+        "methodology": """- Import dataset using Pandas 
+            - Clean data, Add features like averages, remove inaccurate data, etc. 
+            - Calcuate upper and lower uncertainty bounds
+            - Fit the linear regression model to the data using scikit-learn
+            - Plot the data using MatPlotLib
         """,
-        "code": """
-            import pandas as pd
-            sales_data = pd.read_csv('sales_data.csv')
-            cleaned_data = sales_data.dropna()
-            print(cleaned_data.head())
-        """,
-        "graphs": ["sales_trends.png", "regional_comparison.png"]
+        "graphs": [""],
+        "tools": ["Python", "Pandas", "MatPlotLib", "scikit-learn"],
+        "date": "2024-03-31"
+
     },
     {
         "id": 2,
@@ -71,34 +68,31 @@ projects = [
         "description": "Clustering customer data to uncover distinct buying behaviors.",
         "image": "customer_segmentation.png",
         "detail_url": "/projects/customer-segmentation",
-        "methodology": """
-            PLACEHOLDER: 
+        "github_url": "",
+        "methodology": """PLACEHOLDER: 
             - Performed exploratory data analysis to find customer patterns.
             - Applied K-Means clustering to group customers by purchasing habits.
             - Visualized clusters with Matplotlib and Seaborn.
         """,
-        "code": """
-            from sklearn.cluster import KMeans
-            import matplotlib.pyplot as plt
-            kmeans = KMeans(n_clusters=3)
-            kmeans.fit(customer_data)
-            plt.scatter(customer_data['x'], customer_data['y'], c=kmeans.labels_)
-            plt.show()
-        """,
-        "graphs": ["clusters.png"]
+        "graphs": ["clusters.png"],
+        "tools": [],
+        "date": "2024-03-31"
     },
     # Add more projects as needed
 ]
 
+
+
 @app.route('/projects/<string:project_name>')
 def project_detail(project_name):
-    # Find the current project
     project = next((p for p in projects if p["detail_url"] == f"/projects/{project_name}"), None)
     if not project:
         return "Project not found", 404
-
-    # Pass the current project and all projects to the template
+    
+    # Format the date
+    project['formatted_date'] = datetime.strptime(project['date'], "%Y-%m-%d").strftime("%B %d, %Y")
     return render_template('project_detail.html', project=project, projects=projects)
+
 
 
 

@@ -7,7 +7,17 @@
     <div class="project-card">
         <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.title }}">
         <h2>{{ project.title }}</h2>
+        <p><strong>Date:</strong> {{ project.date }}</p>
         <p>{{ project.description }}</p>
+        <p><strong>Tools:</strong>
+            {% for tool in project.tools %}
+            <span class="tool-tag">{{ tool }}</span>
+            {% endfor %}
+        </p>
+        <a href="{{ project.github_url }}" target="_blank" class="btn">
+            <img src="{{ url_for('static', filename='icons/github_logo.png') }}" alt="GitHub" class="icon">
+            View on GitHub
+        </a>
         <a href="{{ project.detail_url }}" class="btn">View Details</a>
     </div>
     {% endfor %}

@@ -2,7 +2,6 @@
 
 {% block content %}
 <div class="project-page">
-    <!-- Left Sidebar -->
     <aside class="project-nav">
         <h3>Other Projects</h3>
         <ul>
@@ -14,24 +13,36 @@
         </ul>
     </aside>
 
-    <!-- Main Content -->
     <div class="project-content">
         <h1>{{ project['title'] }}</h1>
-        <img src="{{ url_for('static', filename=project['image']) }}" alt="{{ project['title'] }}">
-        <p>{{ project['description'] }}</p>
+        <p><strong>Completion Date:</strong> {{ project['formatted_date'] }}</p>
+        <img src="{{ url_for('static', filename=project['image']) }}" alt="{{ project.title }}">
+        <p>{{ project.description }}</p>
+        
+        <h2>Tools/Languages Used</h2>
+        <ul>
+            {% for tool in project['tools'] %}
+            <li>{{ tool }}</li>
+            {% endfor %}
+        </ul>
 
         <h2>Methodology</h2>
-        <p>{{ project['methodology'] }}</p>
+        <p>{{ project['methodology']|replace('\n', '<br>')|safe }}</p>
 
-        <h2>Code</h2>
-        <pre>{{ project['code'] }}</pre>
 
         <h2>Graphs</h2>
         {% for graph in project['graphs'] %}
         <img src="{{ url_for('static', filename=graph) }}" alt="Graph">
         {% endfor %}
 
-        <a href="/projects" class="btn">Back to Projects</a>
+        <!-- GitHub Section at the Bottom -->
+        <p>
+            <a href="{{ project['github_url'] }}" target="_blank" class="btn">
+                <img src="{{ url_for('static', filename='icons/github-mark-white.png') }}" alt="GitHub" class="icon">
+                View on GitHub
+            </a>
+        </p>
+
     </div>
 </div>
 {% endblock %}

@@ -192,11 +192,72 @@ footer {
 }
 
 /* Main Content Styles */
-.project-content {
-    width: 75%; /* Main content width */
-    background-color: #F2EEDD; 
-    padding: 1.5rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Tools Section */
+.project-content ul, .project-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.project-content ul li, .project-card ul li {
+    background-color: #F2EEDD; /* Timid White */
+    color: #4E5754; /* Ashwood Moss */
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.project-content ul li:hover, .project-card ul li:hover {
+    background-color: #5B6F5A; /* Dill Weed */
+    color: #FFFFFF; /* White */
+}
+/* Adjust tool tags for cards */
+.project-card .tool-tag {
+    font-size: 0.8rem; /* Smaller text size */
+    background-color: #F2EEDD; /* Timid White */
+    color: #4E5754; /* Ashwood Moss */
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    margin-right: 0.3rem;
+    display: inline-block;
+}
+
+.project-card .tool-tag:hover {
+    background-color: #5B6F5A; /* Dill Weed */
+    color: #FFFFFF; /* White */
+}
+
+.project-card p strong {
+    font-weight: bold;
+    margin-right: 0.5rem;
+    color: #4E5754; /* Ashwood Moss */
+}
+/*Github Button */
+.btn {
+    background-color: #24292E; /* GitHub's dark gray */
+    color: #FFFFFF; /* White text */
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0.5rem;
+}
+
+.btn:hover {
+    background-color: #0366D6; /* GitHub's blue */
+}
+.icon {
+    width: 20px; /* Adjust size as needed */
+    height: 20px;
+    margin-right: 8px; /* Space between the icon and text */
+    vertical-align: middle; /* Aligns icon with text */
+}
+.project-card p strong, .project-content p strong {
+    color: #4E5754; /* Ashwood Moss */
+    font-weight: bold;
+    margin-right: 5px;
 }
