@@ -3,24 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
+    
+    <!-- General Meta Tags -->
+    <meta name="description" content="{{ description if description else 'Showcase of my work and research.' }}">
+
+    <meta name="keywords" content="data analysis, research, portfolio, projects, visualizations, programming">
+    <meta name="author" content="John Curran">
+
+    <!-- Open Graph Meta Tags (for social sharing) -->
+    <meta property="og:title" content="Work and Research - John Curran">
+    <meta property="og:description" content="Explore my portfolio of work and research, featuring data projects and insights.">
+    <meta property="og:image" content="{{ url_for('static', filename='images/social_preview.png') }}">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Work and Research - John Curran">
+    <meta name="twitter:description" content="Explore my portfolio of work and research, featuring data projects and insights.">
+    <meta name="twitter:image" content="{{ url_for('static', filename='images/social_preview.png') }}">
+
+    <!-- Title -->
+    <title>{{ title if title else 'Work and Research' }}</title>
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <header>
-       <nav>
+        <nav>
             <ul>
                 <li class="{% if request.endpoint == 'home' %}active{% endif %}">
                     <a href="{{ url_for('home') }}">Home</a>
                 </li>
-                <li class="{% if request.endpoint == 'projects' %}active{% endif %}">
-                    <a href="{{ url_for('projects') }}">Projects</a>
+                <li class="{% if request.endpoint == 'work_and_research_page' %}active{% endif %}">
+                    <a href="{{ url_for('work_and_research_page') }}">Work and Research</a>
                 </li>
                 <li class="{% if request.endpoint == 'resume' %}active{% endif %}">
                     <a href="{{ url_for('resume') }}">Resume</a>
-                </li>
-                <li class="{% if request.endpoint == 'blog' %}active{% endif %}">
-                    <a href="{{ url_for('blog') }}">Blog</a>
                 </li>
                 <li class="{% if request.endpoint == 'contact' %}active{% endif %}">
                     <a href="{{ url_for('contact') }}">Contact</a>

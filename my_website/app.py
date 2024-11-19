@@ -3,6 +3,7 @@ from flask_mail import Mail, Message
 from dotenv import load_dotenv
 import os
 from datetime import datetime
+import markdown
 
 load_dotenv()
 
@@ -37,76 +38,80 @@ mail = Mail(app)
 # Define routes for different pages
 @app.route('/')
 def home():
-    print("Home route accessed")
-    return render_template('home.html')  # Render the home page template
+    return render_template('home.html', projects=projects, working_on=working_on)
 
-@app.route('/projects')
-def projects():
-    return render_template('projects.html', projects=projects)
+
+@app.route('/work-and-research')
+def work_and_research_page():
+    return render_template(
+        'projects.html', 
+        projects=projects, 
+        title="Work and Research - John Curran",
+        description="Explore my portfolio of work and research, featuring data analysis projects and personal explorations."
+    )
+
 projects = [
     {
         "id": 1,
         "title": "Global Temperatures Analysis",
         "description": "A time series analysis of global surface temperatures. Used to demonstrate experience with linear regression in python.",
-        "image": "sales_dashboard.png",
-        "detail_url": "/projects/global-temperature-analysis",
+        "detail_url": "/projects/global_temperature_analysis",
         "github_url": "https://github.com/curohn/global_temperatures/tree/main",
-        "methodology": """- Import dataset using Pandas 
-            - Clean data, Add features like averages, remove inaccurate data, etc. 
-            - Calcuate upper and lower uncertainty bounds
-            - Fit the linear regression model to the data using scikit-learn
-            - Plot the data using MatPlotLib
-        """,
-        "graphs": [""],
         "tools": ["Python", "Pandas", "MatPlotLib", "scikit-learn"],
-        "date": "2024-03-31"
+        "markdown_file": "projects/global_temperature_analysis.md",
+        "date": "2024-10-13"
 
     },
     {
         "id": 2,
-        "title": "PLACEHOLDER: Customer Segmentation",
-        "description": "Clustering customer data to uncover distinct buying behaviors.",
-        "image": "customer_segmentation.png",
-        "detail_url": "/projects/customer-segmentation",
-        "github_url": "",
-        "methodology": """PLACEHOLDER: 
-            - Performed exploratory data analysis to find customer patterns.
-            - Applied K-Means clustering to group customers by purchasing habits.
-            - Visualized clusters with Matplotlib and Seaborn.
-        """,
-        "graphs": ["clusters.png"],
-        "tools": [],
-        "date": "2024-03-31"
+        "title": "Personal Website",
+        "description": "Build a space to showcase my work and research, and develop some basic web development skills.",
+        "detail_url": "/projects/personal_website",
+        "github_url": "https://github.com/curohn/personal_blog",
+        "tools": ["Python", "Flask", "CSS", "HTML"],
+        "markdown_file": "projects/personal_website.md",
+        "date": "Working On"
     },
     # Add more projects as needed
+]
+working_on = [
+    {
+        "task": "Building a Personal Website",
+        "progress": 40,
+        "project_name": "personal_website"
+    }
 ]
 
 
 
+# Route to render project details
 @app.route('/projects/<string:project_name>')
 def project_detail(project_name):
     project = next((p for p in projects if p["detail_url"] == f"/projects/{project_name}"), None)
     if not project:
         return "Project not found", 404
-    
-    # Format the date
-    project['formatted_date'] = datetime.strptime(project['date'], "%Y-%m-%d").strftime("%B %d, %Y")
-    return render_template('project_detail.html', project=project, projects=projects)
 
+    markdown_path = os.path.join(os.getcwd(), project.get("markdown_file"))
+    if not os.path.exists(markdown_path):
+        return "Writeup not found", 404
+
+    with open(markdown_path, "r", encoding="utf-8") as file:
+        markdown_content = file.read()
+
+    project_writeup = markdown.markdown(markdown_content)
+
+    return render_template(
+        'project_detail.html',
+        project=project,
+        writeup=project_writeup,
+        projects=projects
+    )
 
 
 
 @app.route('/resume')
 def resume():
     return render_template('resume.html')  # Render the resume page template
-
-@app.route('/blog')
-def blog():
-    posts = [
-        {"title": "My First Blog Post", "content": "This is my first post!", "date": "2024-01-01"},
-        {"title": "Learning Flask", "content": "Flask is a great framework for web development.", "date": "2024-01-15"},
-    ]
-    return render_template('blog.html', posts=posts)
 
 
 @app.route('/contact', methods=['GET', 'POST'])
@@ -129,6 +134,25 @@ def contact():
         return render_template('thank_you.html')  # Render the thank you page
 
     return render_template('contact.html')
+
+@app.route('/sitemap.xml')
+def sitemap():
+    from flask import Response
+    import datetime
+
+    pages = set()  # Use a set to avoid duplicates
+    for rule in app.url_map.iter_rules():
+        if "GET" in rule.methods and len(rule.arguments) == 0:
+            pages.add(rule.rule)
+
+    sitemap_xml = render_template(
+        'sitemap.xml',
+        pages=[{
+            "loc": f"{request.url_root.rstrip('/')}{page}",
+            "lastmod": datetime.datetime.now().date()
+        } for page in pages]
+    )
+    return Response(sitemap_xml, mimetype='application/xml')
 
 
 

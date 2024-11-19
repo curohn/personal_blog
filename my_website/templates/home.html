@@ -1,6 +1,69 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Welcome to My Website!</h1>
-<p>This is the homepage where you’ll find information about me.</p>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>John Curran</h1>
+        <p>Data Analyst | Explorer of Insights | Research Enthusiast</p>
+        <div class="cta-buttons">
+            <a href="{{ url_for('work_and_research_page') }}" class="btn">Explore Work</a>
+            <a href="{{ url_for('contact') }}" class="btn">Contact Me</a>
+        </div>
+    </div>
+</section>
+
+<!-- About Me Section -->
+<section class="about">
+    <div class="about-content">
+        <img src="{{ url_for('static', filename='images/your-photo.jpg') }}" alt="Your Photo" class="about-image">
+        <div class="about-text">
+            <h2>About Me</h2>
+            <p>
+                I’m a data analyst passionate about uncovering insights and creating impactful visualizations. 
+                My work spans data storytelling, research, and hands-on problem-solving.
+            </p>
+            <a href="{{ url_for('resume') }}" class="btn">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Working On Section -->
+<section class="working-on">
+    <h2>Currently Working On</h2>
+    <ul>
+        {% for item in working_on %}
+        <li>
+            <a href="{{ url_for('project_detail', project_name=item.project_name) }}">
+                {{ item.task }}
+            </a>
+            <div class="progress-bar">
+                <div class="progress" style="width: {{ item.progress }}%;"></div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+
+
+
+
+
+<!-- Featured Work Section -->
+<section class="featured-work">
+    <h2>Featured Work</h2>
+    <div class="projects-grid">
+        {% for project in projects %}
+        <div class="project-card">
+            <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.title }}">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <a href="{{ project.detail_url }}" class="btn">View Details</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+
 {% endblock %}

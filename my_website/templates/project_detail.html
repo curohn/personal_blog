@@ -1,48 +1,46 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="project-page">
-    <aside class="project-nav">
-        <h3>Other Projects</h3>
+<div class="project-detail-page">
+    <!-- Sidebar for Other Projects -->
+    <aside class="project-sidebar">
+        <h3>Other Work and Research</h3>
         <ul>
             {% for other_project in projects %}
-            <li class="{% if other_project['id'] == project['id'] %}active{% endif %}">
+            <li>
                 <a href="{{ other_project['detail_url'] }}">{{ other_project['title'] }}</a>
             </li>
             {% endfor %}
         </ul>
     </aside>
 
-    <div class="project-content">
+
+
+    <!-- Main Content -->
+    <div class="project-detail">
         <h1>{{ project['title'] }}</h1>
-        <p><strong>Completion Date:</strong> {{ project['formatted_date'] }}</p>
-        <img src="{{ url_for('static', filename=project['image']) }}" alt="{{ project.title }}">
-        <p>{{ project.description }}</p>
-        
+        <p><strong>Completion Date:</strong> {{ project['date'] }}</p>
+
+        <!-- Markdown Content -->
+        <div class="markdown-content">
+            {{ writeup|safe }}
+        </div>
+
+        <!-- Tools Used -->
         <h2>Tools/Languages Used</h2>
-        <ul>
+        <ul class="tools-list">
             {% for tool in project['tools'] %}
             <li>{{ tool }}</li>
             {% endfor %}
         </ul>
 
-        <h2>Methodology</h2>
-        <p>{{ project['methodology']|replace('\n', '<br>')|safe }}</p>
-
-
-        <h2>Graphs</h2>
-        {% for graph in project['graphs'] %}
-        <img src="{{ url_for('static', filename=graph) }}" alt="Graph">
-        {% endfor %}
-
-        <!-- GitHub Section at the Bottom -->
+        <!-- GitHub Button -->
         <p>
             <a href="{{ project['github_url'] }}" target="_blank" class="btn">
                 <img src="{{ url_for('static', filename='icons/github-mark-white.png') }}" alt="GitHub" class="icon">
                 View on GitHub
             </a>
         </p>
-
     </div>
 </div>
 {% endblock %}

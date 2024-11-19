@@ -1,2 +1,54 @@
-# Personal Site
-Beginning of my personal site
+# Personal Website
+
+Welcome to my personal website! This platform showcases my portfolio, current projects, research, and provides insights into my professional journey.
+
+## 🚀 Features
+
+- **Homepage**:
+  - Hero section with my tagline and quick links to explore my work or contact me.
+  - "About Me" section with a brief introduction and a link to my resume.
+  - Featured projects with descriptions and links to detailed writeups.
+  - "Currently Working On" section with dynamic progress bars and links to project details.
+  - Contact form for reaching out and links to my social profiles.
+
+- **Work and Research**:
+  - Detailed writeups of projects and exploratory research.
+  - Markdown-based content for flexibility and easy updates.
+  - Tags for tools and languages used in each project.
+
+- **Project Details**:
+  - Markdown-rendered content for each project.
+  - Tools/languages used displayed as intuitive labels.
+  - Links to GitHub repositories.
+
+- **Resume**:
+  - Integrated PDF viewer for browsing my resume.
+  - Downloadable format with analytics tracking.
+
+## 🛠️ Technologies Used
+- **Backend**: Flask (Python)
+- **Frontend**: HTML5, CSS
+- **Database**: None (static content for now)
+- **Markdown Support**: Dynamic rendering for project details
+
+
+## 🖼️ Preview
+
+Here’s a quick look at what’s included:
+- A visually clean and modern layout with my favorite colors and custom styling.
+- Dynamic progress bars for ongoing projects.
+- Markdown-rendered project writeups.
+
+## 📈 Analytics
+
+The site includes basic analytics for:
+- Resume downloads
+- Traffic to project detail pages
+
+## 🌐 Live Demo
+
+The website is ~~hosted at: [https://yourdomain.com](https://yourdomain.com)~~ currently unhosted
+
+🖋️ Contributions
+
+If you'd like to contribute or suggest improvements, feel free to fork the repository and submit a pull request.
