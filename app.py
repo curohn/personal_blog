@@ -55,6 +55,17 @@ def research_and_projects():
 
 projects = [
     {
+        "id": 3,
+        "title": "Logistic Regression",
+        "description": "Complete project to showcase logistic regression skills. Details TBD.",
+        "detail_url": "/projects/logistic_regression",
+        "github_url": "",
+        "tools": ["Python"],
+        "markdown_file": "projects/logistic_regression.md",
+        "image":"",
+        "date": "In Progress"
+    },
+    {
         "id": 2,
         "title": "Personal Website",
         "description": "Build a space to showcase my work and research, and develop some basic web development skills.",
@@ -82,12 +93,15 @@ projects = [
 working_on = [
     {
         "task": "Personal Website",
-        "progress": 75,
+        "progress": 95,
         "project_name": "personal_website"
+    },
+    {
+        "task": "Logistic Regression Project",
+        "progress": 5,
+        "project_name": "logistic_regression"
     }
 ]
-
-
 
 # Route to render project details
 @app.route('/projects/<string:project_name>')
@@ -151,9 +165,15 @@ work_experience = [
     },
     {
         "title": "Education",
+        "company": "East China Normal University",
+        "duration": "August 2017 – February 2018",
+        "description": "Chinese Language Program – Intensive Mandarin Chinese language course"
+    },
+    {
+        "title": "Education",
         "company": "Florida State University",
         "duration": "August 2014 – May 2018",
-        "description": "Bachelor of Science in Information Technology. Activities: Team Lead, Florida State Rowing Team."
+        "description": "Bachelor of Science in International Affairs, with concentration in Economics. Activities: Vice President Florida State Rowing Team."
     }
 ]
 
