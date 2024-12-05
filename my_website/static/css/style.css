@@ -1,6 +1,40 @@
 /* =====================
    General Styles
    ===================== */
+/* Reset global margins, paddings, and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F2EEDD; /* Ensure consistent background */
+}
+
+header {
+    margin: 0;
+    padding: 0;
+}
+/* Reset margins and paddings */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Remove default padding or margin for header and nav */
+header, nav {
+    margin: 0;
+    padding: 0;
+}
+section {
+    margin-bottom: 2rem; /* Space between sections */
+}
 
 body {
     background-color: #F2EEDD; /* Timid White */
@@ -34,40 +68,60 @@ a:hover {
 /* =====================
    Navigation Bar
    ===================== */
-
-header {
-    background-color: #4E5754; /* Ashwood Moss */
-    color: #F2EEDD; /* Timid White */
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 1rem;
+    background-color: #4E5754; /* Ashwood Moss */
 }
 
-nav ul {
-    list-style: none;
+/* Favicon and Name */
+.navbar-logo {
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    gap: 0.5rem; /* Space between favicon and name */
+}
+
+.navbar-logo img.favicon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px; /* Rounded square */
+}
+
+.navbar-logo .site-name {
+    font-size: 1.2rem;
+    color: #F2EEDD; /* Timid White */
+    font-weight: bold;
+}
+
+/* Navigation Links */
+.navbar-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem; /* Even spacing between links */
+    list-style: none;
     margin: 0;
     padding: 0;
 }
 
-nav a {
+.navbar-links a {
     color: #F2EEDD; /* Timid White */
     text-decoration: none;
     font-weight: bold;
     padding: 0.5rem 1rem;
 }
 
-nav a:hover {
+.navbar-links a:hover {
     background-color: #5B6F5A; /* Dill Weed */
     border-radius: 8px;
 }
 
-nav .active a {
-    padding: 0.5rem 1rem;
-    border: 2px solid #F4EFEA;
+.navbar-links .active a {
+    border: 2px solid #C9D5B1; /* Highlight active link */
     border-radius: 8px;
-    background-color: #333; /* Subtle background */
-    color: white;
-    font-weight: bold;
+    padding: 0.3rem 0.9rem;
 }
 
 /* =====================
@@ -119,6 +173,24 @@ footer {
     text-align: center;
     padding: 1rem;
 }
+/* Footer Links */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Space between icons */
+    margin-top: 0.5rem;
+}
+
+.footer-icon {
+    width: 24px; /* Adjust size */
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.footer-icon:hover {
+    transform: scale(1.2); /* Slight zoom on hover */
+}
+
 
 /* =====================
    Projects Page
@@ -131,6 +203,7 @@ footer {
     margin-top: 2rem;
 }
 
+/* Project Card */
 .project-card {
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -138,6 +211,12 @@ footer {
     background-color: #F2EEDD; /* Timid White */
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.project-card h3 {
+    color: #4E5754; /* Ashwood Moss */
+    margin-bottom: 0.5rem;
 }
 
 .project-card:hover {
@@ -145,15 +224,10 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.project-card img {
-    max-width: 100%;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-}
 
 /* Tools Tags */
 .project-card .tool-tag, .project-content ul li {
-    font-size: 0.8rem;
+    font-size: 1rem;
     background-color: #F2EEDD; /* Timid White */
     color: #4E5754; /* Ashwood Moss */
     padding: 0.2rem 0.5rem;
@@ -313,13 +387,6 @@ footer {
     background-color: #0366D6; /* GitHub's blue */
 }
 
-.icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-    vertical-align: middle;
-}
-
 
 /* =====================
    Iframes
@@ -353,7 +420,7 @@ iframe {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-/* Working On Section */
+
 /* Working On Section */
 .working-on ul {
     list-style: none;
@@ -362,32 +429,178 @@ iframe {
 }
 
 .working-on li {
-    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures title and progress are aligned */
+    margin-bottom: 1rem;
     font-size: 1rem;
-    color: inherit; /* Use the default text color for the site */
+    color: inherit;
 }
 
-.working-on a {
-    color: inherit; /* Ensure links use the default text color */
-    text-decoration: none; /* Remove underline for a cleaner look */
-    font-weight: bold; /* Optional: Emphasize the link text */
+/* Inline Title and Progress Bar */
+.project-title-bar {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Ensures progress bar spans the container */
+    gap: 1rem; /* Space between title and progress bar */
 }
 
-.working-on a:hover {
-    text-decoration: underline; /* Underline on hover for clarity */
+.project-title {
+    font-weight: bold;
+    color: #4E5754; /* Ashwood Moss */
+    flex: 1; /* Allow the title to take up space */
 }
 
-
+/* Progress Bar */
 .progress-bar {
     background-color: #E0E4E1; /* Light gray background */
     border-radius: 8px;
-    overflow: hidden;
     height: 12px;
-    margin-top: 0.5rem;
+    flex: 2; /* Allow the progress bar to grow */
+    overflow: hidden;
 }
 
 .progress {
     background-color: #5B6F5A; /* Dill Weed */
     height: 100%;
     border-radius: 8px 0 0 8px;
+}
+
+/* Timeline Section */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 2rem auto;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: #4E5754; /* Ashwood Moss */
+    transform: translateX(-50%);
+}
+
+/* Timeline Items */
+.timeline-item {
+    position: relative;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.timeline-item:nth-child(odd) {
+    justify-content: flex-end; /* Alternate odd items to the right */
+}
+
+.timeline-content {
+    background-color: #F2EEDD; /* Timid White */
+    border-radius: 8px;
+    padding: 1rem;
+    max-width: 40%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+/* Position adjustments */
+.timeline-item:nth-child(odd) .timeline-content {
+    text-align: left;
+    margin-left: 1rem;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    text-align: right;
+    margin-right: 1rem;
+}
+
+/* Timeline Nodes */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: #A38F7B; /* Quincy Tan */
+    border-radius: 50%;
+    z-index: 2;
+}
+/* Contact Section */
+.contact-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #F2EEDD; /* Timid White */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.contact-section h1 {
+    color: #4E5754; /* Ashwood Moss */
+    margin-bottom: 1.5rem;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #4E5754; /* Ashwood Moss */
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #A38F7B; /* Quincy Tan */
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+    color: #333; /* Neutral text color */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #5B6F5A; /* Dill Weed */
+    box-shadow: 0 0 8px rgba(91, 111, 90, 0.3); /* Subtle green glow */
+}
+
+/* Submit Button */
+button.btn {
+    align-self: center;
+    background-color: #4E5754; /* Ashwood Moss */
+    color: #FFFFFF;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.btn:hover {
+    background-color: #5B6F5A; /* Dill Weed */
+    transform: scale(1.05);
 }

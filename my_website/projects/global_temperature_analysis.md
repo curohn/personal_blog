@@ -7,6 +7,8 @@ This project aims to analyze the average temperatures of the United States over 
 - Linear Regression: Using linear regression to fit a trend line and predict future temperatures for 50 years.
 - Uncertainty Calculation: Calculating the upper and lower bounds of uncertainty in the average temperature estimates.
 
+![Linear Regression Graph](../static/images/global_temp_graph.png)
+
 ## Tools and Libraries
 - **Python**: Main programming language used for analysis.
 - **Pandas**: Data manipulation and preprocessing.

@@ -41,27 +41,12 @@ def home():
     return render_template('home.html', projects=projects, working_on=working_on)
 
 
-@app.route('/work-and-research')
-def work_and_research_page():
-    return render_template(
-        'projects.html', 
-        projects=projects, 
-        title="Work and Research - John Curran",
-        description="Explore my portfolio of work and research, featuring data analysis projects and personal explorations."
-    )
+@app.route('/research-and-projects')
+def research_and_projects():
+    return render_template('research_and_projects.html', projects=projects)
+
 
 projects = [
-    {
-        "id": 1,
-        "title": "Global Temperatures Analysis",
-        "description": "A time series analysis of global surface temperatures. Used to demonstrate experience with linear regression in python.",
-        "detail_url": "/projects/global_temperature_analysis",
-        "github_url": "https://github.com/curohn/global_temperatures/tree/main",
-        "tools": ["Python", "Pandas", "MatPlotLib", "scikit-learn"],
-        "markdown_file": "projects/global_temperature_analysis.md",
-        "date": "2024-10-13"
-
-    },
     {
         "id": 2,
         "title": "Personal Website",
@@ -70,14 +55,27 @@ projects = [
         "github_url": "https://github.com/curohn/personal_blog",
         "tools": ["Python", "Flask", "CSS", "HTML"],
         "markdown_file": "projects/personal_website.md",
-        "date": "Working On"
+        "image":"",
+        "date": "In Progress"
     },
+    {
+        "id": 1,
+        "title": "Global Temperatures Analysis",
+        "description": "A time series analysis of global surface temperatures. Used to demonstrate experience with linear regression in python.",
+        "detail_url": "/projects/global_temperature_analysis",
+        "github_url": "https://github.com/curohn/global_temperatures/tree/main",
+        "tools": ["Python", "Pandas", "MatPlotLib", "scikit-learn"],
+        "markdown_file": "projects/global_temperature_analysis.md",
+        #"image": "images/global_temp_graph.png",
+        "date": "2024-10-13"
+    },
+    
     # Add more projects as needed
 ]
 working_on = [
     {
         "task": "Building a Personal Website",
-        "progress": 40,
+        "progress": 65,
         "project_name": "personal_website"
     }
 ]
@@ -109,9 +107,50 @@ def project_detail(project_name):
 
 
 
-@app.route('/resume')
-def resume():
-    return render_template('resume.html')  # Render the resume page template
+@app.route('/experience-and-education')
+def experience_and_education():
+    return render_template('experience_and_education.html', work_experience=work_experience)
+
+work_experience = [
+    {
+        "title": "Senior Data Analyst",
+        "company": "First American Title",
+        "duration": "August 2023 – Present",
+        "description": "Enhanced data accuracy and accessibility using Python and SQL, and developed dashboards for actionable insights."
+    },
+    {
+        "title": "Senior Data Analyst",
+        "company": "Ware2Go",
+        "duration": "April 2022 – August 2023",
+        "description": "Streamlined operations with automated notifications, identified $400k in missed billing, and ensured data integrity across projects."
+    },
+    {
+        "title": "Data Analyst",
+        "company": "Ware2Go",
+        "duration": "April 2021 – March 2022",
+        "description": "Revamped dashboards and created metrics for operations, boosting productivity and throughput analysis."
+    },
+    {
+        "title": "Solutions Analyst Team Lead",
+        "company": "APCO",
+        "duration": "September 2019 – March 2021",
+        "description": "Designed dashboards and reports using PowerBI and SQL, enabling improved decision-making during the Covid-19 pandemic."
+    },
+    {
+        "title": "Solutions Analyst",
+        "company": "APCO",
+        "duration": "July 2018 – September 2019",
+        "description": "Resolved technical issues and improved reporting workflows with SQL and Python."
+    },
+    {
+        "title": "Education",
+        "company": "Florida State University",
+        "duration": "August 2014 – May 2018",
+        "description": "Bachelor of Science in Information Technology. Activities: Team Lead, Florida State Rowing Team."
+    }
+]
+
+
 
 
 @app.route('/contact', methods=['GET', 'POST'])

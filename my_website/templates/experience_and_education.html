@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Work Experience and Education</h1>
+
+
+<!-- Download Button -->
+<a href="{{ url_for('download_resume') }}" class="btn">Download Resume</a>
+
+<!-- Timeline -->
+<section class="timeline">
+    {% for item in work_experience %}
+    <div class="timeline-item">
+        <div class="timeline-content">
+            <h3>{{ item.title }}</h3>
+            <h4>{{ item.company }}</h4>
+            <p><em>{{ item.duration }}</em></p>
+            <p>{{ item.description }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+
+{% endblock %}

@@ -31,28 +31,49 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
+        <nav class="navbar">
+            <!-- Favicon and Name -->
+            <div class="navbar-logo">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='icons/favicon-light-32x32.png') }}" alt="Logo" class="favicon">
+                </a>
+                <span class="site-name">John Curran</span>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="navbar-links">
                 <li class="{% if request.endpoint == 'home' %}active{% endif %}">
                     <a href="{{ url_for('home') }}">Home</a>
                 </li>
-                <li class="{% if request.endpoint == 'work_and_research_page' %}active{% endif %}">
-                    <a href="{{ url_for('work_and_research_page') }}">Work and Research</a>
+                <li class="{% if request.endpoint == 'research_and_projects' %}active{% endif %}">
+                    <a href="{{ url_for('research_and_projects') }}">Research and Projects</a>
                 </li>
-                <li class="{% if request.endpoint == 'resume' %}active{% endif %}">
-                    <a href="{{ url_for('resume') }}">Resume</a>
+
+                <li class="{% if request.endpoint == 'experience_and_education' %}active{% endif %}">
+                    <a href="{{ url_for('experience_and_education') }}">Experience and Education</a>
                 </li>
+
                 <li class="{% if request.endpoint == 'contact' %}active{% endif %}">
                     <a href="{{ url_for('contact') }}">Contact</a>
                 </li>
             </ul>
         </nav>
     </header>
+
+
     <main>
         {% block content %}{% endblock %}
     </main>
     <footer>
         <p>© 2024 John Curran</p>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/john-curran-jr/" target="_blank">
+                <img src="{{ url_for('static', filename='icons/LI-In-Bug.png') }}" alt="LinkedIn" class="footer-icon">
+            </a>
+            <a href="https://github.com/curohn" target="_blank">
+                <img src="{{ url_for('static', filename='icons/github-mark-white.png') }}" alt="GitHub" class="footer-icon">
+            </a>
+        </div>
     </footer>
 </body>
 </html>

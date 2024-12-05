@@ -4,15 +4,10 @@
 - [x] /resume: Download resume button
 - [ ] ~~/resume: vis.js for visual timeline of professional experience~~
 - [x] New page: portfolio/projects with descriptions, links, and images for your GitHub projects
-- [ ] SEO: add meta tags 
+- [x] SEO: add meta tags 
 - [ ] ~~/blog: add markdown for blog~~
 - [ ] ~~Light & Dark Mode toggles~~
 - [x] Animations for page loads
-- [ ] Favicon
-- [ ] Google Analytics
-- [ ] Buy domain
-- [ ] Hosting
-- [ ] Logo
 - [x] New theme
 - [x] Cleaned up style.css for easier readability
 - [x] /projects markdown improvements
@@ -23,11 +18,26 @@
 - [x] Removed Blog
 - [x] Added meta tags
 - [x] Added sitemap
-- [ ] Google search console sitemap
-- [ ] Bing webmaster sitemap
 - [x] Improved home section
   - [x] Added about me section
   - [x] Added currently working on section
   - [x] added featured work section
 - [x] Rewrote readme.md
 - [x] Added personal site to projects section
+- [x] Added links to footer for github and linkedin
+# Design Ideas
+- [x] Add name to header bar
+- [x] Shift menu items right
+- [x] Icon for left, maybe just initials
+- [ ] ~~Projects should be title, description, big picture to draw attention~~
+- [x] Remove iframe resume, rewrite resume into timeline view on /resume, leave download button top right
+- [x] Updated page names
+- [ ] Dark or light? 
+- [ ] What colors
+# Hosting
+- [x] Buy domain
+- [ ] Hosting
+# Misc.
+- [ ] Google Analytics
+- [ ] Google search console sitemap
+- [ ] Bing webmaster sitemap
