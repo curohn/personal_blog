@@ -420,44 +420,114 @@ iframe {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 /* Working On Section */
-.working-on ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.working-on {
+    margin: 2rem auto;
+    text-align: left;
+    padding: 0 1rem;
 }
 
-.working-on li {
+.working-on h2 {
+    color: #4E5754; /* Ashwood Moss */
+    margin-bottom: 1.5rem;
+}
+
+/* Grid Layout */
+.working-on-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* Task Card */
+
+.task-card {
+    background-color: #F2EEDD; /* Timid White */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Task Header */
+.task-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-between; /* Ensures title and progress are aligned */
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    color: inherit;
+    margin-bottom: 0.5rem;
 }
 
-/* Inline Title and Progress Bar */
-.project-title-bar {
-    display: flex;
-    align-items: center;
-    width: 100%; /* Ensures progress bar spans the container */
-    gap: 1rem; /* Space between title and progress bar */
-}
-
-.project-title {
+.task-title {
     font-weight: bold;
     color: #4E5754; /* Ashwood Moss */
-    flex: 1; /* Allow the title to take up space */
+    font-size: 1.1rem;
+}
+
+.task-percent {
+    font-weight: bold;
+    color: #5B6F5A; /* Dill Weed */
+    font-size: 1rem;
 }
 
 /* Progress Bar */
 .progress-bar {
     background-color: #E0E4E1; /* Light gray background */
     border-radius: 8px;
-    height: 12px;
-    flex: 2; /* Allow the progress bar to grow */
     overflow: hidden;
+    height: 12px;
+    margin-top: 0.5rem;
+}
+
+.progress {
+    background-color: #5B6F5A; /* Dill Weed */
+    height: 100%;
+    border-radius: 8px 0 0 8px;
+}
+
+/* Button */
+.task-card .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #4E5754; /* Ashwood Moss */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.task-card .btn:hover {
+    background-color: #5B6F5A; /* Dill Weed */
+    transform: scale(1.05);
+}
+
+
+
+/* Task Title */
+.task-card h3 {
+    color: #4E5754; /* Ashwood Moss */
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* Progress Bar */
+.progress-bar {
+    background-color: #E0E4E1; /* Light gray background */
+    border-radius: 8px;
+    overflow: hidden;
+    height: 12px;
+    margin-top: 0.5rem;
 }
 
 .progress {

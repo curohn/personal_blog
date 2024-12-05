@@ -43,7 +43,7 @@ def home():
 
 @app.route('/research-and-projects')
 def research_and_projects():
-    return render_template('research_and_projects.html', projects=projects)
+    return render_template('research_and_projects.html', projects=projects, title="Research and Projects - John Curran")
 
 
 projects = [
@@ -74,8 +74,8 @@ projects = [
 ]
 working_on = [
     {
-        "task": "Building a Personal Website",
-        "progress": 65,
+        "task": "Personal Website",
+        "progress": 75,
         "project_name": "personal_website"
     }
 ]
@@ -109,7 +109,7 @@ def project_detail(project_name):
 
 @app.route('/experience-and-education')
 def experience_and_education():
-    return render_template('experience_and_education.html', work_experience=work_experience)
+    return render_template('experience_and_education.html', work_experience=work_experience, title="Experience and Education - John Curran")
 
 work_experience = [
     {

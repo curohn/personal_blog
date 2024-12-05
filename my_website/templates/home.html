@@ -4,19 +4,21 @@
 
 <!-- Working On Section -->
 <section class="working-on">
-    <h2>Currently Working On</h2>
-    <ul>
+    <h2>Working On:</h2>
+    <div class="working-on-grid">
         {% for item in working_on %}
-        <li class="working-on-item">
-            <div class="project-title-bar">
-                <span class="project-title">{{ item.task }}</span>
-                <div class="progress-bar">
-                    <div class="progress" style="width: {{ item.progress }}%;"></div>
-                </div>
+        <div class="task-card">
+            <div class="task-header">
+                <span class="task-title">{{ item.task }}</span>
+                <span class="task-percent">{{ item.progress }}%</span>
             </div>
-        </li>
+            <div class="progress-bar">
+                <div class="progress" style="width: {{ item.progress }}%;"></div>
+            </div>
+            <a href="{{ url_for('project_detail', project_name=item.project_name) }}" class="btn">View Details</a>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 </section>
 
 

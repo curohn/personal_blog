@@ -11,7 +11,7 @@ Welcome to my personal website! This platform showcases my portfolio, current pr
   - "Currently Working On" section with dynamic progress bars and links to project details.
   - Contact form for reaching out and links to my social profiles.
 
-- **Work and Research**:
+- **Research and Projects**:
   - Detailed writeups of projects and exploratory research.
   - Markdown-based content for flexibility and easy updates.
   - Tags for tools and languages used in each project.
@@ -21,8 +21,8 @@ Welcome to my personal website! This platform showcases my portfolio, current pr
   - Tools/languages used displayed as intuitive labels.
   - Links to GitHub repositories.
 
-- **Resume**:
-  - Integrated PDF viewer for browsing my resume.
+- **Experience and Education**:
+  - Timeline view of my experience and education history.
   - Downloadable format with analytics tracking.
 
 ## 🛠️ Technologies Used
