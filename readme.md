@@ -47,8 +47,7 @@ The site includes basic analytics for:
 
 ## 🌐 Live Demo
 
-The website is ~~hosted at: [https://yourdomain.com](https://yourdomain.com)~~ currently unhosted
-
+The website is hosted on [Render](render.com) at: [j-curran.com](j-curran.com).
 🖋️ Contributions
 
 If you'd like to contribute or suggest improvements, feel free to fork the repository and submit a pull request.

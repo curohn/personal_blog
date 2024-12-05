@@ -32,11 +32,9 @@
 - [ ] ~~Projects should be title, description, big picture to draw attention~~
 - [x] Remove iframe resume, rewrite resume into timeline view on /resume, leave download button top right
 - [x] Updated page names
-- [ ] Dark or light? 
-- [ ] What colors
 # Hosting
 - [x] Buy domain
-- [ ] Hosting
+- [x] Hosting
 # Misc.
 - [ ] Google Analytics
 - [ ] Google search console sitemap
