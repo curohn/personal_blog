@@ -25,6 +25,7 @@
 - [x] Rewrote readme.md
 - [x] Added personal site to projects section
 - [x] Added links to footer for github and linkedin
+- [ ] Fix mobile design
 # Design Ideas
 - [x] Add name to header bar
 - [x] Shift menu items right
@@ -32,6 +33,8 @@
 - [ ] ~~Projects should be title, description, big picture to draw attention~~
 - [x] Remove iframe resume, rewrite resume into timeline view on /resume, leave download button top right
 - [x] Updated page names
+- [ ] Redo theme
+- [ ] Fix the little icon thing in the tab
 # Hosting
 - [x] Buy domain
 - [x] Hosting

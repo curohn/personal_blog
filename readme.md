@@ -47,4 +47,4 @@ The site includes basic analytics for:
 
 ## 🌐 Live Demo
 
-The website is hosted on [Render](render.com) at: [j-curran.com](j-curran.com).
+The website is hosted on [Render](render.com) at: [j-curran.com](j-curran.com)
