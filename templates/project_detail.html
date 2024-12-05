@@ -4,12 +4,14 @@
 <div class="project-detail-page">
     <!-- Sidebar for Other Projects -->
     <aside class="project-sidebar">
-        <h3>Other Work and Research:</h3>
+        <h3>Other Research and Projects:</h3>
         <ul>
             {% for other_project in projects %}
+            {% if other_project['id'] != project['id'] %}
             <li>
                 <a href="{{ other_project['detail_url'] }}">{{ other_project['title'] }}</a>
             </li>
+            {% endif %}
             {% endfor %}
         </ul>
     </aside>

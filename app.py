@@ -10,6 +10,10 @@ load_dotenv()
 # Create a Flask application instance
 app = Flask(__name__)
 
+
+
+
+
 # Track downloads
 @app.route('/download_resume')
 @app.route('/download_resume')
@@ -34,6 +38,9 @@ app.config['MAIL_DEFAULT_SENDER'] = 'curran.john35@gmail.com'
 
 mail = Mail(app)
 
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECTS_DIR = os.path.join(BASE_DIR, "projects")
 
 # Define routes for different pages
 @app.route('/')
