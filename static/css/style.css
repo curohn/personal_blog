@@ -247,15 +247,15 @@ footer {
 
 .project-detail-page {
     display: flex;
-    gap: 1.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 2rem; /* Space between sidebar and main content */
+    max-width: 1200px; /* Limit overall width */
+    margin: 0 auto; /* Center, horizontally */
     padding: 2rem;
 }
 
 /* Sidebar Styles */
 .project-sidebar {
-    width: 25%; /* Adjust the width as needed */
+    width: 25%; /* Adjust width as needed */
     background-color: #F2EEDD; /* Timid White */
     padding: 1rem;
     border: 1px solid #ddd;
@@ -294,7 +294,7 @@ footer {
 
 /* Main Content */
 .project-detail {
-    width: 75%;
+    flex: 1; /* Let main content take remaining space */
     background-color: #F2EEDD; /* Timid White */
     color: #4E5754; /* Ashwood Moss */
     padding: 2rem;
@@ -673,4 +673,51 @@ button.btn {
 button.btn:hover {
     background-color: #5B6F5A; /* Dill Weed */
     transform: scale(1.05);
+}
+/* General Mobile Styling */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        padding: 1rem;
+    }
+
+    .navbar {
+        flex-direction: column; /* Stack navigation links vertically */
+        align-items: flex-start;
+    }
+
+    .navbar-links {
+        flex-direction: column; /* Stack links vertically */
+        gap: 1rem;
+    }
+
+    .project-card {
+        width: 100%; /* Full width for smaller screens */
+        margin: 1rem 0;
+    }
+
+    .project-detail-page {
+        flex-direction: column; /* Stack sidebar and content */
+    }
+
+    .project-sidebar {
+        width: 100%; /* Full width for the sidebar */
+        margin-bottom: 1rem;
+    }
+
+    .project-detail {
+        width: 100%; /* Full width for the main content */
+    }
+
+    .working-on-grid {
+        grid-template-columns: 1fr; /* Single-column layout for tasks */
+    }
+
+    .task-card {
+        margin-bottom: 1rem;
+    }
+}
+img {
+    max-width: 100%;
+    height: auto;
 }

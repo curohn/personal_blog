@@ -35,6 +35,7 @@
 - [x] Updated page names
 - [ ] Redo theme
 - [ ] Fix the little icon thing in the tab
+- [x] Basic Mobile design
 # Hosting
 - [x] Buy domain
 - [x] Hosting
