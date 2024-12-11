@@ -1,12 +1,10 @@
-### **Under Construction**
-While the foundation of the site is solid, several features are still in development, and content is being actively expanded. Feedback and suggestions are welcome as the site evolves!
+
+While the foundation of the site is solid, several features are still in development, and content is being actively expanded. 
  
  ---
 
 ### **Overview**
 This personal website serves as a central hub to showcase my portfolio, ongoing projects, and research endeavors. It is designed to highlight my technical expertise and provide visitors with insights into my work and professional journey.
-
-Please note that this site is still **under construction**, and additional features and enhancements are being actively developed.
 
 ---
 ### **Features**

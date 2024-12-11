@@ -80,10 +80,10 @@ projects = [
         "description": "Build a space to showcase my work and research, and develop some basic web development skills.",
         "detail_url": "/projects/personal_website",
         "github_url": "https://github.com/curohn/personal_blog",
-        "tools": ["Python", "Flask", "CSS", "HTML"],
+        "tools": ["Python", "Flask", "CSS", "HTML", "Render"],
         "markdown_file": "projects/personal_website.md",
         "image":"",
-        "date": "In Progress"
+        "date": "2024-12-11"
     },
     {
         "id": 1,
