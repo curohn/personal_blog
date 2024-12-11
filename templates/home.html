@@ -2,6 +2,21 @@
 
 {% block content %}
 
+<!-- Featured Work Section -->
+<section class="featured-work">
+    <h2>Featured Work</h2>
+    <div class="projects-grid">
+        {% for project in projects %}
+        <div class="project-card">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <a href="{{ project.detail_url }}" class="btn">View Details</a>
+        </div>
+
+        {% endfor %}
+    </div>
+</section>
+
 <!-- Working On Section -->
 <section class="working-on">
     <h2>Working On:</h2>
@@ -21,20 +36,16 @@
     </div>
 </section>
 
-
-<!-- Featured Work Section -->
-<section class="featured-work">
-    <h2>Featured Work</h2>
-    <div class="projects-grid">
-        {% for project in projects %}
-        <div class="project-card">
-            <h3>{{ project.title }}</h3>
-            <p>{{ project.description }}</p>
-            <a href="{{ project.detail_url }}" class="btn">View Details</a>
-        </div>
-
-        {% endfor %}
-    </div>
+<!-- Next Up Section -->
+<section class="next-up">
+    <h2>Next up:</h2>
+        <body>
+            <ul> 
+                <li>Election Night Statistics</li>
+                <li>Money in Politics Dataset Review</li>
+                <li>Writeup of: <a href= "https://www.pnas.org/doi/10.1073/pnas.1210722109">Statistical detection of systematic election irregularities </a></li>
+            </ul>
+        </body>
 </section>
 
 {% endblock %}

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_file, url_for, request
+from flask import Flask, render_template, redirect, send_file, url_for, request, session, make_response
 from flask_mail import Mail, Message
 from dotenv import load_dotenv
 import os
@@ -9,13 +9,9 @@ load_dotenv()
 
 # Create a Flask application instance
 app = Flask(__name__)
-
-
-
-
+app.secret_key = os.getenv('SECRET_KEY', 'default_secret_key')
 
 # Track downloads
-@app.route('/download_resume')
 @app.route('/download_resume')
 def download_resume():
     resume_path = os.path.join(app.static_folder, 'curran_john_resume.pdf')
@@ -42,26 +38,39 @@ mail = Mail(app)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECTS_DIR = os.path.join(BASE_DIR, "projects")
 
+
+# Toggle Theme Route
+@app.route('/toggle_theme', methods=['POST'])
+def toggle_theme():
+    current_theme = session.get('theme', 'light')
+    new_theme = 'dark' if current_theme == 'light' else 'light'
+    session['theme'] = new_theme
+    response = make_response(redirect(request.referrer or url_for('home')))
+    return response
+
+
 # Define routes for different pages
 @app.route('/')
 def home():
-    return render_template('home.html', projects=projects, working_on=working_on)
+    theme = session.get('theme', 'light')
+    return render_template('home.html', projects=projects, working_on=working_on, theme=theme)
 
 
 @app.route('/research-and-projects')
 def research_and_projects():
-    return render_template('research_and_projects.html', projects=projects, title="Research and Projects - John Curran")
+    theme = session.get('theme', 'light')
+    return render_template('research_and_projects.html', projects=projects, title="Research and Projects - John Curran", theme=theme)
 
 
 projects = [
     {
         "id": 3,
-        "title": "Logistic Regression",
-        "description": "Complete project to showcase logistic regression skills. Details TBD.",
-        "detail_url": "/projects/logistic_regression",
-        "github_url": "",
-        "tools": ["Python"],
-        "markdown_file": "projects/logistic_regression.md",
+        "title": "Wage Distribution Analysis",
+        "description": "Project to compare distributions in wages, over time",
+        "detail_url": "/projects/wage_distribution",
+        "github_url": "https://github.com/curohn/wage_distribution",
+        "tools": ["Python", "Pandas"],
+        "markdown_file": "projects/wage_distribution.md",
         "image":"",
         "date": "In Progress"
     },
@@ -93,12 +102,12 @@ projects = [
 working_on = [
     {
         "task": "Personal Website",
-        "progress": 95,
+        "progress": 100,
         "project_name": "personal_website"
     },
     {
-        "task": "Logistic Regression Project",
-        "progress": 5,
+        "task": "Wage Distribution Analysis",
+        "progress": 15,
         "project_name": "logistic_regression"
     }
 ]
@@ -106,6 +115,7 @@ working_on = [
 # Route to render project details
 @app.route('/projects/<string:project_name>')
 def project_detail(project_name):
+    theme = session.get('theme', 'light')
     project = next((p for p in projects if p["detail_url"] == f"/projects/{project_name}"), None)
     if not project:
         return "Project not found", 404
@@ -123,14 +133,16 @@ def project_detail(project_name):
         'project_detail.html',
         project=project,
         writeup=project_writeup,
-        projects=projects
+        projects=projects,
+        theme=theme
     )
 
 
 
 @app.route('/experience-and-education')
 def experience_and_education():
-    return render_template('experience_and_education.html', work_experience=work_experience, title="Experience and Education - John Curran")
+    theme = session.get('theme', 'light')
+    return render_template('experience_and_education.html', work_experience=work_experience, title="Experience and Education - John Curran", theme=theme)
 
 work_experience = [
     {
@@ -182,6 +194,7 @@ work_experience = [
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
+    theme = session.get('theme', 'light')
     if request.method == 'POST':
         name = request.form.get('name')
         email = request.form.get('email')
@@ -199,7 +212,7 @@ def contact():
         mail.send(msg)
         return render_template('thank_you.html')  # Render the thank you page
 
-    return render_template('contact.html')
+    return render_template('contact.html', theme=theme)
 
 @app.route('/sitemap.xml')
 def sitemap():

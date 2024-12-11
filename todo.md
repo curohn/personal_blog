@@ -1,4 +1,16 @@
 # To Do
+- [x] Light / Dark Mode
+- [x] Clean and organize style.css
+- [ ] Keep cleaning and organizing this
+- [ ] Redo theme
+- [ ] Fix mobile design
+- [ ] Fix the little icon thing in the tab
+- [ ] Fix link color
+- [ ] Google Analytics
+- [ ] Google search console sitemap
+- [ ] Bing webmaster sitemap
+
+# Done
 - [x] /contact: send email to me
 - [x] /resume: Display preview of resume in PDF form
 - [x] /resume: Download resume button
@@ -25,21 +37,12 @@
 - [x] Rewrote readme.md
 - [x] Added personal site to projects section
 - [x] Added links to footer for github and linkedin
-- [ ] Fix mobile design
-# Design Ideas
 - [x] Add name to header bar
 - [x] Shift menu items right
 - [x] Icon for left, maybe just initials
 - [ ] ~~Projects should be title, description, big picture to draw attention~~
 - [x] Remove iframe resume, rewrite resume into timeline view on /resume, leave download button top right
 - [x] Updated page names
-- [ ] Redo theme
-- [ ] Fix the little icon thing in the tab
 - [x] Basic Mobile design
-# Hosting
 - [x] Buy domain
 - [x] Hosting
-# Misc.
-- [ ] Google Analytics
-- [ ] Google search console sitemap
-- [ ] Bing webmaster sitemap
