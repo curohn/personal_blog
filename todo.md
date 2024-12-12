@@ -1,11 +1,14 @@
 # To Do
 - [x] Light / Dark Mode
 - [x] Clean and organize style.css
+- [x] Fix
+  - [x] Link color
+  - [x] Inconsistant button color
+- [X] Add favicon
 - [ ] Keep cleaning and organizing this
 - [ ] Redo theme
 - [ ] Fix mobile design
 - [ ] Fix the little icon thing in the tab
-- [ ] Fix link color
 - [ ] Google Analytics
 - [ ] Google search console sitemap
 - [ ] Bing webmaster sitemap

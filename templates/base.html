@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon for all browsers -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='icons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='icons/favicon-32x32.png') }}">
 
     <!-- General Meta Tags -->
     <meta name="description" content="{{ description if description else 'Showcase of my work and research.' }}">
@@ -35,7 +39,7 @@
             <!-- Favicon and Name -->
             <div class="navbar-logo">
                 <a href="{{ url_for('home') }}">
-                    <img src="{{ url_for('static', filename='icons/favicon-light-32x32.png') }}" alt="Logo" class="favicon">
+                    <img src="{{ url_for('static', filename='icons/favicon-32x32.png') }}" alt="Logo" class="favicon">
                 </a>
                 <span class="site-name">John Curran</span>
             </div>

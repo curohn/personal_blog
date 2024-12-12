@@ -9,13 +9,13 @@
     --button-text: #F2EEDD; /* Timid White */
     --highlight-color: #5B6F5A; /* Dill Weed */
     --footer-color: #A38F7B; /* Quincy Tan */
-    --alt-color: #E0E4E1; /* Misty Gray */
+    
 }
 
 body.light-mode {
     --bg-color: #F2EEDD; /* Timid White */	 
     --text-color: #4E5754; /* Ashwood Moss */
-    --link-color: #5B6F5A; /* Dill Weed */			   
+    	   
 }
 
 body.dark-mode {
@@ -26,6 +26,8 @@ body.dark-mode {
     --button-text: #2E2E2E; /* Charcoal Gray */
     --highlight-color: #5B6F5A; /* Dill Weed */
     --footer-color: #A38F7B; /* Quincy Tan */
+    --alt-color: #E0E4E1; /* Misty Gray */
+    --link-color: #5B6F5A; /* Dill Weed */		
 }
 
 /* Use the variables for all theme colors */
@@ -40,19 +42,6 @@ a {
     color: var(--link-color);
 }
 
-button, .btn {
-    background-color: var(--button-bg);
-    color: var(--button-text);
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover, .btn:hover {
-    opacity: 0.9;
-}
 
 /* =====================
    General Styles
@@ -113,7 +102,7 @@ h1, h2, h3 {
 }
 
 a {
-    color: var(--bg-color); /* Timid White */
+    color: var(--text-color); /* Timid White */
     text-decoration: none;
 }
 
@@ -197,7 +186,7 @@ button, .btn {
 }
 
 button:hover, .btn:hover {
-    background-color: #0366D6; /* GitHub's blue */
+    opacity: 0.9;
 }
 
 .icon {
@@ -414,23 +403,6 @@ footer {
 }
 
 
-/* GitHub Button */
-.btn {
-    background-color: #24292E; /* GitHub's dark gray */
-    color: #FFFFFF; /* White text */
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 1rem;
-}
-
-.btn:hover {
-    background-color: #0366D6; /* GitHub's blue */
-}
-
 .icon {
     width: 20px;
     height: 20px;
@@ -540,26 +512,6 @@ iframe {
     background-color: var(--highlight-color);
     height: 100%;
     border-radius: 8px 0 0 8px;
-}
-
-/* Button */
-.task-card .btn {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: var(--button-bg);
-    color: #FFFFFF;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.task-card .btn:hover {
-    background-color: var(--highlight-color);
-    transform: scale(1.05);
 }
 
 
@@ -703,14 +655,6 @@ form {
     outline: none;
     border-color: #5B6F5A; /* Dill Weed */
     box-shadow: 0 0 8px rgba(91, 111, 90, 0.3); /* Subtle green glow */
-				   
-						 
-				 
-					   
-						  
-					  
-						  
-					 
 }
 
 /* Submit Button */
@@ -729,13 +673,9 @@ button.btn {
 button.btn:hover {
     background-color: var(--highlight-color);
     transform: scale(1.05);
-					  
-						   
 }
 /* General Mobile Styling */
-						
-					
-						   
+
 @media (max-width: 768px) {
     body {
         font-size: 14px;
