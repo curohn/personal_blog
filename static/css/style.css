@@ -1,33 +1,40 @@
 /* =====================
    Theme Variables
+   5 colors
+
    ===================== */
 :root {
-    --bg-color: #F2EEDD; /* Timid White */
-    --text-color: #4E5754; /* Ashwood Moss */
-    --link-color: #5B6F5A; /* Dill Weed */
-    --button-bg: #4E5754; /* Ashwood Moss */
-    --button-text: #F2EEDD; /* Timid White */
-    --highlight-color: #5B6F5A; /* Dill Weed */
-    --footer-color: #A38F7B; /* Quincy Tan */
-    
+    --bg-color: #FDFDFF; /* Timid White */
+    --text-color: #14213d; /* Ashwood Moss */
+    --link-color: #67697C; /* Dill Weed */
+    --button-bg: #14213d; /* Ashwood Moss */
+    --button-text: #FDFDFF; /* Timid White */
+    --highlight-color: #CCC9E7; /* Dill Weed */
+    --header-color: #253D5B;
+    --header-text-color: #FDFDFF;
+    --footer-color: #CCC9E7; /* Quincy Tan */
+    --footer-text-color: #253D5B;
+    --alt-color: #60935D; /* Misty Gray */
 }
 
 body.light-mode {
-    --bg-color: #F2EEDD; /* Timid White */	 
-    --text-color: #4E5754; /* Ashwood Moss */
+    --bg-color: #FDFDFF; /* Timid White */	 
+    --text-color: #14213d; /* Ashwood Moss */
     	   
 }
 
 body.dark-mode {
-    --bg-color: #2E2E2E; /* Charcoal Gray */
-    --text-color: #EDEDED; /* Soft Ivory */
-    --link-color: #5B6F5A; /* Dill Weed */
-    --button-bg: #EDEDED; /* Soft Ivory */
+    --bg-color: #01161E; /* Charcoal Gray */
+    --text-color: #FDFDFF; /* Soft Ivory */
+    --link-color: #67697C; /* Dill Weed */
+    --button-bg: #FDFDFF; /* Soft Ivory */
     --button-text: #2E2E2E; /* Charcoal Gray */
-    --highlight-color: #5B6F5A; /* Dill Weed */
-    --footer-color: #A38F7B; /* Quincy Tan */
-    --alt-color: #E0E4E1; /* Misty Gray */
-    --link-color: #5B6F5A; /* Dill Weed */		
+    --highlight-color: #CCC9E7; /* Dill Weed */
+    --footer-color: #CCC9E7; /* Quincy Tan */
+    --footer-text-color: #253D5B;
+    --header-color: #253D5B;
+    --header-text-color: #CCC9E7;
+    --alt-color: #60935D; /* Misty Gray */	
 }
 
 /* Use the variables for all theme colors */
@@ -35,18 +42,16 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
 	font-family: 'Roboto', sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease;								  													
+    transition: background-color 0.3s ease, color 0.3s ease;		
 }
 
 a {
     color: var(--link-color);
 }
 
-
 /* =====================
    General Styles
    ===================== */
-/* Reset global margins, paddings, and box-sizing */
 * {
     margin: 0;
     padding: 0;
@@ -58,10 +63,11 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--bg-color); /* Ensure consistent background */
+    background-color: var(--bg-color);
 }
 
 header {
+    color: var(--header-color);
     margin: 0;
     padding: 0;
 }
@@ -119,7 +125,7 @@ a:hover {
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    background-color: var(--text-color);
+    background-color: var(--header-color);
 }
 
 /* Favicon and Name */
@@ -137,7 +143,7 @@ a:hover {
 
 .navbar-logo .site-name {
     font-size: 1.2rem;
-    color: var(--bg-color);
+    color: var(--header-text-color);
     font-weight: bold;
 }
 
@@ -152,7 +158,7 @@ a:hover {
 }
 
 .navbar-links a {
-    color: var(--bg-color);
+    color: var(--header-text-color);
     text-decoration: none;
     font-weight: bold;
     padding: 0.5rem 1rem;
@@ -172,7 +178,6 @@ a:hover {
 /* =====================
    Buttons
    ===================== */
-
 button, .btn {
     background-color: var(--button-bg);
     color: var(--bg-color); 
@@ -202,8 +207,8 @@ button:hover, .btn:hover {
 
 main {
     padding: 2rem;
-    background-color: var(--bg-color); /* Timid White */
-    color: var(--text-color); /* Ashwood Moss */
+    background-color: var(--bg-color); 
+    color: var(--text-color); 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -214,7 +219,7 @@ main {
 
 footer {
     background-color: var(--footer-color);
-    color: var(--bg-color);
+    color: var(--footer-text-color);
     text-align: center;
     padding: 1rem;
 }
@@ -253,7 +258,7 @@ footer {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1rem;
-    background-color: var(--bg-color); /* Timid White */
+    background-color: var(--bg-color);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
@@ -273,17 +278,17 @@ footer {
 /* Tools Tags */
 .project-card .tool-tag, .project-content ul li {
     font-size: 1rem;
-    background-color: var(--bg-color); /* Timid White */
-    color: var(--text-color); /* Ashwood Moss */
+    background-color: var(--bg-color);
+    color: var(--text-color); 
     padding: 0.2rem 0.5rem;
     border-radius: 5px;
     margin-right: 0.3rem;
     display: inline-block;
 }
-
+/* fix me */
 .project-card .tool-tag:hover, .project-content ul li:hover {
-    background-color: #5B6F5A; /* Dill Weed */
-    color: #FFFFFF; /* White */
+    background-color: #9fb8ad; 
+    color: #FFFFFF; 
 }
 
 /* =====================
@@ -376,7 +381,6 @@ footer {
     color: #024BA8; /* Slightly darker blue on hover */
     text-decoration: none;
 }
-
 
 /* Tools List */
 .tools-list {
@@ -501,7 +505,7 @@ iframe {
 
 /* Progress Bar */
 .progress-bar {
-    background-color: var(--alt-color);
+    background-color: var(--footer-color);
     border-radius: 8px;
     overflow: hidden;
     height: 12px;
@@ -509,7 +513,7 @@ iframe {
 }
 
 .progress {
-    background-color: var(--highlight-color);
+    background-color: var(--alt-color);
     height: 100%;
     border-radius: 8px 0 0 8px;
 }
@@ -586,7 +590,7 @@ iframe {
     transform: translateX(-50%);
     width: 20px;
     height: 20px;
-    background: var(--footer-color);
+    background: var(--alt-color);
     border-radius: 50%;
     z-index: 2;
 }
@@ -595,13 +599,6 @@ iframe {
     max-width: 800px;
     margin: 2rem auto;
     padding: 2rem;
-				  
-																
-				
-					 
- 
-
-			   
     background-color: var(--bg-color);
     border-radius: 8px;
 				  
@@ -642,18 +639,18 @@ form {
 .form-group textarea {
     width: 100%;
     padding: 0.8rem;
-    border: 1px solid #A38F7B; /* Quincy Tan */
+    border: 1px solid var(--alt-color); /* Quincy Tan */
     border-radius: 8px;
     font-size: 1rem;
-    background-color: #FFFFFF;
-    color: #333; /* Neutral text color */
+    background-color: var(--bg-color);
+    color: var(--text-color); /* Neutral text color */
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #5B6F5A; /* Dill Weed */
+    border-color: #9fb8ad; /* Dill Weed */
     box-shadow: 0 0 8px rgba(91, 111, 90, 0.3); /* Subtle green glow */
 }
 
@@ -661,7 +658,7 @@ form {
 button.btn {
     align-self: center;
     background-color: var(--button-bg);
-    color: #FFFFFF;
+    color: var(--button-text);
     border: none;
     padding: 0.8rem 2rem;
     font-size: 1rem;

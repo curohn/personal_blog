@@ -5,10 +5,10 @@
   - [x] Link color
   - [x] Inconsistant button color
 - [X] Add favicon
-- [ ] Keep cleaning and organizing this
-- [ ] Redo theme
-- [ ] Fix mobile design
-- [ ] Fix the little icon thing in the tab
+- [x] Keep cleaning and organizing css
+- [x] Redo theme
+- [x] Fix the little icon thing in the tab
+- [ ] Optimize mobile design
 - [ ] Google Analytics
 - [ ] Google search console sitemap
 - [ ] Bing webmaster sitemap
