@@ -1,5 +1,5 @@
 ## Project Overview
-This project aims to analyze the average temperatures of the United States over time using linear regression. The dataset used in this project is the "GlobalLandTemperaturesByCountry" dataset, which includes temperature records for various countries. The project involves data preprocessing, fitting a linear regression model to the data, and visualizing trends to make future predictions.
+This project aims to analyze the average temperatures of the United States over time using linear regression. The dataset used in this project is the "Global Land Temperatures By Country" dataset, which includes temperature records for various countries. The project involves data preprocessing, fitting a linear regression model to the data, and visualizing trends to make future predictions.
 
 ## Features
 - Data Cleaning: Handling missing values using forward fill and filtering out inaccurate data before 1820.

@@ -40,7 +40,6 @@ This personal website serves as a central hub to showcase my portfolio, ongoing 
 - **Backend**: Flask (Python)
 - **Frontend**: HTML, CSS
 - **Markdown Support**: Enables dynamic project writeups.
-- **Analytics**: Basic tracking for key interactions like resume downloads.
 
 ---
 
