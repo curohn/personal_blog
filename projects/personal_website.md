@@ -39,11 +39,5 @@ This personal website serves as a central hub to showcase my portfolio, ongoing 
 ### **Technologies**
 - **Backend**: Flask (Python)
 - **Frontend**: HTML, CSS
+- **Database**: None (static content for now)
 - **Markdown Support**: Enables dynamic project writeups.
-
----
-
-### **Current Progress**
-- The core layout and design are complete, with dynamic sections powered by Flask.
-- Markdown support for project details has been integrated.
-- Progress bars in the "Currently Working On" section are functional.

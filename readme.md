@@ -31,20 +31,6 @@ Welcome to my personal website! This platform showcases my portfolio, current pr
 - **Database**: None (static content for now)
 - **Markdown Support**: Dynamic rendering for project details
 
-
-## 🖼️ Preview
-
-Here’s a quick look at what’s included:
-- A visually clean and modern layout with my favorite colors and custom styling.
-- Dynamic progress bars for ongoing projects.
-- Markdown-rendered project writeups.
-
-## 📈 Analytics
-
-The site includes basic analytics for:
-- Resume downloads
-- Traffic to project detail pages
-
 ## 🌐 Live Demo
 
 The website is hosted on [Render](render.com) at: [j-curran.com](j-curran.com)
