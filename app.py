@@ -69,7 +69,7 @@ projects = [
         "description": "Project to compare distributions in wages, over time",
         "detail_url": "/projects/wage_distribution",
         "github_url": "https://github.com/curohn/wage_distribution",
-        "tools": ["Python", "Pandas", "JoyPy"],
+        "tools": ["Python", "Pandas", "Seaborn", "MatPlotLib"],
         "markdown_file": "projects/wage_distribution.md",
         "image":"",
         "date": "In Progress"
@@ -107,7 +107,7 @@ working_on = [
     },
     {
         "task": "Wage Distribution Analysis",
-        "progress": 35,
+        "progress": 40,
         "project_name": "wage_distribution"
     }
 ]
