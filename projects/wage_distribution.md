@@ -21,6 +21,7 @@ The ridgeline chart was created using Python with pandas for data manipulation, 
 This project is currently in progress, and just plots the distributions over time. Future enhancements will be added. 
 
 ![Wage Distribution Ridgeline Plot](../static/images/wage_distribution_ridgeline_plot.png)
+![Wage Distribution Line Chart](../static/images/wage_distribution_line_chart.png)
 
 ## Tools and Libraries
 - **Python**

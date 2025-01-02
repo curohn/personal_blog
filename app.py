@@ -107,7 +107,7 @@ working_on = [
     },
     {
         "task": "Wage Distribution Analysis",
-        "progress": 40,
+        "progress": 50,
         "project_name": "wage_distribution"
     }
 ]
