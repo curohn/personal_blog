@@ -64,6 +64,17 @@ def research_and_projects():
 
 projects = [
     {
+        "id": 4,
+        "title": "Layoffs & Earnings Project",
+        "description": "Are earnings a predictor of layoffs?",
+        "detail_url": "/projects/layoffs_and_earnings",
+        "github_url": "",
+        "tools": [],
+        "markdown_file": "projects/layoffs_and_earnings.md",
+        "image":"",
+        "date": "In Progress"
+    },
+    {
         "id": 3,
         "title": "Wage Distribution Analysis",
         "description": "Project to compare distributions in wages, over time",
@@ -109,7 +120,12 @@ working_on = [
         "task": "Wage Distribution Analysis",
         "progress": 50,
         "project_name": "wage_distribution"
-    }
+    },
+    {
+        "task": "Layoffs & Earnings Project",
+        "progress": 5,
+        "project_name": ""
+    },
 ]
 
 # Route to render project details
