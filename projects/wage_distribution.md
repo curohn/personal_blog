@@ -1,6 +1,6 @@
 ## Project Overview
 
-This project explores the income distribution of households across different income groups using [census data](https://data.census.gov/table/ACSST5Y2020.S1901?q=S1901). The primary objective is to visualize the distribution patterns and analyze how income is distributed among households in various brackets. Ridgeline charts were chosen as the visualization method to provide an intuitive and aesthetically appealing representation of density across multiple categories.
+This project explores the income distribution of households across different income groups using [census data](https://data.census.gov/table/ACSST5Y2020.S1901?q=S1901). This project was aimed at being a demonstration of an exploritory data analysis. Starting with data and a question, ending with deeper understanding into the data and what it shows. It's written like a story from the first person perspective, in order to show my methodology and thought process into the analysis. While this writeup can give you the basics, I'd highly recommend reading the whole notebook available on [github.](https://github.com/curohn/wage_distribution)
 
 ### Data Preparation
 
@@ -17,7 +17,6 @@ The data was sourced from the U.S. Census Bureau and contains household income e
 
 ### Methodology
 
-The ridgeline chart was created using Python with pandas for data manipulation, and joypy for visualization. 
 This project is currently in progress, and just plots the distributions over time. Future enhancements will be added. 
 
 ![Wage Distribution Ridgeline Plot](../static/images/wage_distribution_ridgeline_plot.png)
@@ -26,6 +25,8 @@ This project is currently in progress, and just plots the distributions over tim
 ## Tools and Libraries
 - **Python**
 - **Pandas**
+- **MatPlotLib**
+- **Seaborn**
 
 ## Future Work
 This analysis can be extended by:
