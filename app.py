@@ -112,11 +112,6 @@ projects = [
 ]
 working_on = [
     {
-        "task": "Personal Website",
-        "progress": 100,
-        "project_name": "personal_website"
-    },
-    {
         "task": "Wage Distribution Analysis",
         "progress": 50,
         "project_name": "wage_distribution"
