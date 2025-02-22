@@ -23,7 +23,7 @@ def download_resume():
     # Serve the PDF file for download
     return send_file(resume_path, as_attachment=True, download_name="curran_john_resume.pdf")
 
-
+'''
 # Email configuration
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
@@ -33,7 +33,7 @@ app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
 app.config['MAIL_DEFAULT_SENDER'] = 'curran.john35@gmail.com'
 
 mail = Mail(app)
-
+'''
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECTS_DIR = os.path.join(BASE_DIR, "projects")
@@ -202,7 +202,7 @@ work_experience = [
 
 
 
-
+'''
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     theme = session.get('theme', 'light')
@@ -224,6 +224,7 @@ def contact():
         return render_template('thank_you.html')  # Render the thank you page
 
     return render_template('contact.html', theme=theme)
+'''
 
 @app.route('/sitemap.xml')
 def sitemap():
@@ -243,8 +244,6 @@ def sitemap():
         } for page in pages]
     )
     return Response(sitemap_xml, mimetype='application/xml')
-
-
 
 
 # Run the Flask app in debug mode
