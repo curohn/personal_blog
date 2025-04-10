@@ -8,6 +8,7 @@
 - [x] Keep cleaning and organizing css
 - [x] Redo theme
 - [x] Fix the little icon thing in the tab
+- [x] V2 Design
 - [ ] Optimize mobile design
 - [ ] Google Analytics
 - [ ] Google search console sitemap

@@ -159,7 +159,7 @@ work_experience = [
     {
         "title": "Senior Data Analyst",
         "company": "First American Title",
-        "duration": "August 2023 – Present",
+        "duration": "August 2023 – January 2025",
         "description": "Enhanced data accuracy and accessibility using Python and SQL, and developed dashboards for actionable insights."
     },
     {

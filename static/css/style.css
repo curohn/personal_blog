@@ -4,37 +4,37 @@
 
    ===================== */
 :root {
-    --bg-color: #FDFDFF; /* Timid White */
-    --text-color: #14213d; /* Ashwood Moss */
-    --link-color: #67697C; /* Dill Weed */
-    --button-bg: #14213d; /* Ashwood Moss */
-    --button-text: #FDFDFF; /* Timid White */
-    --highlight-color: #CCC9E7; /* Dill Weed */
-    --header-color: #253D5B;
-    --header-text-color: #FDFDFF;
-    --footer-color: #CCC9E7; /* Quincy Tan */
-    --footer-text-color: #253D5B;
-    --alt-color: #60935D; /* Misty Gray */
+    --bg-color: #ffffff; /*1*/
+    --text-color: #4F5D75; /*2*/
+    --link-color: #4F5D75; /*2*/
+    --button-bg: #2D3142; /*3*/
+    --button-text: #ffffff; /*1*/
+    --highlight-color: #BFC0C0; /*5*/
+    --header-color: #ffffff; /*1*/
+    --header-text-color: #2D3142; /*3*/
+    --footer-color: #ffffff; /*1*/
+    --footer-text-color: #2D3142; /*3*/
+    --alt-color: #EF8354; /*4*/
 }
 
 body.light-mode {
-    --bg-color: #FDFDFF; /* Timid White */	 
-    --text-color: #14213d; /* Ashwood Moss */
+    --bg-color: #FDFDFF; /**/	 
+    --text-color: #14213d; 
     	   
 }
 
 body.dark-mode {
-    --bg-color: #01161E; /* Charcoal Gray */
-    --text-color: #FDFDFF; /* Soft Ivory */
-    --link-color: #67697C; /* Dill Weed */
-    --button-bg: #FDFDFF; /* Soft Ivory */
-    --button-text: #2E2E2E; /* Charcoal Gray */
-    --highlight-color: #CCC9E7; /* Dill Weed */
-    --footer-color: #CCC9E7; /* Quincy Tan */
-    --footer-text-color: #253D5B;
-    --header-color: #253D5B;
-    --header-text-color: #CCC9E7;
-    --alt-color: #60935D; /* Misty Gray */	
+    --bg-color: #2D3142; /*1*/
+    --text-color: #FFFFFF; /*2*/
+    --link-color: #FFFFFF; /*2*/
+    --button-bg: #BFC0C0; /*3*/
+    --button-text: #2D3142; /*1*/
+    --highlight-color: #4F5D75; /*5*/
+    --footer-color: #2D3142; /*1*/
+    --footer-text-color: #BFC0C0; /*3*/
+    --header-color: #2D3142; /*1*/
+    --header-text-color: #BFC0C0; /*3*/
+    --alt-color: #EF8354; /*4*/
 }
 
 /* Use the variables for all theme colors */
@@ -42,7 +42,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
 	font-family: 'Roboto', sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease;		
+    transition: background-color 0.3s ease, color 0.3s ease;	
 }
 
 a {
@@ -64,27 +64,20 @@ html, body {
     width: 100%;
     height: 100%;
     background-color: var(--bg-color);
+
 }
 
 header {
     color: var(--header-color);
     margin: 0;
     padding: 0;
+    border-bottom: 2px solid var(--highlight-color);
 }
 /* Reset margins and paddings */
 body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-/* Remove default padding or margin for header and nav */
-header, nav {
-    margin: 0;
-    padding: 0;
-}
-section {
-    margin-bottom: 2rem; /* Space between sections */
 }
 
 body {
@@ -103,8 +96,14 @@ body {
     }
 }
 
-h1, h2, h3 {
+h2 {
+    border-bottom: 2px solid var(--highlight-color);	
     color: var(--text-color); /* Ashwood Moss */
+}
+
+h1, h3 {
+    color: var(--text-color); /* Ashwood Moss */
+	
 }
 
 a {
@@ -222,6 +221,7 @@ footer {
     color: var(--footer-text-color);
     text-align: center;
     padding: 1rem;
+    border-top: 2px solid var(--highlight-color);
 }
 /* Footer Links */
 .footer-links {
@@ -456,6 +456,7 @@ iframe {
 .working-on h2 {
     color: var(--text-color);
     margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--highlight-color);
 }
 
 /* Grid Layout */
