@@ -72,7 +72,7 @@ projects = [
         "tools": [],
         "markdown_file": "projects/layoffs_and_earnings.md",
         "image":"",
-        "date": "In Progress"
+        "date": "On Pause"
     },
     {
         "id": 3,
@@ -115,12 +115,7 @@ working_on = [
         "task": "Wage Distribution Analysis",
         "progress": 50,
         "project_name": "wage_distribution"
-    },
-    {
-        "task": "Layoffs & Earnings Project",
-        "progress": 5,
-        "project_name": ""
-    },
+    }
 ]
 
 # Route to render project details
