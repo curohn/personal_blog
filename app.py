@@ -64,6 +64,17 @@ def research_and_projects():
 
 projects = [
     {
+        "id": 5,
+        "title": "Delivery App Simulation",
+        "description": "Modeling a delivery app using Python and sqlite.",
+        "detail_url": "/projects/delivery_app_simulation",
+        "github_url": "https://github.com/curohn/delivery_app_simulation",
+        "tools": ["Python", "SQLite"],
+        "markdown_file": "projects/delivery_app_simulation.md",
+        "image":"",
+        "date": "In Progress"
+    }, 
+    {
         "id": 4,
         "title": "Layoffs & Earnings Project",
         "description": "Are earnings a predictor of layoffs?",
@@ -111,6 +122,11 @@ projects = [
     # Add more projects as needed
 ]
 working_on = [
+    {
+        "task": "Delivery App Simulation",
+        "progress": 5,
+        "project_name": "delivery_app_simulation"
+    },
     {
         "task": "Wage Distribution Analysis",
         "progress": 50,
