@@ -79,8 +79,8 @@ projects = [
         "title": "Self Study",
         "description": "What I'm currently working on to improve my skills.",
         "detail_url": "/projects/self_study",
-        "github_url": ,
-        "tools":,
+        "github_url": "",
+        "tools": [],
         "markdown_file": "projects/self_study.md",
         "image":"",
         "date": "In Progress"
@@ -140,7 +140,7 @@ working_on = [
     },
     {
         "task": "Self Study",
-        "progress": ,
+        "progress": "Ongoing",
         "project_name": "self_study"
     },
     {

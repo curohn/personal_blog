@@ -12,4 +12,4 @@ This page is to host all the things I'm currently working to learn, but don't qu
 
 
 ## Future Work
-- Tentativly - Masters program in Fall
+- Tentative: Masters program in Fall

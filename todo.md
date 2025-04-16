@@ -1,5 +1,6 @@
 # To Do
 - [x] V2 Design
+- [ ] Fix the percentage for "ongoing" projects
 - [ ] Support for Plotly Charts in project writeups
 - [ ] Optimize mobile design
 - [ ] Google Analytics
