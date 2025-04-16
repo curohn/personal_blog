@@ -64,13 +64,24 @@ def research_and_projects():
 
 projects = [
     {
-        "id": 5,
+        "id": 6,
         "title": "Delivery App Simulation",
         "description": "Modeling a delivery app using Python and sqlite.",
         "detail_url": "/projects/delivery_app_simulation",
         "github_url": "https://github.com/curohn/delivery_app_simulation",
         "tools": ["Python", "SQLite"],
         "markdown_file": "projects/delivery_app_simulation.md",
+        "image":"",
+        "date": "In Progress"
+    }, 
+    {
+        "id": 5,
+        "title": "Self Study",
+        "description": "What I'm currently working on to improve my skills.",
+        "detail_url": "/projects/self_study",
+        "github_url": ,
+        "tools":,
+        "markdown_file": "projects/self_study.md",
         "image":"",
         "date": "In Progress"
     }, 
@@ -128,8 +139,13 @@ working_on = [
         "project_name": "delivery_app_simulation"
     },
     {
+        "task": "Self Study",
+        "progress": ,
+        "project_name": "self_study"
+    },
+    {
         "task": "Wage Distribution Analysis",
-        "progress": 50,
+        "progress": 60,
         "project_name": "wage_distribution"
     }
 ]

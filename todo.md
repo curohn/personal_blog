@@ -1,14 +1,6 @@
 # To Do
-- [x] Light / Dark Mode
-- [x] Clean and organize style.css
-- [x] Fix
-  - [x] Link color
-  - [x] Inconsistant button color
-- [X] Add favicon
-- [x] Keep cleaning and organizing css
-- [x] Redo theme
-- [x] Fix the little icon thing in the tab
 - [x] V2 Design
+- [ ] Support for Plotly Charts in project writeups
 - [ ] Optimize mobile design
 - [ ] Google Analytics
 - [ ] Google search console sitemap
@@ -50,3 +42,12 @@
 - [x] Basic Mobile design
 - [x] Buy domain
 - [x] Hosting
+- [x] Light / Dark Mode
+- [x] Clean and organize style.css
+- [x] Fix
+  - [x] Link color
+  - [x] Inconsistant button color
+- [X] Add favicon
+- [x] Keep cleaning and organizing css
+- [x] Redo theme
+- [x] Fix the little icon thing in the tab
