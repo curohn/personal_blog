@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="project-detail-page">
+    <!-- Sidebar for Other Projects -->
+    <aside class="project-sidebar">
+        <h2><u>Projects:</u><br><br/></h2>
+        <ul>
+            {% for other_project in projects %}
+            <li class="{% if other_project['id'] == current_project_id %}active underline{% endif %}">
+                <a href="{{ other_project['detail_url'] }}">{{ other_project['title'] }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="project-detail">
+        <h2 id="project-overview">Project Overview</h2>
+        <progress value="99" max="100"></progress> 99%
+        <p>This website serves as a central hub to showcase my portfolio, ongoing projects, and research endeavors.</p>
+
+        <h2 id="objectives">Objectives</h2>
+        <p>It is designed to highlight my technical expertise and provide visitors with insights into my work and professional journey.</p>
+
+        <h2 id="design">Design</h2>
+            <ul>
+            <li><strong>Backend</strong>: Flask (Python)</li>
+            <li><strong>Frontend</strong>: HTML, CSS</li>
+            <li><strong>Database</strong>: None (static content for now)</li>
+        </ul>
+        <h3 id="features">Features</h3>
+        <ul>
+            <li>A clean and welcoming hero section with my name, tagline, and quick navigation links.</li>
+            <li>About Me section introducing my skills and professional background.</li>
+            <li>Dynamic progress bars in the &quot;Currently Working On&quot; section for real-time project updates.</li>
+            <li>A centralized page for detailed project writeups and exploratory research.</li>
+            <li>Intuitive labels for tools and languages used in each project.</li>
+            <li>Links to corresponding GitHub repositories for full transparency and collaboration.</li>
+            <li>Embedded PDF viewer for convenient browsing.</li>
+        </ul>
+
+        <h2 id="future-work">Future Work</h2>
+        <p>
+          <ul>
+            <li>V3 Design</li>
+            <li>Support for Plotly charts inside project writeups</li>
+          </ul>
+        </p>
+
+    </div>
+</div>
+{% endblock %}

@@ -23,17 +23,6 @@ def download_resume():
     # Serve the PDF file for download
     return send_file(resume_path, as_attachment=True, download_name="curran_john_resume.pdf")
 
-'''
-# Email configuration
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
-app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
-app.config['MAIL_DEFAULT_SENDER'] = 'curran.john35@gmail.com'
-
-mail = Mail(app)
-'''
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECTS_DIR = os.path.join(BASE_DIR, "projects")
@@ -53,7 +42,8 @@ def toggle_theme():
 @app.route('/')
 def home():
     theme = session.get('theme', 'light')
-    return render_template('home.html', projects=projects, working_on=working_on, theme=theme)
+    featured_projects = [p for p in projects if p.get("featured", False)]  # Filter featured projects
+    return render_template('home.html', projects=featured_projects, working_on=working_on, theme=theme)
 
 
 @app.route('/research-and-projects')
@@ -64,37 +54,24 @@ def research_and_projects():
 
 projects = [
     {
-        "id": 6,
+        "id": 5,
         "title": "Delivery App Simulation",
         "description": "Modeling a delivery app using Python and sqlite.",
         "detail_url": "/projects/delivery_app_simulation",
         "github_url": "https://github.com/curohn/delivery_app_simulation",
         "tools": ["Python", "SQLite"],
-        "markdown_file": "projects/delivery_app_simulation.md",
-        "image":"",
-        "date": "In Progress"
-    }, 
+        "date": "In Progress",
+        "featured": True  # Added featured attribute
+    },
     {
-        "id": 5,
+        "id": 4,
         "title": "Self Study",
         "description": "What I'm currently working on to improve my skills.",
         "detail_url": "/projects/self_study",
         "github_url": "",
         "tools": [],
-        "markdown_file": "projects/self_study.md",
-        "image":"",
-        "date": "In Progress"
-    }, 
-    {
-        "id": 4,
-        "title": "Layoffs & Earnings Project",
-        "description": "Are earnings a predictor of layoffs?",
-        "detail_url": "/projects/layoffs_and_earnings",
-        "github_url": "",
-        "tools": [],
-        "markdown_file": "projects/layoffs_and_earnings.md",
-        "image":"",
-        "date": "On Pause"
+        "date": "In Progress",
+        "featured": False  # Added featured attribute
     },
     {
         "id": 3,
@@ -103,9 +80,8 @@ projects = [
         "detail_url": "/projects/wage_distribution",
         "github_url": "https://github.com/curohn/wage_distribution",
         "tools": ["Python", "Pandas", "Seaborn", "MatPlotLib"],
-        "markdown_file": "projects/wage_distribution.md",
-        "image":"",
-        "date": "In Progress"
+        "date": "In Progress",
+        "featured": True
     },
     {
         "id": 2,
@@ -114,9 +90,8 @@ projects = [
         "detail_url": "/projects/personal_website",
         "github_url": "https://github.com/curohn/personal_blog",
         "tools": ["Python", "Flask", "CSS", "HTML", "Render"],
-        "markdown_file": "projects/personal_website.md",
-        "image":"",
-        "date": "2024-12-11"
+        "date": "2024-12-11",
+        "featured": True
     },
     {
         "id": 1,
@@ -125,9 +100,8 @@ projects = [
         "detail_url": "/projects/global_temperature_analysis",
         "github_url": "https://github.com/curohn/global_temperatures/tree/main",
         "tools": ["Python", "Pandas", "MatPlotLib", "scikit-learn"],
-        "markdown_file": "projects/global_temperature_analysis.md",
-        #"image": "images/global_temp_graph.png",
-        "date": "2024-10-13"
+        "date": "2024-10-13",
+        "featured": True
     },
     
     # Add more projects as needed
@@ -139,18 +113,13 @@ working_on = [
         "project_name": "delivery_app_simulation"
     },
     {
-        "task": "Self Study",
-        "progress": "Ongoing",
-        "project_name": "self_study"
-    },
-    {
         "task": "Wage Distribution Analysis",
         "progress": 60,
         "project_name": "wage_distribution"
     }
 ]
 
-# Route to render project details
+# Route to render project pages dynamically
 @app.route('/projects/<string:project_name>')
 def project_detail(project_name):
     theme = session.get('theme', 'light')
@@ -158,23 +127,12 @@ def project_detail(project_name):
     if not project:
         return "Project not found", 404
 
-    markdown_path = os.path.join(os.getcwd(), project.get("markdown_file"))
-    if not os.path.exists(markdown_path):
-        return "Writeup not found", 404
-
-    with open(markdown_path, "r", encoding="utf-8") as file:
-        markdown_content = file.read()
-
-    project_writeup = markdown.markdown(markdown_content)
-
     return render_template(
-        'project_detail.html',
-        project=project,
-        writeup=project_writeup,
-        projects=projects,
-        theme=theme
+        f'projects/{project_name}.html',
+        theme=theme,
+        projects=sorted(projects, key=lambda p: p["id"], reverse=True),  # Keep consistent order
+        current_project_id=project["id"]  # Pass current project ID
     )
-
 
 
 @app.route('/experience-and-education')
@@ -187,71 +145,70 @@ work_experience = [
         "title": "Senior Data Analyst",
         "company": "First American Title",
         "duration": "August 2023 – January 2025",
-        "description": "Enhanced data accuracy and accessibility using Python and SQL, and developed dashboards for actionable insights."
+        "description": (
+            "Led pilot programs to evaluate and enhance future initiatives, collaborating with cross-functional teams to define KPIs and develop reporting solutions. "
+            "Designed and implemented data monitoring processes using Snowflake and Python, achieving 99%+ data integrity. "
+            "Developed interactive dashboards for real-time insights, empowering stakeholders with actionable data. "
+            "Spearheaded company-wide data strategy initiatives and translated complex analytics into clear business insights."
+        )
     },
     {
         "title": "Senior Data Analyst",
         "company": "Ware2Go",
         "duration": "April 2022 – August 2023",
-        "description": "Streamlined operations with automated notifications, identified $400k in missed billing, and ensured data integrity across projects."
+        "description": (
+            "Built an email notification system using Python, SQL, and Airflow, delivering relevant data to over 100 users. "
+            "Established a correction bounty program, reducing operational issues by 10%. "
+            "Led a billing audit project that uncovered $400k in annual missed revenue. "
+            "Maintained department dashboards in DOMO and ensured data quality across 15+ projects, integrating APIs, tables, and ETL processes."
+        )
     },
     {
         "title": "Data Analyst",
         "company": "Ware2Go",
         "duration": "April 2021 – March 2022",
-        "description": "Revamped dashboards and created metrics for operations, boosting productivity and throughput analysis."
+        "description": (
+            "Revamped team dashboards, optimizing ETL processes to reduce reporting lag from 1 hour to 15 minutes. "
+            "Created warehouse productivity and throughput metrics, driving operational improvements. "
+            "Conducted deep-dive analyses into processes, delivering actionable insights for key optimizations."
+        )
     },
     {
         "title": "Solutions Analyst Team Lead",
         "company": "APCO",
         "duration": "September 2019 – March 2021",
-        "description": "Designed dashboards and reports using PowerBI and SQL, enabling improved decision-making during the Covid-19 pandemic."
+        "description": (
+            "Designed dashboards and reports using Excel, PowerBI, and SQL, delivering actionable insights in clear presentations. "
+            "Developed an Excel dashboard to track daily receivables during the Covid-19 pandemic, enabling critical sales decisions. "
+            "Reworked reports by adding new features, migrating data sources, and rewriting SQL scripts to enhance functionality."
+        )
     },
     {
         "title": "Solutions Analyst",
         "company": "APCO",
         "duration": "July 2018 – September 2019",
-        "description": "Resolved technical issues and improved reporting workflows with SQL and Python."
+        "description": (
+            "Investigated and resolved technical user issues, leveraging skills in Excel, SQL, and Python. "
+            "Streamlined reporting workflows and improved data accessibility for stakeholders."
+        )
     },
     {
         "title": "Education",
         "company": "East China Normal University",
         "duration": "August 2017 – February 2018",
-        "description": "Chinese Language Program – Intensive Mandarin Chinese language course"
+        "description": "Completed an intensive Mandarin Chinese language program."
     },
     {
         "title": "Education",
         "company": "Florida State University",
         "duration": "August 2014 – May 2018",
-        "description": "Bachelor of Science in International Affairs, with concentration in Economics. Activities: Vice President Florida State Rowing Team."
+        "description": (
+            "Earned a Bachelor of Science in International Affairs with a concentration in Economics. "
+            "Served as Vice President of the Florida State Rowing Team."
+        )
     }
 ]
 
-
-
-'''
-@app.route('/contact', methods=['GET', 'POST'])
-def contact():
-    theme = session.get('theme', 'light')
-    if request.method == 'POST':
-        name = request.form.get('name')
-        email = request.form.get('email')
-        message = request.form.get('message')
-
-        # Send email
-        recipient_email = os.getenv('RECIPIENT_EMAIL')
-        msg = Message(
-            subject=f"New Contact Form Submission from {name}",
-            sender=email,
-            recipients=[recipient_email], 
-            body=f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
-        )
-
-        mail.send(msg)
-        return render_template('thank_you.html')  # Render the thank you page
-
-    return render_template('contact.html', theme=theme)
-'''
 
 @app.route('/sitemap.xml')
 def sitemap():

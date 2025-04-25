@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="project-detail-page">
+    <!-- Sidebar for Other Projects -->
+    <aside class="project-sidebar">
+        <h2><u>Projects:</u><br><br/></h2>
+        <ul>
+            {% for other_project in projects %}
+            <li class="{% if other_project['id'] == current_project_id %}active underline{% endif %}">
+                <a href="{{ other_project['detail_url'] }}">{{ other_project['title'] }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="project-detail">
+        <h2 id="project-overview">Project Overview</h2>
+        <progress value="50" max="100"></progress> 50%
+
+        <h2 id="objectives">Objectives</h2>
+        <p><!-- Add objectives here --></p>
+
+        <h2 id="design">Design</h2>
+        <p><!-- Add design details here --></p>
+
+        <h2 id="data-analysis">Data & Analysis</h2>
+        <p><!-- Add data and analysis details here --></p>
+
+        <h2 id="conclusion">Conclusion</h2>
+        <h3 id="results">Results</h3>
+        <p><!-- Add results here --></p>
+
+        <h3 id="challenges">Challenges</h3>
+        <p><!-- Add challenges here --></p>
+
+        <h3 id="future-work">Future Work</h3>
+        <p><!-- Add future work here --></p>
+
+        <h2 id="references">References</h2>
+        <p><!-- Add references here --></p>
+    </div>
+</div>
+{% endblock %}

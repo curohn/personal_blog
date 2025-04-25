@@ -4,17 +4,16 @@
 
    ===================== */
 :root {
-    --bg-color: #ffffff; /*1*/
-    --text-color: #4F5D75; /*2*/
-    --link-color: #4F5D75; /*2*/
-    --button-bg: #2D3142; /*3*/
+    --bg-color: #dfe6e9; /*1*/ /*new*/
+    --text-color: #2d3436; /*2*/ /*new*/
+    --button-bg: #2d3436; /*3*/ /*new*/
     --button-text: #ffffff; /*1*/
     --highlight-color: #BFC0C0; /*5*/
-    --header-color: #ffffff; /*1*/
-    --header-text-color: #2D3142; /*3*/
-    --footer-color: #ffffff; /*1*/
-    --footer-text-color: #2D3142; /*3*/
-    --alt-color: #EF8354; /*4*/
+    --header-color: #dfe6e9; /*1*/ /*new*/
+    --header-text-color: #2d3436; /*3*/ /*new*/
+    --footer-color: #2d3436; /*1*/ /*new*/
+    --footer-text-color: #dfe6e9; /*3*/
+    --alt-color: #00b894; /*4*/ /*new*/
 }
 
 body.light-mode {
@@ -24,70 +23,36 @@ body.light-mode {
 }
 
 body.dark-mode {
-    --bg-color: #2D3142; /*1*/
-    --text-color: #FFFFFF; /*2*/
-    --link-color: #FFFFFF; /*2*/
-    --button-bg: #BFC0C0; /*3*/
-    --button-text: #2D3142; /*1*/
+    --bg-color: #2d3436; /*1*/
+    --text-color: #dfe6e9; /*2*/
+    --button-bg: #dfe6e9; /*3*/
+    --button-text: #2d3436; /*1*/
     --highlight-color: #4F5D75; /*5*/
-    --footer-color: #2D3142; /*1*/
-    --footer-text-color: #BFC0C0; /*3*/
-    --header-color: #2D3142; /*1*/
-    --header-text-color: #BFC0C0; /*3*/
-    --alt-color: #EF8354; /*4*/
+    --footer-color: #2d3436; /*1*/
+    --footer-text-color: #dfe6e9; /*3*/
+    --header-color: #2d3436; /*1*/
+    --header-text-color: #2d3436; /*3*/
+    --alt-color: #00b894; /*4*/
 }
 
 /* Use the variables for all theme colors */
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Helvetica Neue', Arial, sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;	
-}
-
-a {
-    color: var(--link-color);
+    line-height: 1.6;
 }
 
 /* =====================
    General Styles
    ===================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--bg-color);
-
-}
 
 header {
-    color: var(--header-color);
-    margin: 0;
-    padding: 0;
+    color: var(--header-color) !important;
     border-bottom: 2px solid var(--highlight-color);
-}
-/* Reset margins and paddings */
-body, html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--bg-color); /* Timid White */
-    color: var(--bg-color);
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    animation: fadeIn 0.2s ease-in-out forwards;
 }
 
 @keyframes fadeIn {
@@ -98,16 +63,16 @@ body {
 
 h2 {
     border-bottom: 2px solid var(--highlight-color);	
-    color: var(--text-color); /* Ashwood Moss */
+    color: var(--text-color);
 }
 
 h1, h3 {
-    color: var(--text-color); /* Ashwood Moss */
+    color: var(--text-color); 
 	
 }
 
 a {
-    color: var(--text-color); /* Timid White */
+    color: var(--text-color);
     text-decoration: none;
 }
 
@@ -119,20 +84,19 @@ a:hover {
    Navigation Bar
    ===================== */
 /* Navigation Bar */
+
 .navbar {
+    background-color: white !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     display: flex;
-    align-items: center;
+    align-items: left;
     justify-content: space-between;
     padding: 1rem;
     background-color: var(--header-color);
 }
 
 /* Favicon and Name */
-.navbar-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
+
 
 .navbar-logo img.favicon {
     width: 40px;
@@ -219,17 +183,10 @@ main {
 footer {
     background-color: var(--footer-color);
     color: var(--footer-text-color);
-    text-align: center;
     padding: 1rem;
-    border-top: 2px solid var(--highlight-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-/* Footer Links */
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 0.5rem;
-}
+
 
 .footer-icon {
     width: 24px;
@@ -240,7 +197,6 @@ footer {
 .footer-icon:hover {
     transform: scale(1.2);
 }
-
 
 /* =====================
    Projects Page
@@ -341,6 +297,11 @@ footer {
 
 .project-sidebar li a:hover {
     text-decoration: underline;
+}
+
+.project-sidebar li.underline a {
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 /* Main Content */
@@ -535,8 +496,13 @@ iframe {
     flex-direction: column;
     position: relative;
     margin: 2rem auto;
-    max-width: 800px;
-    padding: 0 1rem;
+    max-width: 100%; /* Allow full width within the wrapper */
+    padding: 0 2rem; /* Add padding for better spacing */
+}
+
+.timeline-wrapper {
+    max-width: 1200px; /* Increase width */
+    margin: 0 auto; /* Center horizontally */
 }
 
 .timeline::before {

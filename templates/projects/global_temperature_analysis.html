@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="project-detail-page">
+    <!-- Sidebar for Other Projects -->
+    <aside class="project-sidebar">
+        <h2><u>Projects:</u></h2>
+        <ul>
+            {% for other_project in projects %}
+            <li class="{% if other_project['id'] == current_project_id %}active underline{% endif %}">
+                <a href="{{ other_project['detail_url'] }}">{{ other_project['title'] }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="project-detail">
+        <h2 id="project-overview">Project Overview</h2>
+        <progress value="100" max="100"></progress> 100%
+        <p>This project aims to analyze the average temperatures of the United States over time using linear regression. The dataset used in this project is the &quot;Global Land Temperatures By Country&quot; dataset, which includes temperature records for various countries. The project involves data preprocessing, fitting a linear regression model to the data, and visualizing trends to make future predictions.</p>
+
+        <h2 id="objectives">Objectives</h2>
+        <p>Goal of this project was to demonstrate a basic linear regression in python, using a dataset of global temperatures.</p>
+
+        <h2 id="design">Design</h2>
+        <p>Project was set up in one main python file, that read in the data, performed preprocessing, and fitted a linear regression model.</p>
+
+        <h2 id="data-analysis">Data & Analysis</h2>
+        <h3 id="features">Features</h3>
+        <ul>
+            <li>Data Cleaning: Handling missing values using forward fill and filtering out inaccurate data before 1820.</li>
+            <li>Yearly Resampling: Resampling the temperature data to obtain yearly average temperatures.</li>
+            <li>Linear Regression: Using linear regression to fit a trend line and predict future temperatures for 50 years.</li>
+            <li>Uncertainty Calculation: Calculating the upper and lower bounds of uncertainty in the average temperature estimates.</li>
+        </ul>
+        
+
+        <h2 id="conclusion">Conclusion</h2>
+        <p>Project successfully demonstrated the use of linear regression to analyze global temperatures over time.</p>
+        <h3 id="results">Results</h3>
+        <p>
+            <img src="../static/images/global_temp_graph.png" alt="Linear Regression Graph">
+        </p>
+
+        <h3 id="challenges">Challenges</h3>
+        <p>N/A</p>
+
+        <h3 id="future-work">Future Work</h3>
+        <ul>
+            <li>Implement additional statistical tests to evaluate model assumptions such as linearity, independence, homoscedasticity, and normality.</li>
+            <li>Explore different models such as polynomial regression or time series analysis to better capture non-linear patterns in temperature trends.</li>
+        </ul>
+
+        <h2 id="references">References</h2>
+        <ul>
+            <li>Dataset provided by <a href="https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data">Kaggle</a>.</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

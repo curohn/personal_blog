@@ -21,19 +21,11 @@
         <h1>{{ project['title'] }}</h1>
         <p><strong>Completion Date:</strong> {{ project['date'] }}</p>
 
-        <!-- Markdown Content -->
-        <div class="markdown-content">
+        <!-- Render HTML Content -->
+        <div class="html-content">
             {{ writeup|safe }}
         </div>
-
-        <!-- Tools Used -->
-        <h2>Tools/Languages Used</h2>
-        <ul class="tools-list">
-            {% for tool in project['tools'] %}
-            <li>{{ tool }}</li>
-            {% endfor %}
-        </ul>
-
+        
         <!-- GitHub Button -->
         <p>
             <a href="{{ project['github_url'] }}" target="_blank" class="btn">
