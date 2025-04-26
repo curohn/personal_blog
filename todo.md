@@ -1,16 +1,6 @@
 # To Do
-- [x] V2 Design
-- [ ] V3
-  - [x] Move tools/languages out of project page. Let md file dictate what appears
-  - [x] Move away from markdown files
-  - [x] color for timeline
-  - [ ] ~~Fix the percentage for "ongoing" projects~~
-  - [x] Allow only a few featured charts, but host all under reasearch and projects
-  - [ ] Support for Plotly Charts in project writeups
-- [ ] Optimize mobile design
-- [ ] Google Analytics
-- [ ] Google search console sitemap
-- [ ] Bing webmaster sitemap
+
+
 
 # Done
 - [x] /contact: send email to me
@@ -57,3 +47,12 @@
 - [x] Keep cleaning and organizing css
 - [x] Redo theme
 - [x] Fix the little icon thing in the tab
+- [x] V2 Design
+- [x] V3
+  - [x] Move tools/languages out of project page. Let md file dictate what appears
+  - [x] Move away from markdown files
+  - [x] color for timeline
+  - [ ] ~~Fix the percentage for "ongoing" projects~~
+  - [x] Allow only a few featured charts, but host all under reasearch and projects
+  - [x] Support for Plotly Charts in project writeups
+- [x] Optimize mobile design

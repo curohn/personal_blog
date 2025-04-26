@@ -44,6 +44,9 @@
                 <span class="site-name">John Curran</span>
             </div>
 
+            <!-- Toggle Button for Mobile -->
+            <button class="navbar-toggle" onclick="toggleNavbar()">☰ Menu</button>
+
             <!-- Navigation Links -->
             <ul class="navbar-links">
                 <li class="{% if request.endpoint == 'home' %}active{% endif %}">
@@ -52,11 +55,9 @@
                 <li class="{% if request.endpoint == 'research_and_projects' %}active{% endif %}">
                     <a href="{{ url_for('research_and_projects') }}">Research and Projects</a>
                 </li>
-
                 <li class="{% if request.endpoint == 'experience_and_education' %}active{% endif %}">
                     <a href="{{ url_for('experience_and_education') }}">Experience and Education</a>
                 </li>
-                
             </ul>
             
             <!-- Theme toggle button -->
@@ -93,5 +94,12 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function toggleNavbar() {
+            const navbarLinks = document.querySelector('.navbar-links');
+            navbarLinks.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
