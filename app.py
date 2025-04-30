@@ -109,7 +109,7 @@ projects = [
 working_on = [
     {
         "task": "Delivery App Simulation",
-        "progress": 10,
+        "progress": 45,
         "project_name": "delivery_app_simulation"
     },
     {
