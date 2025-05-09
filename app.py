@@ -146,7 +146,7 @@ work_experience = [
         "company": "Georgia State University",
         "duration": "Fall 2025 - Spring 2027 (anticipated)",
         "description": (
-            " - Pursuing a Masters in Data Science and Analytics and Georgia State University's J. Mack Robinson College of Business. <br> "
+            " - Pursuing a Masters in Data Science and Analytics at Georgia State University's J. Mack Robinson College of Business. <br> "
             " - Courses will include: Machine Learning, Predictive Analytics, Statistics, and Data communication."
         )
     },
