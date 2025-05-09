@@ -142,14 +142,23 @@ def experience_and_education():
 
 work_experience = [
     {
+        "title": "Education",
+        "company": "Georgia State University",
+        "duration": "Fall 2025 - Spring 2027 (anticipated)",
+        "description": (
+            " - Pursuing a Masters in Data Science and Analytics and Georgia State University's J. Mack Robinson College of Business. <br> "
+            " - Courses will include: Machine Learning, Predictive Analytics, Statistics, and Data communication."
+        )
+    },
+    {
         "title": "Senior Data Analyst",
         "company": "First American Title",
         "duration": "August 2023 – January 2025",
         "description": (
-            "Led pilot programs to evaluate and enhance future initiatives, collaborating with cross-functional teams to define KPIs and develop reporting solutions. "
-            "Designed and implemented data monitoring processes using Snowflake and Python, achieving 99%+ data integrity. "
-            "Developed interactive dashboards for real-time insights, empowering stakeholders with actionable data. "
-            "Spearheaded company-wide data strategy initiatives and translated complex analytics into clear business insights."
+            " - Led pilot programs to evaluate and enhance future initiatives, collaborating with cross-functional teams to define KPIs and develop reporting solutions. <br>"
+            " - Designed and implemented data monitoring processes using Snowflake and Python, achieving 99%+ data integrity. <br>"
+            " - Developed interactive dashboards for real-time insights, empowering stakeholders with actionable data. <br>"
+            " - Spearheaded company-wide data strategy initiatives and translated complex analytics into clear business insights."
         )
     },
     {
@@ -157,10 +166,10 @@ work_experience = [
         "company": "Ware2Go",
         "duration": "April 2022 – August 2023",
         "description": (
-            "Built an email notification system using Python, SQL, and Airflow, delivering relevant data to over 100 users. "
-            "Established a correction bounty program, reducing operational issues by 10%. "
-            "Led a billing audit project that uncovered $400k in annual missed revenue. "
-            "Maintained department dashboards in DOMO and ensured data quality across 15+ projects, integrating APIs, tables, and ETL processes."
+            " - Built an email notification system using Python, SQL, and Airflow, delivering relevant data to over 100 users. <br>"
+            " - Established a correction bounty program, reducing operational issues by 10%. <br>"
+            " - Led a billing audit project that uncovered $400k in annual missed revenue.<br> "
+            " - Maintained department dashboards in DOMO and ensured data quality across 15+ projects, integrating APIs, tables, and ETL processes."
         )
     },
     {
@@ -168,9 +177,9 @@ work_experience = [
         "company": "Ware2Go",
         "duration": "April 2021 – March 2022",
         "description": (
-            "Revamped team dashboards, optimizing ETL processes to reduce reporting lag from 1 hour to 15 minutes. "
-            "Created warehouse productivity and throughput metrics, driving operational improvements. "
-            "Conducted deep-dive analyses into processes, delivering actionable insights for key optimizations."
+            " - Revamped team dashboards, optimizing ETL processes to reduce reporting lag from 1 hour to 15 minutes. <br>"
+            " - Created warehouse productivity and throughput metrics, driving operational improvements.<br> "
+            " - Conducted deep-dive analyses into processes, delivering actionable insights for key optimizations."
         )
     },
     {
@@ -178,9 +187,9 @@ work_experience = [
         "company": "APCO",
         "duration": "September 2019 – March 2021",
         "description": (
-            "Designed dashboards and reports using Excel, PowerBI, and SQL, delivering actionable insights in clear presentations. "
-            "Developed an Excel dashboard to track daily receivables during the Covid-19 pandemic, enabling critical sales decisions. "
-            "Reworked reports by adding new features, migrating data sources, and rewriting SQL scripts to enhance functionality."
+            " - Designed dashboards and reports using Excel, PowerBI, and SQL, delivering actionable insights in clear presentations. <br>"
+            " - Developed an Excel dashboard to track daily receivables during the Covid-19 pandemic, enabling critical sales decisions. <br>"
+            " - Reworked reports by adding new features, migrating data sources, and rewriting SQL scripts to enhance functionality."
         )
     },
     {
@@ -188,23 +197,23 @@ work_experience = [
         "company": "APCO",
         "duration": "July 2018 – September 2019",
         "description": (
-            "Investigated and resolved technical user issues, leveraging skills in Excel, SQL, and Python. "
-            "Streamlined reporting workflows and improved data accessibility for stakeholders."
+            " - Investigated and resolved technical user issues, leveraging skills in Excel, SQL, and Python. <br>"
+            " - Streamlined reporting workflows and improved data accessibility for stakeholders."
         )
     },
     {
         "title": "Education",
         "company": "East China Normal University",
         "duration": "August 2017 – February 2018",
-        "description": "Completed an intensive Mandarin Chinese language program."
+        "description": " - Completed an intensive Mandarin Chinese language program."
     },
     {
         "title": "Education",
         "company": "Florida State University",
         "duration": "August 2014 – May 2018",
         "description": (
-            "Earned a Bachelor of Science in International Affairs with a concentration in Economics. "
-            "Served as Vice President of the Florida State Rowing Team."
+            " - Earned a Bachelor of Science in International Affairs with a concentration in Economics. <br>"
+            " - Served as Vice President of the Florida State Rowing Team."
         )
     }
 ]

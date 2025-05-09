@@ -17,11 +17,11 @@ decision-making.</p>
     <section class="timeline">
         {% for item in work_experience %}
         <div class="timeline-item">
-            <div class="timeline-content">
+            <div class="timeline-content" style="text-align: left;">
                 <h3>{{ item.title }}</h3>
                 <h4>{{ item.company }}</h4>
                 <p><em>{{ item.duration }}</em></p>
-                <p>{{ item.description }}</p>
+                <p>{{ item.description | replace('\n', '<br>') | safe }}</p>
             </div>
         </div>
         {% endfor %}
