@@ -237,7 +237,7 @@ footer {
 }
 
 .footer-icon:hover {
-    transform: scale(1.2);
+    transform: scale(1.05);
 }
 
 /* =====================
@@ -284,7 +284,7 @@ footer {
     margin-right: 0.3rem;
     display: inline-block;
 }
-/* fix me */
+
 .project-card .tool-tag:hover, .project-content ul li:hover {
     background-color: var(--highlight-color); 
     color: var(--bg-color);
@@ -504,13 +504,13 @@ iframe {
 
 .task-percent {
     font-weight: bold;
-    color: var(--highlight-color);
+    color: var(--header-text-color);
     font-size: 1rem;
 }
 
 /* Progress Bar */
 .progress-bar {
-    background-color: var(--footer-color);
+    background-color: var(--highlight-color);
     border-radius: 8px;
     overflow: hidden;
     height: 12px;
@@ -576,7 +576,7 @@ iframe {
     border-radius: 8px;
     padding: 1rem;
     max-width: 45%;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.250);
     position: relative;
     z-index: 1;
 }
