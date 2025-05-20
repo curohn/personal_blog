@@ -151,6 +151,16 @@ work_experience = [
         )
     },
     {
+        "title": "Data & Reporting Manager",
+        "company": "SmartPM",
+        "duration": "May 2025 – Present",
+        "description": (
+            " - Leading the development of a new data warehouse and reporting system, enhancing data accessibility and reporting capabilities. <br>"
+            " - Collaborating with cross-functional teams to define KPIs and develop reporting solutions. <br>"
+            
+        )
+    },
+    {
         "title": "Senior Data Analyst",
         "company": "First American Title",
         "duration": "August 2023 – January 2025",
