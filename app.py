@@ -81,14 +81,15 @@ projects = [
         "github_url": "",
         "tools": [],
         "date": "On Hold",
-        "featured": True  # Added featured attribute
+        "featured": False  # Added featured attribute
     },
     {
         "id": 4,
         "title": "Georgia Power",
         "description": "A project to analyze and visualize Georgia Power's data.",
         "detail_url": "/projects/georgia_power",
-        "github_url": "https://github.com/curohn/georgia_power"
+        "github_url": "https://github.com/curohn/georgia_power",
+        "featured": True
     },
     {
         "id": 3,
@@ -98,7 +99,7 @@ projects = [
         "github_url": "https://github.com/curohn/wage_distribution",
         "tools": ["Python", "Pandas", "Seaborn", "MatPlotLib"],
         "date": "On Hold",
-        "featured": False
+        "featured": True
     },
     {
         "id": 2,
@@ -130,17 +131,16 @@ working_on = [
         "project_name": "work"
     },
     {
+        "task": "Self Study",
+        "progress": 0,
+        "project_name": "self_study"
+    },
+    {
         "task": "Delivery App Simulation",
         "progress": 45,
         "project_name": "delivery_app_simulation"
-    },
-    {
-        "task": "Wage Distribution Analysis",
-        "progress": 60,
-        "project_name": "wage_distribution"
     }
 ]
-
 # Route to render project pages dynamically
 @app.route('/projects/<string:project_name>')
 def project_detail(project_name):

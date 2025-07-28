@@ -1,10 +1,9 @@
 <!-- 
 Auto-synced from: https://github.com/curohn/georgia_power.git
 Project: georgia_power
-Last synced: 2025-07-28 17:18:02
+Last synced: 2025-07-28 17:42:26
 -->
 
-<<<<<<< HEAD
 # Georgia Power Usage Analysis
 
 A Python script to analyze electricity usage and costs from Georgia Power billing data over multiple years.
@@ -57,3 +56,7 @@ The script generates a dual-axis line chart showing:
 - **Blue line**: Average temperature (continuous across all periods)
 - **Red dashed line**: House move date
 - **Orange dotted line**: New windows installation date
+
+![Results](/static/images/projects/georgia_power/ga_power_20250728.png)
+
+This visualization helps identify seasonal patterns, the impact of housing changes, and energy efficiency improvements over time.

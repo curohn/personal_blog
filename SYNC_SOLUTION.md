@@ -51,12 +51,24 @@ To add a new project to the sync:
 ## Features
 
 - ✅ **Single Source of Truth**: Maintain content only in your project repositories
+- ✅ **Automatic Image Sync**: Downloads images from GitHub repos and updates paths
 - ✅ **Automatic Metadata**: Adds sync timestamps and source repository info
 - ✅ **Windows Compatible**: Handles file permission issues on Windows
 - ✅ **Error Handling**: Graceful handling of network issues or missing files  
 - ✅ **Markdown to HTML**: Automatic conversion with syntax highlighting and tables
 - ✅ **Progress Tracking**: Shows project progress bars from your `working_on` data
 - ✅ **GitHub Integration**: Direct links to source repositories
+
+## Image Handling
+
+The sync script automatically:
+1. **Finds images** referenced in your README files (PNG, JPG, GIF, SVG)
+2. **Downloads images** from your GitHub repositories
+3. **Organizes images** into `static/images/projects/{project_name}/` folders
+4. **Updates paths** in markdown to use your website's static file structure
+5. **Preserves alt text** and maintains image accessibility
+
+Images are downloaded from the raw GitHub URLs and stored locally, so your website doesn't depend on external GitHub resources.
 
 ## Workflow
 

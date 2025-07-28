@@ -1,6 +1,6 @@
 # To Do
 - [x] Add back github links
-
+- [x] Update with sync script to pull markdown files from github directly
 
 # Done
 - [x] /contact: send email to me
