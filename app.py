@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import os
 from datetime import datetime
 import markdown
+from utils import load_project_markdown
 
 load_dotenv()
 
@@ -54,24 +55,40 @@ def research_and_projects():
 
 projects = [
     {
-        "id": 5,
+        "id": 7,
+        "title": "Work",
+        "description": "A write up of my current work.",
+        "detail_url": "/projects/work",
+        "github_url": "",
+        "tools": ["Python", "SQL", "Airbyte", "Redshift", "Metabase", "dbt"],
+        "date": "Ongoing"
+    },
+    {
+        "id": 6,
         "title": "Delivery App Simulation",
         "description": "Modeling a delivery app using Python and sqlite.",
         "detail_url": "/projects/delivery_app_simulation",
         "github_url": "https://github.com/curohn/delivery_app_simulation",
         "tools": ["Python", "SQLite"],
-        "date": "In Progress",
+        "date": "On Hold",
         "featured": True  # Added featured attribute
     },
     {
-        "id": 4,
+        "id": 5,
         "title": "Self Study",
         "description": "What I'm currently working on to improve my skills.",
         "detail_url": "/projects/self_study",
         "github_url": "",
         "tools": [],
-        "date": "In Progress",
-        "featured": False  # Added featured attribute
+        "date": "On Hold",
+        "featured": True  # Added featured attribute
+    },
+    {
+        "id": 4,
+        "title": "Georgia Power",
+        "description": "A project to analyze and visualize Georgia Power's data.",
+        "detail_url": "/projects/georgia_power",
+        "github_url": "https://github.com/curohn/georgia_power"
     },
     {
         "id": 3,
@@ -80,8 +97,8 @@ projects = [
         "detail_url": "/projects/wage_distribution",
         "github_url": "https://github.com/curohn/wage_distribution",
         "tools": ["Python", "Pandas", "Seaborn", "MatPlotLib"],
-        "date": "In Progress",
-        "featured": True
+        "date": "On Hold",
+        "featured": False
     },
     {
         "id": 2,
@@ -108,6 +125,11 @@ projects = [
 ]
 working_on = [
     {
+        "task": "Work",
+        "progress": 100,
+        "project_name": "work"
+    },
+    {
         "task": "Delivery App Simulation",
         "progress": 45,
         "project_name": "delivery_app_simulation"
@@ -127,12 +149,37 @@ def project_detail(project_name):
     if not project:
         return "Project not found", 404
 
-    return render_template(
-        f'projects/{project_name}.html',
-        theme=theme,
-        projects=sorted(projects, key=lambda p: p["id"], reverse=True),  # Keep consistent order
-        current_project_id=project["id"]  # Pass current project ID
-    )
+    # Try to load markdown content first
+    markdown_content = load_project_markdown(project_name)
+    
+    if markdown_content:
+        # Get progress from working_on list
+        progress = None
+        for item in working_on:
+            if item.get("project_name") == project_name:
+                progress = item.get("progress")
+                break
+        
+        return render_template(
+            'projects/markdown_template.html',
+            theme=theme,
+            projects=sorted(projects, key=lambda p: p["id"], reverse=True),
+            current_project_id=project["id"],
+            project=project,
+            content=markdown_content,
+            progress=progress
+        )
+    
+    # Fallback to HTML template if no markdown found
+    try:
+        return render_template(
+            f'projects/{project_name}.html',
+            theme=theme,
+            projects=sorted(projects, key=lambda p: p["id"], reverse=True),
+            current_project_id=project["id"]
+        )
+    except:
+        return "Project template not found", 404
 
 
 @app.route('/experience-and-education')
@@ -155,7 +202,9 @@ work_experience = [
         "company": "SmartPM",
         "duration": "May 2025 – Present",
         "description": (
-            " - Leading the development of a new data warehouse and reporting system, enhancing data accessibility and reporting capabilities. <br>"
+            " - Developed and implemented a comprehensive data strategy, enhancing data-driven decision-making across the organization. <br>"
+            " - Developed a data warehouse, etl processes, and a data viz/dashboarding system."
+            "Leading the development of a new data warehouse and reporting system, enhancing data accessibility and reporting capabilities. <br>"
             " - Collaborating with cross-functional teams to define KPIs and develop reporting solutions. <br>"
             
         )

@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="project-detail-page">
+    <!-- Sidebar for Other Projects -->
+    <aside class="project-sidebar">
+        <h2><u>Projects:</u><br><br/></h2>
+        <ul>
+            {% for other_project in projects %}
+            <li class="{% if other_project['id'] == current_project_id %}active underline{% endif %}">
+                <a href="{{ other_project['detail_url'] }}">{{ other_project['title'] }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="project-detail">
+        <h2 id="project-overview">Project Overview</h2>
+        <p>I'm working on building out a data warehouse from scratch at a startup. It's been a fun project involving everything from setting up cloud infrastructure to working with the sales team to figure out what data they actually need. The main focus is getting Monthly Recurring Revenue (MRR) tracking sorted and making sure everyone has the data they need to make good decisions.</p>
+
+        <h2 id="tech-stack">Tech Stack & Tools</h2>
+        <ul>
+            <li><strong>Data Warehouse:</strong> Amazon Redshift</li>
+            <li><strong>Storage:</strong> Amazon S3</li>
+            <li><strong>Data Integration:</strong> Airbyte</li>
+            <li><strong>Data Transformation:</strong> dbt (data build tool)</li>
+            <li><strong>Visualization:</strong> Metabase (planned)</li>
+            <li><strong>Data Sources:</strong> HubSpot, billing system, customer success platform</li>
+            <li><strong>Project Management:</strong> Jira</li>
+        </ul>
+
+        <h2 id="key-accomplishments">What I've Been Working On</h2>
+        <h3 id="infrastructure">Getting Everything Set Up</h3>
+        <ul>
+            <li>Worked with the ops team to get our Redshift warehouse and S3 storage up and running</li>
+            <li>Got Airbyte working locally and connected it to our CRM system</li>
+            <li>Set up a proper GitHub repo with a sensible structure for all our data models</li>
+            <li>Created naming conventions so we don't end up with tables called "table_final_final_v2"</li>
+        </ul>
+
+        <h3 id="data-integration">Building Data Pipelines</h3>
+        <ul>
+            <li>Built custom API scripts to pull revenue data from our billing system</li>
+            <li>Migrated some old scripts to Airbyte to make everything more maintainable</li>
+            <li>Set up automated data loads to S3 that actually run on schedule</li>
+            <li>Got our CRM data flowing properly for sales pipeline analysis</li>
+        </ul>
+
+        <h3 id="data-modeling">Data Modeling & Transformation</h3>
+        <ul>
+            <li>Built dbt models to transform raw data into something actually useful</li>
+            <li>Created revenue tables that actually reconcile with our billing system</li>
+            <li>Built some recursive logic to track transaction histories properly</li>
+            <li>Made tables for enhanced revenue reporting</li>
+        </ul>
+
+        <h3 id="analytics">Analytics & Reporting</h3>
+        <ul>
+            <li>Automated customer scoring reports so they don't have to be done manually</li>
+            <li>Did a deep dive into churn analysis for leadership</li>
+            <li>Built reporting for the sales team so they can actually see their pipeline</li>
+            <li>Documented what all our metrics actually mean (surprisingly important!)</li>
+        </ul>
+
+        <h2 id="stakeholder-engagement">Working with the Team</h2>
+        <p>One of the fun parts has been figuring out what everyone actually needs:</p>
+        <ul>
+            <li>Regular check-ins with leadership to make sure I'm building the right stuff</li>
+            <li>Worked with different department heads to understand their specific needs</li>
+            <li>Spent a lot of time with the sales team to understand their workflow</li>
+            <li>Dug into existing reports to see what was working and what wasn't</li>
+        </ul>
+
+        <h2 id="current-focus">What I'm Focused on Now</h2>
+        <ul>
+            <li>Getting MRR tracking and forecasting dialed in</li>
+            <li>Making sales pipeline reporting actually useful</li>
+            <li>Customer lifecycle analysis and churn prediction</li>
+            <li>Making sure our revenue numbers actually match between systems</li>
+            <li>Diving deeper into CRM data relationships</li>
+        </ul>
+
+        <h2 id="timeline">How It's Been Going</h2>
+        <p><strong>May 2025:</strong> Started the project, got infrastructure set up, talked to everyone<br>
+        <strong>June 2025:</strong> Built data pipelines, created first dbt models, got initial reports working<br>
+        <strong>July 2025:</strong> Advanced pipeline work, finished revenue tables, focused on sales team needs</p>
+
+        <h2 id="conclusion">Wrap Up</h2>
+        <p>It's been a great project that's let me work on everything from infrastructure to stakeholder management. Building a data warehouse from scratch at a startup is equal parts challenging and rewarding - you get to make all the architectural decisions, but you also have to make sure everything actually works for the business.</p>
+    </div>
+</div>
+{% endblock %}

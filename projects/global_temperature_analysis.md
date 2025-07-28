@@ -1,13 +1,19 @@
+<!-- 
+Auto-synced from: https://github.com/curohn/global_temperatures.git
+Project: global_temperatures
+Last synced: 2025-07-28 17:18:02
+-->
+
+# Linear Regression Analysis of US Average Temperatures
+
 ## Project Overview
-This project aims to analyze the average temperatures of the United States over time using linear regression. The dataset used in this project is the "Global Land Temperatures By Country" dataset, which includes temperature records for various countries. The project involves data preprocessing, fitting a linear regression model to the data, and visualizing trends to make future predictions.
+This project aims to analyze the average temperatures of the United States over time using linear regression. The dataset used in this project is the "GlobalLandTemperaturesByCountry" dataset, which includes temperature records for various countries. The project involves data preprocessing, fitting a linear regression model to the data, and visualizing trends to make future predictions.
 
 ## Features
 - Data Cleaning: Handling missing values using forward fill and filtering out inaccurate data before 1820.
 - Yearly Resampling: Resampling the temperature data to obtain yearly average temperatures.
 - Linear Regression: Using linear regression to fit a trend line and predict future temperatures for 50 years.
 - Uncertainty Calculation: Calculating the upper and lower bounds of uncertainty in the average temperature estimates.
-
-![Linear Regression Graph](../static/images/global_temp_graph.png)
 
 ## Tools and Libraries
 - **Python**: Main programming language used for analysis.
@@ -23,3 +29,5 @@ This project aims to analyze the average temperatures of the United States over 
 ## Acknowledgments
 - Dataset provided by [Kaggle](https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data).
 
+## Author
+This project was developed by John Curran.
