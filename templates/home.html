@@ -3,8 +3,8 @@
 {% block content %}
 
 <div class="container">
-    <h1 class="display-4 mb-4">Portfolio</h1>
-    <p class="lead mb-5">I'm a data professional, specializing in data visualization and predictive analytics. This site showcases my personal projects, professional work, and some stuff just for fun. Links are available to the source code inside each project card. </p>
+    <h1 class="display-4 mb-4">Data Analytics & Visualization</h1>
+    <p class="lead mb-5">I transform complex data into actionable insights through predictive analytics and compelling visualizations. Explore my projects showcasing data-driven solutions in business intelligence, machine learning, and statistical analysis.</p>
     
 
 <!-- Featured Work Section -->
@@ -30,11 +30,15 @@
         <div class="task-card">
             <div class="task-header">
                 <span class="task-title">{{ item.task }}</span>
+                {% if item.show_progress %}
                 <span class="task-percent">{{ item.progress }}%</span>
+                {% endif %}
             </div>
+            {% if item.show_progress %}
             <div class="progress-bar">
                 <div class="progress" style="width: {{ item.progress }}%;"></div>
             </div>
+            {% endif %}
             <a href="{{ url_for('project_detail', project_name=item.project_name) }}" class="btn">View Details</a>
         </div>
         {% endfor %}
@@ -47,9 +51,7 @@
     <div class="next-up-grid">
         <body>
             <ul> 
-                <li>Integrate Plotly Charts into personal site, for more interactive visualizations</li>
-                <li>Build epaper weather station using <u><a href= "https://github.com/fatihak/InkyPi">InkyPi</a></u></li>
-                <li>Data Science Project</li>
+                <li>Develop apps and watch faces for Pebble watch</li>
                 <li>Election Night Statistics</li>
                 <li>Money in Politics Dataset Review</li>
                 <li>Writeup of: <u><a href= "https://www.pnas.org/doi/10.1073/pnas.1210722109">Statistical detection of systematic election irregularities </a></u></li>

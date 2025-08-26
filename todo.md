@@ -1,6 +1,6 @@
 # To Do
 - [x] Add back github links
-
+- [ ] leave project in sidebar and show selected
 
 # Done
 - [x] /contact: send email to me

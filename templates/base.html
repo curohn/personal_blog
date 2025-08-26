@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon for all browsers -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icons/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='icons/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='icons/favicon-32x32.png') }}">
+    {% if theme == 'dark' %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icons/favicon-dark-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='icons/favicon-dark-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='icons/favicon-dark-32x32.png') }}">
+    {% else %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icons/favicon-light-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='icons/favicon-light-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='icons/favicon-light-32x32.png') }}">
+    {% endif %}
 
     <!-- General Meta Tags -->
     <meta name="description" content="{{ description if description else 'Showcase of my work and research.' }}">
@@ -39,7 +45,11 @@
             <!-- Favicon and Name -->
             <div class="navbar-logo">
                 <a href="{{ url_for('home') }}">
-                    <img src="{{ url_for('static', filename='icons/favicon-32x32.png') }}" alt="Logo" class="favicon">
+                    {% if theme == 'dark' %}
+                    <img src="{{ url_for('static', filename='icons/favicon-dark-32x32.png') }}" alt="Logo" class="favicon">
+                    {% else %}
+                    <img src="{{ url_for('static', filename='icons/favicon-light-32x32.png') }}" alt="Logo" class="favicon">
+                    {% endif %}
                 </a>
                 <span class="site-name">John Curran</span>
             </div>
@@ -83,7 +93,11 @@
                             <img src="{{ url_for('static', filename='icons/LI-In-Bug.png') }}" alt="LinkedIn" class="footer-icon">
                         </a>
                         <a href="https://github.com/curohn" target="_blank">
+                            {% if theme == 'dark' %}
                             <img src="{{ url_for('static', filename='icons/github-mark-white.png') }}" alt="GitHub" class="footer-icon">
+                            {% else %}
+                            <img src="{{ url_for('static', filename='icons/github-mark.png') }}" alt="GitHub" class="footer-icon">
+                            {% endif %}
                         </a>
                     </div>
                 </div>
@@ -100,6 +114,30 @@
             const navbarLinks = document.querySelector('.navbar-links');
             navbarLinks.classList.toggle('active');
         }
+
+        // Update favicon when theme changes
+        function updateFavicon(isDark) {
+            const faviconLinks = document.querySelectorAll('link[rel*="icon"]');
+            const iconType = isDark ? 'dark' : 'light';
+            faviconLinks.forEach(link => {
+                const size = link.sizes ? link.sizes.value : '32x32';
+                link.href = `{{ url_for('static', filename='icons/favicon-') }}${iconType}-32x32.png`;
+            });
+        }
+
+        // Listen for theme changes
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.attributeName === 'class') {
+                        const isDark = body.classList.contains('dark-mode');
+                        updateFavicon(isDark);
+                    }
+                });
+            });
+            observer.observe(body, { attributes: true });
+        });
     </script>
 </body>
 </html>

@@ -4,12 +4,24 @@ from dotenv import load_dotenv
 import os
 from datetime import datetime
 import markdown
+import re
 
 load_dotenv()
 
 # Create a Flask application instance
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'default_secret_key')
+
+def read_markdown_file(file_path):
+    """Read and convert a markdown file to HTML."""
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+            # Convert markdown to HTML with extra extensions
+            html = markdown.markdown(content, extensions=['fenced_code', 'tables', 'toc'])
+            return html
+    except FileNotFoundError:
+        return None
 
 # Track downloads
 @app.route('/download_resume')
@@ -31,8 +43,8 @@ PROJECTS_DIR = os.path.join(BASE_DIR, "projects")
 # Toggle Theme Route
 @app.route('/toggle_theme', methods=['POST'])
 def toggle_theme():
-    current_theme = session.get('theme', 'light')
-    new_theme = 'dark' if current_theme == 'light' else 'light'
+    current_theme = session.get('theme', 'dark')  # Default to dark
+    new_theme = 'light' if current_theme == 'dark' else 'dark'
     session['theme'] = new_theme
     response = make_response(redirect(request.referrer or url_for('home')))
     return response
@@ -41,37 +53,61 @@ def toggle_theme():
 # Define routes for different pages
 @app.route('/')
 def home():
-    theme = session.get('theme', 'light')
+    theme = session.get('theme', 'dark')  # Default to dark theme
     featured_projects = [p for p in projects if p.get("featured", False)]  # Filter featured projects
     return render_template('home.html', projects=featured_projects, working_on=working_on, theme=theme)
 
 
 @app.route('/research-and-projects')
 def research_and_projects():
-    theme = session.get('theme', 'light')
+    theme = session.get('theme', 'dark')  # Default to dark
     return render_template('research_and_projects.html', projects=projects, title="Research and Projects - John Curran", theme=theme)
 
 
 projects = [
     {
-        "id": 5,
+        "id": 8,
+        "title": "Masters Program",
+        "description": "A project to complete my Masters degree.",
+        "detail_url": "/projects/masters_program",
+        "date": "August 2025 - April 2027"
+    },
+    {
+        "id": 7,
+        "title": "Work",
+        "description": "A write up of my current work.",
+        "detail_url": "/projects/work",
+        "github_url": "",
+        "tools": ["Python", "SQL", "Airbyte", "Redshift", "Metabase", "dbt"],
+        "date": "April 2025 - Present"
+    },
+    {
+        "id": 6,
         "title": "Delivery App Simulation",
         "description": "Modeling a delivery app using Python and sqlite.",
         "detail_url": "/projects/delivery_app_simulation",
         "github_url": "https://github.com/curohn/delivery_app_simulation",
         "tools": ["Python", "SQLite"],
-        "date": "In Progress",
+        "date": "On Hold",
         "featured": True  # Added featured attribute
     },
     {
-        "id": 4,
+        "id": 5,
         "title": "Self Study",
         "description": "What I'm currently working on to improve my skills.",
         "detail_url": "/projects/self_study",
         "github_url": "",
         "tools": [],
-        "date": "In Progress",
+        "date": "On Hold",
         "featured": False  # Added featured attribute
+    },
+    {
+        "id": 4,
+        "title": "Georgia Power",
+        "description": "A project to analyze and visualize Georgia Power's data.",
+        "detail_url": "/projects/georgia_power",
+        "github_url": "https://github.com/curohn/georgia_power",
+        "featured": True
     },
     {
         "id": 3,
@@ -80,7 +116,7 @@ projects = [
         "detail_url": "/projects/wage_distribution",
         "github_url": "https://github.com/curohn/wage_distribution",
         "tools": ["Python", "Pandas", "Seaborn", "MatPlotLib"],
-        "date": "In Progress",
+        "date": "On Hold",
         "featured": True
     },
     {
@@ -108,36 +144,49 @@ projects = [
 ]
 working_on = [
     {
-        "task": "Delivery App Simulation",
-        "progress": 45,
-        "project_name": "delivery_app_simulation"
+        "task": "Work",
+        "project_name": "work",
+        "show_progress": False  # Hide progress bar for completed work
     },
     {
-        "task": "Wage Distribution Analysis",
-        "progress": 60,
-        "project_name": "wage_distribution"
+        "task": "Self Study",
+        "project_name": "self_study",
+        "show_progress": False
+    },
+    {
+        "task": "Masters Program",
+        "project_name": "masters_program",
+        "show_progress": False
     }
 ]
 
 # Route to render project pages dynamically
 @app.route('/projects/<string:project_name>')
 def project_detail(project_name):
-    theme = session.get('theme', 'light')
+    theme = session.get('theme', 'dark')  # Default to dark
     project = next((p for p in projects if p["detail_url"] == f"/projects/{project_name}"), None)
     if not project:
         return "Project not found", 404
+    
+    # Read the markdown file
+    md_path = os.path.join(PROJECTS_DIR, f"{project_name}.md")
+    content_html = read_markdown_file(md_path)
+    if content_html is None:
+        return "Project content not found", 404
 
     return render_template(
-        f'projects/{project_name}.html',
+        'project_detail.html',
         theme=theme,
-        projects=sorted(projects, key=lambda p: p["id"], reverse=True),  # Keep consistent order
-        current_project_id=project["id"]  # Pass current project ID
+        projects=sorted(projects, key=lambda p: p["id"], reverse=True),
+        current_project_id=project["id"],
+        project=project,
+        content=content_html
     )
 
 
 @app.route('/experience-and-education')
 def experience_and_education():
-    theme = session.get('theme', 'light')
+    theme = session.get('theme', 'dark')  # Default to dark
     return render_template('experience_and_education.html', work_experience=work_experience, title="Experience and Education - John Curran", theme=theme)
 
 work_experience = [
@@ -155,9 +204,10 @@ work_experience = [
         "company": "SmartPM",
         "duration": "May 2025 – Present",
         "description": (
-            " - Leading the development of a new data warehouse and reporting system, enhancing data accessibility and reporting capabilities. <br>"
+            " - Developed and implemented a comprehensive data strategy, enhancing data-driven decision-making across the organization. <br>"
+            " - Developed a data warehouse, etl processes, and a data viz/dashboarding system."
+            " -Leading the development of a new data warehouse and reporting system, enhancing data accessibility and reporting capabilities. <br>"
             " - Collaborating with cross-functional teams to define KPIs and develop reporting solutions. <br>"
-            
         )
     },
     {

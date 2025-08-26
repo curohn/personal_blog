@@ -1,43 +1,37 @@
 
-While the foundation of the site is solid, several features are still in development, and content is being actively expanded. 
- 
- ---
+# Personal Website
 
-### **Overview**
-This personal website serves as a central hub to showcase my portfolio, ongoing projects, and research endeavors. It is designed to highlight my technical expertise and provide visitors with insights into my work and professional journey.
+Welcome to my personal website! This platform showcases my portfolio, current projects, research, and provides insights into my professional journey.
 
----
-### **Features**
-**Homepage**:
+## 🚀 Features
 
-  - A clean and welcoming hero section with my name, tagline, and quick navigation links.
-  - About Me section introducing my skills and professional background.
-  - Dynamic progress bars in the "Currently Working On" section for real-time project updates.
+- **Homepage**:
+  - Hero section with my tagline and quick links to explore my work or contact me.
+  - "About Me" section with a brief introduction and a link to my resume.
+  - Featured projects with descriptions and links to detailed writeups.
+  - "Currently Working On" section with dynamic progress bars and links to project details.
+  - Contact form for reaching out and links to my social profiles.
 
-  **Research and Projects**:
+- **Research and Projects**:
+  - Detailed writeups of projects and exploratory research.
+  - Markdown-based content for flexibility and easy updates.
+  - Tags for tools and languages used in each project.
 
-  - A centralized page for detailed project writeups and exploratory research.
-  - Markdown support for easy updates and rich content formatting.
-  - Intuitive labels for tools and languages used in each project.
+- **Project Details**:
+  - Markdown-rendered content for each project.
+  - Tools/languages used displayed as intuitive labels.
+  - Links to GitHub repositories.
 
-  **Project Details**:
+- **Experience and Education**:
+  - Timeline view of my experience and education history.
+  - Downloadable format with analytics tracking.
 
-  - Rich Markdown-rendered content for each project, showcasing methodologies and results.
-  - Links to corresponding GitHub repositories for full transparency and collaboration.
-
-  **Experience and Education**:
-
-  - Embedded PDF viewer for convenient browsing.
-  - Downloadable format with analytics tracking for visitor engagement.
-
-  **Contact Form**:
-
-  - An easy way for visitors to reach out with inquiries or collaboration opportunities.
-
----
-
-### **Technologies**
+## 🛠️ Technologies Used
 - **Backend**: Flask (Python)
-- **Frontend**: HTML, CSS
+- **Frontend**: HTML5, CSS
 - **Database**: None (static content for now)
-- **Markdown Support**: Enables dynamic project writeups.
+- **Markdown Support**: Dynamic rendering for project details
+
+## 🌐 Live Demo
+
+The website is hosted on [Render](render.com) at: [j-curran.com](j-curran.com)

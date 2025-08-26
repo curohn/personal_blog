@@ -1,38 +1,56 @@
 /* =====================
    Theme Variables
-   5 colors
-
    ===================== */
 :root {
-    --bg-color: #dfe6e9; /*1*/ /*new*/
-    --text-color: #2d3436; /*2*/ /*new*/
-    --button-bg: #2d3436; /*3*/ /*new*/
-    --button-text: #ffffff; /*1*/
-    --highlight-color: #BFC0C0; /*5*/
-    --header-color: #dfe6e9; /*1*/ /*new*/
-    --header-text-color: #2d3436; /*3*/ /*new*/
-    --footer-color: #2d3436; /*1*/ /*new*/
-    --footer-text-color: #dfe6e9; /*3*/
-    --alt-color: #00b894; /*4*/ /*new*/
+    /* Light Mode Defaults */
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --text-secondary: #666666;
+    --button-bg: #000000;
+    --button-text: #ffffff;
+    --highlight-color: rgba(0, 0, 0, 0.05);
+    --header-color: rgba(255, 255, 255, 0.8);
+    --header-text-color: #111111;
+    --footer-color: #fafafa;
+    --footer-text-color: #666666;
+    --alt-color: #5E6AD2;
+    --card-bg: #ffffff;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.05);
 }
 
 body.light-mode {
-    --bg-color: #FDFDFF; /**/	 
-    --text-color: #14213d; 
-    	   
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --text-secondary: #666666;
+    --button-bg: #000000;
+    --button-text: #ffffff;
+    --highlight-color: rgba(0, 0, 0, 0.05);
+    --header-color: rgba(255, 255, 255, 0.8);
+    --header-text-color: #111111;
+    --footer-color: #fafafa;
+    --footer-text-color: #666666;
+    --alt-color: #5E6AD2;
+    --card-bg: #ffffff;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.05);
 }
 
 body.dark-mode {
-    --bg-color: #2d3436; /*1*/
-    --text-color: #dfe6e9; /*2*/
-    --button-bg: #dfe6e9; /*3*/
-    --button-text: #2d3436; /*1*/
-    --highlight-color: #4F5D75; /*5*/
-    --footer-color: #2d3436; /*1*/
-    --footer-text-color: #dfe6e9; /*3*/
-    --header-color: #2d3436; /*1*/
-    --header-text-color: #2d3436; /*3*/
-    --alt-color: #00b894; /*4*/
+    --bg-color: #101112;
+    --text-color: #FFFFFF;
+    --text-secondary: #A1A1AA;
+    --button-bg: #27282D;
+    --button-text: #FFFFFF;
+    --highlight-color: rgba(255, 255, 255, 0.06);
+    --header-color: #101112;
+    --header-text-color: #FFFFFF;
+    --footer-color: #17181A;
+    --footer-text-color: #A1A1AA;
+    --alt-color: #5E6AD2;
+    --card-bg: #17181A;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Use the variables for all theme colors */
@@ -49,12 +67,14 @@ body {
    ===================== */
 
 header {
-    color: var(--header-color) !important;
-    border-bottom: 2px solid var(--highlight-color);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    color: var(--header-text-color);
+    backdrop-filter: blur(8px);
     margin: 0;
-    padding: 1rem; /* Add consistent padding */
-    background-color: var(--bg-color); /* Match main body background */
+    padding: 1rem;
+    background-color: var(--header-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 @keyframes fadeIn {
@@ -64,22 +84,36 @@ header {
 }
 
 h2 {
-    border-bottom: 2px solid var(--highlight-color);	
     color: var(--text-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
 }
 
-h1, h3 {
-    color: var(--text-color); 
-	
+h1 {
+    color: var(--text-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    color: var(--text-color);
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
 }
 
 a {
-    color: var(--text-color);
+    color: var(--alt-color);
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 a:hover {
-    color: var(--highlight-color); 
+    color: var(--text-color);
 }
 
 /* =====================
@@ -88,13 +122,12 @@ a:hover {
 /* Navigation Bar */
 
 .navbar {
-    background-color: white !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: var(--header-color);
     display: flex;
-    align-items: left;
+    align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    background-color: var(--header-color);
+    width: 100%;
 }
 
 /* Favicon and Name */
@@ -109,7 +142,8 @@ a:hover {
 .navbar-logo .site-name {
     font-size: 1.2rem;
     color: var(--header-text-color);
-    font-weight: bold;
+    font-weight: 600;
+    letter-spacing: -0.01em;
 }
 
 /* Navigation Links */
@@ -125,13 +159,13 @@ a:hover {
 .navbar-links a {
     color: var(--header-text-color);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
     padding: 0.5rem 1rem;
+    transition: opacity 0.2s ease;
 }
 
 .navbar-links a:hover {
-    background-color: var(--highlight-color);
-    border-radius: 8px;
+    opacity: 0.8;
 }
 
 .navbar-links .active a {
@@ -185,17 +219,23 @@ a:hover {
    ===================== */
 button, .btn {
     background-color: var(--button-bg);
-    color: var(--bg-color); 
+    color: var(--button-text);
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-weight: bold;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
     cursor: pointer;
     margin: 0.5rem;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
 }
 
 button:hover, .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--shadow-color);
     opacity: 0.9;
 }
 
@@ -253,24 +293,41 @@ footer {
 
 /* Project Card */
 .project-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1rem;
-    background-color: var(--bg-color);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: left;
+    transition: all 0.2s ease;
+    position: relative;
     overflow: hidden;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--alt-color), transparent);
+    opacity: 0;
+    transition: opacity 0.2s ease;
 }
 
 .project-card h3 {
-    color: var(--text-color); /* Ashwood Moss */
-    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
 }
 
 .project-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    border-color: var(--alt-color);
+    box-shadow: 0 0 0 1px var(--alt-color);
+}
+
+.project-card:hover::before {
+    opacity: 1;
 }
 
 
@@ -304,46 +361,67 @@ footer {
 
 /* Sidebar Styles */
 .project-sidebar {
-    width: 25%; /* Adjust width as needed */
-    background-color: var(--bg-color);
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    width: 240px; /* Fixed width for consistency */
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    position: sticky;
+    top: 100px;
+    height: fit-content;
 }
 
-.project-sidebar h3 {
+.project-sidebar h2 {
     color: var(--text-color);
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
 }
 
 .project-sidebar ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .project-sidebar li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .project-sidebar li a {
     text-decoration: none;
-    color: var(--text-color);
-    font-weight: bold;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: block;
+    padding: 0.3rem 1rem;
+    margin-left: -1rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
 }
 
 .project-sidebar li.active a {
-    color: var(--highlight-color)
-    text-decoration: underline;
+    color: var(--alt-color);
+    position: relative;
+    background-color: var(--highlight-color);
+}
+
+.project-sidebar li.active a::before {
+    content: '';
+    position: absolute;
+    left: 0.35rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--alt-color);
 }
 
 .project-sidebar li a:hover {
-    text-decoration: underline;
-}
-
-.project-sidebar li.underline a {
-    text-decoration: underline;
-    font-weight: bold;
+    color: var(--alt-color);
+    background-color: var(--highlight-color);
 }
 
 /* Main Content */
@@ -472,20 +550,18 @@ iframe {
 }
 
 /* Task Card */
-
 .task-card {
-    background-color: var(--bg-color);
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
     text-align: left;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .task-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--alt-color);
+    box-shadow: 0 0 0 1px var(--alt-color);
 }
 
 /* Task Header */
@@ -493,34 +569,37 @@ iframe {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .task-title {
-    font-weight: bold;
+    font-weight: 600;
     color: var(--text-color);
     font-size: 1.1rem;
+    letter-spacing: -0.01em;
 }
 
 .task-percent {
-    font-weight: bold;
-    color: var(--header-text-color);
-    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
 }
 
 /* Progress Bar */
 .progress-bar {
     background-color: var(--highlight-color);
-    border-radius: 8px;
+    border-radius: 4px;
     overflow: hidden;
-    height: 12px;
+    height: 6px;
     margin-top: 0.5rem;
+    position: relative;
 }
 
 .progress {
-    background-color: var(--alt-color);
+    background: linear-gradient(90deg, var(--alt-color), #7C85E6);
     height: 100%;
-    border-radius: 8px 0 0 8px;
+    border-radius: 4px;
+    transition: width 0.3s ease;
 }
 
 

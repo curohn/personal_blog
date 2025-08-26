@@ -2,16 +2,14 @@
 
 {% block content %}
 <div class="project-detail-page">
-    <!-- Sidebar for Other Projects -->
+    <!-- Sidebar for Projects -->
     <aside class="project-sidebar">
-        <h2><u>Projects:</u><br><br/></h2>
+        <h2>Projects</h2>
         <ul>
             {% for other_project in projects %}
-            {% if other_project['id'] != project['id'] %}
-            <li>
+            <li {% if other_project['id'] == project['id'] %}class="active"{% endif %}>
                 <a href="{{ other_project['detail_url'] }}">{{ other_project['title'] }}</a>
             </li>
-            {% endif %}
             {% endfor %}
         </ul>
     </aside>
@@ -23,16 +21,22 @@
 
         <!-- Render HTML Content -->
         <div class="html-content">
-            {{ writeup|safe }}
+            {{ content|safe }}
         </div>
         
         <!-- GitHub Button -->
+        {% if project['github_url'] %}
         <p>
             <a href="{{ project['github_url'] }}" target="_blank" class="btn">
+                {% if theme == 'dark' %}
                 <img src="{{ url_for('static', filename='icons/github-mark-white.png') }}" alt="GitHub" class="icon">
+                {% else %}
+                <img src="{{ url_for('static', filename='icons/github-mark.png') }}" alt="GitHub" class="icon">
+                {% endif %}
                 View on GitHub
             </a>
         </p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
