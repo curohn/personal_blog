@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="project-detail-page">
+    <!-- Sidebar for Other Projects -->
+    <aside class="project-sidebar">
+        <h2><u>Projects:</u><br><br/></h2>
+        <ul>
+            {% for other_project in projects %}
+            <li class="{% if other_project['id'] == current_project_id %}active underline{% endif %}">
+                <a href="{{ other_project['detail_url'] }}">{{ other_project['title'] }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="project-detail">
+        {% if progress %}
+        <div class="progress-section">
+            <progress value="{{ progress }}" max="100"></progress> {{ progress }}%
+        </div>
+        {% endif %}
+        
+        {% if project.github_url %}
+        <div class="project-links">
+            <a href="{{ project.github_url }}" class="btn github-btn" target="_blank">
+                <img src="{{ url_for('static', filename='icons/github-mark.png') }}" alt="GitHub"> 
+                View on GitHub
+            </a>
+        </div>
+        {% endif %}
+
+        <!-- Render the markdown content as HTML -->
+        <div class="markdown-content">
+            {{ content | safe }}
+        </div>
+
+        {% if project.tools %}
+        <div class="tools-section">
+            <h3>Tools & Technologies</h3>
+            <div class="tools-list">
+                {% for tool in project.tools %}
+                <span class="tool-tag">{{ tool }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if project.date %}
+        <div class="project-date">
+            <small>Last updated: {{ project.date }}</small>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

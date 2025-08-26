@@ -14,6 +14,18 @@ global_temperatures/
 ├── .gitignore                          # Git ignore file
 └── venv/                               # Virtual environment (ignored)
 ```
+This project analyzes the average temperatures of the United States over time using linear regression. The dataset used is the "GlobalLandTemperaturesByCountry" dataset from Berkeley Earth, which includes monthly temperature records for various countries from 1743 onwards. The project involves data preprocessing, fitting a linear regression model to US temperature data, and visualizing historical trends with 50-year future predictions.
+
+## Project Structure
+```
+global_temperatures/
+├── main.py                              # Main analysis script
+├── GlobalLandTemperaturesByCountry.csv  # Temperature dataset
+├── global_temps.png                     # Generated visualization
+├── README.md                           # Project documentation
+├── .gitignore                          # Git ignore file
+└── venv/                               # Virtual environment (ignored)
+```
 
 ## Features
 - **Data Filtering**: Extracts US temperature data and filters out inaccurate records before 1821

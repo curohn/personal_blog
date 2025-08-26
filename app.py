@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import os
 from datetime import datetime
 import markdown
+from utils import load_project_markdown
 import re
 
 load_dotenv()
@@ -159,7 +160,6 @@ working_on = [
         "show_progress": False
     }
 ]
-
 # Route to render project pages dynamically
 @app.route('/projects/<string:project_name>')
 def project_detail(project_name):

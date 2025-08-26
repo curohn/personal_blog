@@ -1,5 +1,6 @@
 # To Do
 - [x] Add back github links
+- [x] Update with sync script to pull markdown files from github directly
 - [ ] leave project in sidebar and show selected
 
 # Done
