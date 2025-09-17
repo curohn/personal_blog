@@ -206,7 +206,7 @@ def experience_and_education():
 
 work_experience = [
     {
-        "title": "Education",
+        "title": "Education - Masters",
         "company": "Georgia State University",
         "duration": "Fall 2025 - Spring 2027 (anticipated)",
         "description": (
@@ -283,7 +283,7 @@ work_experience = [
         "description": " - Completed an intensive Mandarin Chinese language program."
     },
     {
-        "title": "Education",
+        "title": "Education - Bachelor's",
         "company": "Florida State University",
         "duration": "August 2014 – May 2018",
         "description": (
