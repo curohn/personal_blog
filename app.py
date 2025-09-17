@@ -67,6 +67,16 @@ def research_and_projects():
 
 projects = [
     {
+        "id": 9,
+        "title": "Tello Control Program",
+        "description": "A program to control a Tello drone using Python.",
+        "detail_url": "/projects/tello_controller",
+        "github_url": "https://github.com/curohn/tello_controller",
+        "tools": ["Python", "DJITelloPy"],
+        "date": "",
+        "featured": False 
+    },
+    {
         "id": 8,
         "title": "Masters Program",
         "description": "A project to complete my Masters degree.",
@@ -90,7 +100,7 @@ projects = [
         "github_url": "https://github.com/curohn/delivery_app_simulation",
         "tools": ["Python", "SQLite"],
         "date": "On Hold",
-        "featured": True  # Added featured attribute
+        "featured": False  # Added featured attribute
     },
     {
         "id": 5,
@@ -157,6 +167,11 @@ working_on = [
     {
         "task": "Masters Program",
         "project_name": "masters_program",
+        "show_progress": False
+    },
+    {
+        "task": "Tello Control Program",
+        "project_name": "tello_controller",
         "show_progress": False
     }
 ]
