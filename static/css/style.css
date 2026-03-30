@@ -1,56 +1,285 @@
 /* =====================
-   Theme Variables
+   Theme Variables — Time of Day + Weather
    ===================== */
+
+/* Fallback / default (matches night) */
 :root {
-    /* Light Mode Defaults */
-    --bg-color: #ffffff;
-    --text-color: #111111;
-    --text-secondary: #666666;
-    --button-bg: #000000;
-    --button-text: #ffffff;
-    --highlight-color: rgba(0, 0, 0, 0.05);
-    --header-color: rgba(255, 255, 255, 0.8);
-    --header-text-color: #111111;
-    --footer-color: #fafafa;
-    --footer-text-color: #666666;
-    --alt-color: #5E6AD2;
-    --card-bg: #ffffff;
-    --border-color: rgba(0, 0, 0, 0.1);
+    --bg-color: #0c0e14;
+    --text-color: #dce2f0;
+    --text-secondary: #8892a8;
+    --button-bg: #1c2035;
+    --button-text: #dce2f0;
+    --highlight-color: rgba(124, 140, 238, 0.08);
+    --header-color: #0c0e14;
+    --header-text-color: #dce2f0;
+    --footer-color: #0a0c12;
+    --footer-text-color: #8892a8;
+    --alt-color: #7c8cee;
+    --card-bg: #141720;
+    --border-color: rgba(255, 255, 255, 0.07);
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ── NIGHT (9pm – 5am) ── deep navy/indigo */
+body.time-night {
+    --bg-color: #0c0e14;
+    --card-bg: #141720;
+    --text-color: #dce2f0;
+    --text-secondary: #8892a8;
+    --alt-color: #7c8cee;
+    --button-bg: #1c2035;
+    --button-text: #dce2f0;
+    --highlight-color: rgba(124, 140, 238, 0.08);
+    --header-color: #0c0e14;
+    --header-text-color: #dce2f0;
+    --footer-color: #0a0c12;
+    --footer-text-color: #8892a8;
+    --border-color: rgba(255, 255, 255, 0.07);
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ── DAWN (5am – 7am) ── dark violet/purple */
+body.time-dawn {
+    --bg-color: #120e1c;
+    --card-bg: #1c1528;
+    --text-color: #eddeff;
+    --text-secondary: #b89cd6;
+    --alt-color: #b87cee;
+    --button-bg: #261940;
+    --button-text: #eddeff;
+    --highlight-color: rgba(184, 124, 238, 0.1);
+    --header-color: #120e1c;
+    --header-text-color: #eddeff;
+    --footer-color: #0e0b16;
+    --footer-text-color: #b89cd6;
+    --border-color: rgba(184, 124, 238, 0.18);
+    --shadow-color: rgba(0, 0, 0, 0.55);
+}
+
+/* ── MORNING (7am – 11am) ── warm amber/gold light */
+body.time-morning {
+    --bg-color: #fef7ec;
+    --card-bg: #fffdf5;
+    --text-color: #1e1708;
+    --text-secondary: #776048;
+    --alt-color: #d4820a;
+    --button-bg: #1e1708;
+    --button-text: #fef7ec;
+    --highlight-color: rgba(212, 130, 10, 0.08);
+    --header-color: rgba(254, 247, 236, 0.93);
+    --header-text-color: #1e1708;
+    --footer-color: #f5f0e4;
+    --footer-text-color: #776048;
+    --border-color: rgba(0, 0, 0, 0.09);
     --shadow-color: rgba(0, 0, 0, 0.05);
 }
 
-body.light-mode {
-    --bg-color: #ffffff;
-    --text-color: #111111;
-    --text-secondary: #666666;
-    --button-bg: #000000;
-    --button-text: #ffffff;
-    --highlight-color: rgba(0, 0, 0, 0.05);
-    --header-color: rgba(255, 255, 255, 0.8);
-    --header-text-color: #111111;
-    --footer-color: #fafafa;
-    --footer-text-color: #666666;
-    --alt-color: #5E6AD2;
+/* ── NOON (11am – 2pm) ── clear sky blue */
+body.time-noon {
+    --bg-color: #eef4ff;
     --card-bg: #ffffff;
-    --border-color: rgba(0, 0, 0, 0.1);
+    --text-color: #0d1a35;
+    --text-secondary: #5a7090;
+    --alt-color: #1d5fcc;
+    --button-bg: #0d1a35;
+    --button-text: #eef4ff;
+    --highlight-color: rgba(29, 95, 204, 0.06);
+    --header-color: rgba(238, 244, 255, 0.93);
+    --header-text-color: #0d1a35;
+    --footer-color: #e4eeff;
+    --footer-text-color: #5a7090;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --shadow-color: rgba(0, 0, 0, 0.04);
+}
+
+/* ── AFTERNOON (2pm – 6pm) ── golden warm */
+body.time-afternoon {
+    --bg-color: #fffbf0;
+    --card-bg: #fff9e8;
+    --text-color: #1a1500;
+    --text-secondary: #7a6830;
+    --alt-color: #e8920e;
+    --button-bg: #1a1500;
+    --button-text: #fffbf0;
+    --highlight-color: rgba(232, 146, 14, 0.08);
+    --header-color: rgba(255, 251, 240, 0.93);
+    --header-text-color: #1a1500;
+    --footer-color: #f5f0e0;
+    --footer-text-color: #7a6830;
+    --border-color: rgba(0, 0, 0, 0.09);
     --shadow-color: rgba(0, 0, 0, 0.05);
 }
 
-body.dark-mode {
-    --bg-color: #101112;
-    --text-color: #FFFFFF;
-    --text-secondary: #A1A1AA;
-    --button-bg: #27282D;
-    --button-text: #FFFFFF;
-    --highlight-color: rgba(255, 255, 255, 0.06);
-    --header-color: #101112;
-    --header-text-color: #FFFFFF;
-    --footer-color: #17181A;
-    --footer-text-color: #A1A1AA;
-    --alt-color: #5E6AD2;
-    --card-bg: #17181A;
-    --border-color: rgba(255, 255, 255, 0.1);
-    --shadow-color: rgba(0, 0, 0, 0.2);
+/* ── DUSK (6pm – 9pm) ── deep orange/fire */
+body.time-dusk {
+    --bg-color: #14100a;
+    --card-bg: #1e1810;
+    --text-color: #f0dfc0;
+    --text-secondary: #c0a078;
+    --alt-color: #f07020;
+    --button-bg: #281e0e;
+    --button-text: #f0dfc0;
+    --highlight-color: rgba(240, 112, 32, 0.1);
+    --header-color: #14100a;
+    --header-text-color: #f0dfc0;
+    --footer-color: #0e0c08;
+    --footer-text-color: #c0a078;
+    --border-color: rgba(240, 112, 32, 0.18);
+    --shadow-color: rgba(0, 0, 0, 0.55);
+}
+
+/* =====================
+   Weather Modifiers
+   ===================== */
+
+/* CLOUDS — grey/muted on light times */
+body.time-morning.weather-clouds,
+body.time-noon.weather-clouds,
+body.time-afternoon.weather-clouds {
+    --bg-color: #ece8e4;
+    --card-bg: #f5f2ee;
+    --alt-color: #6b7c8a;
+    --text-secondary: #6e7a85;
+    --header-color: rgba(236, 232, 228, 0.93);
+    --footer-color: #e0ddd8;
+    --footer-text-color: #6e7a85;
+}
+
+/* CLOUDS — shift accent on dark times */
+body.time-night.weather-clouds,
+body.time-dawn.weather-clouds,
+body.time-dusk.weather-clouds {
+    --alt-color: #8896a4;
+    --border-color: rgba(136, 150, 164, 0.2);
+}
+
+/* RAIN — cool blue-grey on light times */
+body.time-morning.weather-rain,
+body.time-noon.weather-rain,
+body.time-afternoon.weather-rain {
+    --bg-color: #e8eff8;
+    --card-bg: #f2f6ff;
+    --alt-color: #3a7ccc;
+    --text-secondary: #587098;
+    --header-color: rgba(232, 239, 248, 0.93);
+    --footer-color: #dde5f5;
+    --footer-text-color: #587098;
+}
+
+/* RAIN — blue accent shift on dark times */
+body.time-night.weather-rain,
+body.time-dawn.weather-rain,
+body.time-dusk.weather-rain {
+    --alt-color: #5090e0;
+    --border-color: rgba(80, 144, 224, 0.22);
+}
+
+/* STORM — flip light times to dramatic dark */
+body.time-morning.weather-storm,
+body.time-noon.weather-storm,
+body.time-afternoon.weather-storm {
+    --bg-color: #111420;
+    --card-bg: #1a1e2e;
+    --text-color: #d8dff0;
+    --text-secondary: #8090b0;
+    --alt-color: #6672e8;
+    --button-bg: #1a1e2e;
+    --button-text: #d8dff0;
+    --highlight-color: rgba(102, 114, 232, 0.1);
+    --header-color: #111420;
+    --header-text-color: #d8dff0;
+    --footer-color: #0d1018;
+    --footer-text-color: #8090b0;
+    --border-color: rgba(102, 114, 232, 0.2);
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* STORM — electric purple on dark times */
+body.time-night.weather-storm,
+body.time-dawn.weather-storm,
+body.time-dusk.weather-storm {
+    --alt-color: #9060ff;
+    --border-color: rgba(144, 96, 255, 0.25);
+}
+
+/* SNOW — icy white/blue on light times */
+body.time-morning.weather-snow,
+body.time-noon.weather-snow,
+body.time-afternoon.weather-snow {
+    --bg-color: #f0f8ff;
+    --card-bg: #ffffff;
+    --alt-color: #60a8e8;
+    --text-secondary: #5880a0;
+    --border-color: rgba(96, 168, 232, 0.2);
+    --footer-color: #e4f4ff;
+}
+
+/* SNOW — ice blue on dark times */
+body.time-night.weather-snow,
+body.time-dawn.weather-snow,
+body.time-dusk.weather-snow {
+    --alt-color: #80c8ff;
+    --border-color: rgba(128, 200, 255, 0.22);
+}
+
+/* FOG — heavily muted/desaturated on light times */
+body.time-morning.weather-fog,
+body.time-noon.weather-fog,
+body.time-afternoon.weather-fog {
+    --bg-color: #eae6e2;
+    --card-bg: #f4f1ee;
+    --alt-color: #909aaa;
+    --text-secondary: #7c8490;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --footer-color: #dedad6;
+}
+
+/* FOG — muted on dark times */
+body.time-night.weather-fog,
+body.time-dawn.weather-fog,
+body.time-dusk.weather-fog {
+    --alt-color: #8a9aaa;
+    --text-secondary: #7a8898;
+}
+
+
+/* =====================
+   Weather Badge
+   ===================== */
+.weather-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    background-color: var(--highlight-color);
+}
+
+.weather-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #22c55e;
+    flex-shrink: 0;
+    box-shadow: 0 0 4px #22c55e;
+    animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { opacity: 1;   box-shadow: 0 0 4px #22c55e;       }
+    50%       { opacity: 0.4; box-shadow: 0 0 1px #22c55e;       }
+}
+
+@media (max-width: 768px) {
+    .weather-badge {
+        display: none;
+    }
 }
 
 /* Use the variables for all theme colors */
@@ -714,77 +943,93 @@ iframe {
 }
 
 
-/* Timeline Section */
-.timeline {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin: 2rem auto;
-    max-width: 100%; /* Allow full width within the wrapper */
-    padding: 0 2rem; /* Add padding for better spacing */
+/* =====================
+   Timeline (modern left-aligned)
+   ===================== */
+.timeline-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
 }
 
-.timeline-wrapper {
-    max-width: 1200px; /* Increase width */
-    margin: 0 auto; /* Center horizontally */
+.timeline {
+    position: relative;
+    padding-left: 1.75rem;
+    margin: 1.5rem 0;
 }
 
 .timeline::before {
     content: '';
     position: absolute;
-    left: 50%;
-    width: 4px;
-    height: 100%;
-    background: var(--text-color);
-    transform: translateX(-50%);
+    left: 0;
+    top: 0.5rem;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-color);
 }
 
 /* Timeline Items */
 .timeline-item {
     position: relative;
-    margin: 2rem 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
+    margin: 0;
+    padding-bottom: 1.5rem;
+    display: block;
 }
 
-.timeline-item:nth-child(odd) {
-    justify-content: flex-end; /* Alternate odd items to the right */
+.timeline-item:last-child {
+    padding-bottom: 0;
 }
 
-.timeline-content {
-    background-color: var(--bg-color);
-    border-radius: 8px;
-    padding: 1rem;
-    max-width: 45%;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.250);
-    position: relative;
-    z-index: 1;
-}
-
-/* Position adjustments */
-.timeline-item:nth-child(odd) .timeline-content {
-    text-align: left;
-    margin-left: 1rem;
-}
-
-.timeline-item:nth-child(even) .timeline-content {
-    text-align: right;
-    margin-right: 1rem;
-}
-
-/* Timeline Nodes */
+/* Dot */
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 20px;
-    background: var(--alt-color);
+    left: -2.2rem;
+    top: 0.45rem;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
+    background: var(--alt-color);
+    border: 2px solid var(--bg-color);
+    box-shadow: 0 0 0 1px var(--alt-color);
     z-index: 2;
+}
+
+.timeline-content {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.85rem 1.1rem;
+    max-width: 100%;
+    box-shadow: none;
+}
+
+.timeline-content h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.1rem 0;
+    color: var(--text-color);
+}
+
+.timeline-content h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--alt-color);
+    margin: 0 0 0.3rem 0;
+}
+
+.timeline-content em {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    font-style: normal;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p:last-child {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.6;
 }
 /* Contact Section */
 .contact-section {
@@ -885,12 +1130,7 @@ button.btn:hover {
     }
 
     .timeline-wrapper {
-        padding: 0 1rem; 
-    }
-
-    .timeline-content {
-        max-width: 100%;
-        text-align: left;
+        padding: 0;
     }
 
     .project-detail-page {
@@ -926,7 +1166,128 @@ img {
     max-width: 100%;
     height: auto;
 }
-/* Theme Transition */
-body {
-    transition: background-color 0.3s ease, color 0.3s ease;
+
+/* =====================
+   Murmuration Page
+   ===================== */
+.murmuration-page {
+    display: flex;
+    gap: 1.5rem;
+    height: calc(100vh - 80px);
+    min-height: 500px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.murmuration-canvas-wrap {
+    flex: 1;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--card-bg);
+}
+
+#murmuration-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.murmuration-controls {
+    width: 240px;
+    flex-shrink: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.murmuration-controls h2 {
+    font-size: 1.3rem;
+    margin: 0 0 0.4rem 0;
+}
+
+.murmuration-desc {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin: 0 0 1rem 0;
+    line-height: 1.5;
+}
+
+.ctrl-group {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.75rem 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.ctrl-group h3 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--alt-color);
+    margin: 0 0 0.2rem 0;
+}
+
+.ctrl-desc {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin: 0 0 0.4rem 0;
+}
+
+.ctrl-group label {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.3rem;
+}
+
+.ctrl-val {
+    font-weight: 600;
+    color: var(--alt-color);
+    min-width: 2.5rem;
+    text-align: right;
+}
+
+.ctrl-group input[type="range"] {
+    width: 100%;
+    accent-color: var(--alt-color);
+    cursor: pointer;
+    margin: 0;
+}
+
+.ctrl-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.ctrl-actions .btn {
+    flex: 1;
+    justify-content: center;
+    margin: 0;
+    font-size: 0.85rem;
+    padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .murmuration-page {
+        flex-direction: column;
+        height: auto;
+        overflow: visible;
+    }
+
+    .murmuration-canvas-wrap {
+        height: 55vw;
+        min-height: 280px;
+    }
+
+    .murmuration-controls {
+        width: 100%;
+    }
 }

@@ -1,37 +1,23 @@
-
 # Personal Website
 
-Welcome to my personal website! This platform showcases my portfolio, current projects, research, and provides insights into my professional journey.
+A portfolio site to showcase my work, research, and professional journey — and a project in its own right for developing web development skills.
 
-## 🚀 Features
+## Features
 
-- **Homepage**:
-  - Hero section with my tagline and quick links to explore my work or contact me.
-  - "About Me" section with a brief introduction and a link to my resume.
-  - Featured projects with descriptions and links to detailed writeups.
-  - "Currently Working On" section with dynamic progress bars and links to project details.
-  - Contact form for reaching out and links to my social profiles.
+- **Home**: Featured projects, currently working on, and to-do sections.
 
-- **Research and Projects**:
-  - Detailed writeups of projects and exploratory research.
-  - Markdown-based content for flexibility and easy updates.
-  - Tags for tools and languages used in each project.
+- **Projects**: Markdown-rendered writeups for each project, with tool/language tags and GitHub links. Sidebar navigation between projects.
 
-- **Project Details**:
-  - Markdown-rendered content for each project.
-  - Tools/languages used displayed as intuitive labels.
-  - Links to GitHub repositories.
+- **Murmuration**: Live boid flocking simulation with user-adjustable separation, alignment, and cohesion weights and radii.
 
-- **Experience and Education**:
-  - Timeline view of my experience and education history.
-  - Downloadable format with analytics tracking.
+- **About Me**: Compact left-aligned timeline of work experience and education, with resume download.
 
-## 🛠️ Technologies Used
+- **Weather-based theming**: The site themes itself based on Atlanta's real-time weather and time of day. Six time-of-day palettes (night, dawn, morning, noon, afternoon, dusk) with weather condition overlays (clear, clouds, rain, storm, snow, fog). Rain, snow, storm, and fog are rendered as canvas animations. A sun/glow orb shifts position and color across the day. A live Atlanta weather badge shows in the nav.
+
+## Technologies
+
 - **Backend**: Flask (Python)
-- **Frontend**: HTML5, CSS
-- **Database**: None (static content for now)
-- **Markdown Support**: Dynamic rendering for project details
-
-## 🌐 Live Demo
-
-The website is hosted on [Render](render.com) at: [j-curran.com](j-curran.com)
+- **Frontend**: HTML5, CSS custom properties, vanilla JavaScript
+- **Content**: Markdown files rendered at runtime
+- **Weather**: OpenWeatherMap API (30-min cached)
+- **Hosting**: Render — [j-curran.com](https://j-curran.com)

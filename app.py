@@ -5,6 +5,7 @@ import os
 from datetime import datetime
 import markdown
 from utils import load_project_markdown
+from weather import get_theme_data
 import re
 
 load_dotenv()
@@ -12,6 +13,24 @@ load_dotenv()
 # Create a Flask application instance
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'default_secret_key')
+
+VALID_PERIODS = {"night", "dawn", "morning", "noon", "afternoon", "dusk"}
+VALID_CONDITIONS = {"clear", "clouds", "rain", "storm", "snow", "fog"}
+
+@app.context_processor
+def inject_theme():
+    data = get_theme_data()
+    if app.debug:
+        t = request.args.get("time")
+        w = request.args.get("weather")
+        if t in VALID_PERIODS or w in VALID_CONDITIONS:
+            data = dict(data)
+            if t in VALID_PERIODS:
+                data["time_period"] = t
+                data["is_dark"] = t in ("night", "dawn", "dusk")
+            if w in VALID_CONDITIONS:
+                data["weather_condition"] = w
+    return {"theme_data": data}
 
 def read_markdown_file(file_path):
     """Read and convert a markdown file to HTML."""
@@ -41,31 +60,29 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECTS_DIR = os.path.join(BASE_DIR, "projects")
 
 
-# Toggle Theme Route
-@app.route('/toggle_theme', methods=['POST'])
-def toggle_theme():
-    current_theme = session.get('theme', 'dark')  # Default to dark
-    new_theme = 'light' if current_theme == 'dark' else 'dark'
-    session['theme'] = new_theme
-    response = make_response(redirect(request.referrer or url_for('home')))
-    return response
-
-
 # Define routes for different pages
 @app.route('/')
 def home():
-    theme = session.get('theme', 'dark')  # Default to dark theme
-    featured_projects = [p for p in projects if p.get("featured", False)]  # Filter featured projects
-    return render_template('home.html', projects=featured_projects, working_on=working_on, theme=theme)
+    featured_projects = [p for p in projects if p.get("featured", False)]
+    return render_template('home.html', projects=featured_projects, working_on=working_on)
 
 
-@app.route('/research-and-projects')
+@app.route('/projects')
 def research_and_projects():
-    theme = session.get('theme', 'dark')  # Default to dark
-    return render_template('research_and_projects.html', projects=projects, title="Research and Projects - John Curran", theme=theme)
+    return render_template('research_and_projects.html', projects=projects, title="Projects - John Curran")
 
 
 projects = [
+    {
+        "id": 10,
+        "title": "Murmuration",
+        "description": "A real-time boid flocking simulation inspired by starling murmurations.",
+        "detail_url": "/projects/murmuration",
+        "github_url": "",
+        "tools": ["JavaScript", "Canvas API"],
+        "date": "In Progress",
+        "featured": False
+    },
     {
         "id": 9,
         "title": "Tello Control Program",
@@ -118,7 +135,7 @@ projects = [
         "description": "A project to analyze and visualize Georgia Power's data.",
         "detail_url": "/projects/georgia_power",
         "github_url": "https://github.com/curohn/georgia_power",
-        "featured": True
+        "featured": False
     },
     {
         "id": 3,
@@ -168,22 +185,22 @@ working_on = [
         "task": "Masters Program",
         "project_name": "masters_program",
         "show_progress": False
-    },
-    {
-        "task": "Tello Control Program",
-        "project_name": "tello_controller",
-        "show_progress": False
     }
 ]
+# Murmuration — dedicated route (canvas sim, not markdown)
+@app.route('/projects/murmuration')
+def murmuration():
+    project = next((p for p in projects if p["detail_url"] == "/projects/murmuration"), None)
+    return render_template('murmuration.html', project=project)
+
+
 # Route to render project pages dynamically
 @app.route('/projects/<string:project_name>')
 def project_detail(project_name):
-    theme = session.get('theme', 'dark')  # Default to dark
     project = next((p for p in projects if p["detail_url"] == f"/projects/{project_name}"), None)
     if not project:
         return "Project not found", 404
-    
-    # Read the markdown file
+
     md_path = os.path.join(PROJECTS_DIR, f"{project_name}.md")
     content_html = read_markdown_file(md_path)
     if content_html is None:
@@ -191,7 +208,6 @@ def project_detail(project_name):
 
     return render_template(
         'project_detail.html',
-        theme=theme,
         projects=sorted(projects, key=lambda p: p["id"], reverse=True),
         current_project_id=project["id"],
         project=project,
@@ -199,10 +215,9 @@ def project_detail(project_name):
     )
 
 
-@app.route('/experience-and-education')
+@app.route('/about')
 def experience_and_education():
-    theme = session.get('theme', 'dark')  # Default to dark
-    return render_template('experience_and_education.html', work_experience=work_experience, title="Experience and Education - John Curran", theme=theme)
+    return render_template('experience_and_education.html', work_experience=work_experience, title="About Me - John Curran")
 
 work_experience = [
     {

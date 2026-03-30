@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon for all browsers -->
-    {% if theme == 'dark' %}
+    <!-- Favicon -->
+    {% if theme_data.is_dark %}
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='icons/favicon-dark-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='icons/favicon-dark-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='icons/favicon-dark-32x32.png') }}">
@@ -16,11 +16,10 @@
 
     <!-- General Meta Tags -->
     <meta name="description" content="{{ description if description else 'Showcase of my work and research.' }}">
-
     <meta name="keywords" content="data analysis, research, portfolio, projects, visualizations, programming">
     <meta name="author" content="John Curran">
 
-    <!-- Open Graph Meta Tags (for social sharing) -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Work and Research - John Curran">
     <meta property="og:description" content="Explore my portfolio of work and research, featuring data projects and insights.">
     <meta property="og:image" content="{{ url_for('static', filename='images/social_preview.png') }}">
@@ -33,25 +32,16 @@
     <meta name="twitter:description" content="Explore my portfolio of work and research, featuring data projects and insights.">
     <meta name="twitter:image" content="{{ url_for('static', filename='images/social_preview.png') }}">
 
-    <!-- Title -->
     <title>{{ title if title else 'John Curran' }}</title>
-
-    <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block head_extra %}{% endblock %}
 </head>
-<body class="{{ theme }}-mode">
+<body class="time-{{ theme_data.time_period }} weather-{{ theme_data.weather_condition }}">
     <header>
         <nav class="navbar">
-            <!-- Favicon and Name -->
+            <!-- Logo and Name -->
             <div class="navbar-logo">
-                <a href="{{ url_for('home') }}">
-                    {% if theme == 'dark' %}
-                    <img src="{{ url_for('static', filename='icons/favicon-dark-32x32.png') }}" alt="Logo" class="favicon">
-                    {% else %}
-                    <img src="{{ url_for('static', filename='icons/favicon-light-32x32.png') }}" alt="Logo" class="favicon">
-                    {% endif %}
-                </a>
-                <span class="site-name">John Curran</span>
+                <a href="{{ url_for('home') }}" class="site-name">John Curran</a>
             </div>
 
             <!-- Toggle Button for Mobile -->
@@ -63,29 +53,30 @@
                     <a href="{{ url_for('home') }}">Home</a>
                 </li>
                 <li class="{% if request.endpoint == 'research_and_projects' %}active{% endif %}">
-                    <a href="{{ url_for('research_and_projects') }}">Research and Projects</a>
+                    <a href="{{ url_for('research_and_projects') }}">Projects</a>
                 </li>
                 <li class="{% if request.endpoint == 'experience_and_education' %}active{% endif %}">
-                    <a href="{{ url_for('experience_and_education') }}">Experience and Education</a>
+                    <a href="{{ url_for('experience_and_education') }}">About Me</a>
                 </li>
             </ul>
-            
-            <!-- Theme toggle button -->
-            <form action="{{ url_for('toggle_theme') }}" method="post">
-                <button type="submit" class="theme-toggle-button">
-                    {{ "🌞 Light Mode" if theme == "dark" else "🌙 Dark Mode" }}
-                </button>
-            </form>
+
+            <!-- Atlanta weather indicator -->
+            <div class="weather-badge">
+                <span class="weather-badge-dot"></span>
+                Atlanta
+                {% if theme_data.temp_f is not none %}&nbsp;·&nbsp;{{ theme_data.temp_f }}°F{% endif %}
+                {% if theme_data.description %}&nbsp;·&nbsp;{{ theme_data.description }}{% endif %}
+            </div>
         </nav>
     </header>
 
     <main>
         {% block content %}{% endblock %}
     </main>
+
     <footer class="bg-dark text-light mt-5 py-4">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center flex-wrap">
-                <!-- Left Section: Connect with me -->
                 <div class="d-flex align-items-center">
                     <h5 class="me-3 mb-0">Connect with me</h5>
                     <div class="social-links">
@@ -93,7 +84,7 @@
                             <img src="{{ url_for('static', filename='icons/LI-In-Bug.png') }}" alt="LinkedIn" class="footer-icon">
                         </a>
                         <a href="https://github.com/curohn" target="_blank">
-                            {% if theme == 'dark' %}
+                            {% if theme_data.is_dark %}
                             <img src="{{ url_for('static', filename='icons/github-mark-white.png') }}" alt="GitHub" class="footer-icon">
                             {% else %}
                             <img src="{{ url_for('static', filename='icons/github-mark.png') }}" alt="GitHub" class="footer-icon">
@@ -101,7 +92,6 @@
                         </a>
                     </div>
                 </div>
-                <!-- Right Section: Copyright -->
                 <div class="text-md-end text-center">
                     <p class="mb-0">&copy; 2025 John Curran. All rights reserved.</p>
                 </div>
@@ -109,35 +99,14 @@
         </div>
     </footer>
 
+    <script src="{{ url_for('static', filename='js/sun-effect.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/weather-effects.js') }}"></script>
     <script>
         function toggleNavbar() {
             const navbarLinks = document.querySelector('.navbar-links');
             navbarLinks.classList.toggle('active');
         }
-
-        // Update favicon when theme changes
-        function updateFavicon(isDark) {
-            const faviconLinks = document.querySelectorAll('link[rel*="icon"]');
-            const iconType = isDark ? 'dark' : 'light';
-            faviconLinks.forEach(link => {
-                const size = link.sizes ? link.sizes.value : '32x32';
-                link.href = `{{ url_for('static', filename='icons/favicon-') }}${iconType}-32x32.png`;
-            });
-        }
-
-        // Listen for theme changes
-        document.addEventListener('DOMContentLoaded', () => {
-            const body = document.body;
-            const observer = new MutationObserver((mutations) => {
-                mutations.forEach((mutation) => {
-                    if (mutation.attributeName === 'class') {
-                        const isDark = body.classList.contains('dark-mode');
-                        updateFavicon(isDark);
-                    }
-                });
-            });
-            observer.observe(body, { attributes: true });
-        });
     </script>
+    {% block scripts %}{% endblock %}
 </body>
 </html>
