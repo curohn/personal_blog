@@ -66,6 +66,7 @@
                 Atlanta
                 {% if theme_data.temp_f is not none %}&nbsp;·&nbsp;{{ theme_data.temp_f }}°F{% endif %}
                 {% if theme_data.description %}&nbsp;·&nbsp;{{ theme_data.description }}{% endif %}
+                {% if debug_mode %}&nbsp;·&nbsp;<em>{{ theme_data.time_period }} / {{ theme_data.weather_condition }}</em>{% endif %}
             </div>
         </nav>
     </header>

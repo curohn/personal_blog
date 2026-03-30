@@ -2,6 +2,9 @@ import os
 import time
 import requests
 from datetime import datetime
+from zoneinfo import ZoneInfo
+
+ATLANTA_TZ = ZoneInfo("America/New_York")
 
 _cache = {"data": None, "expires_at": 0}
 
@@ -57,7 +60,7 @@ def get_theme_data():
     if _cache["data"] and now < _cache["expires_at"]:
         return _cache["data"]
 
-    hour = datetime.now().hour
+    hour = datetime.now(ATLANTA_TZ).hour
     api_key = os.getenv("OPEN_WEATHER_MAP_API_KEY")
 
     if not api_key:
@@ -74,8 +77,8 @@ def get_theme_data():
         resp.raise_for_status()
         data = resp.json()
 
-        sunrise = datetime.fromtimestamp(data["sys"]["sunrise"]).hour
-        sunset = datetime.fromtimestamp(data["sys"]["sunset"]).hour
+        sunrise = datetime.fromtimestamp(data["sys"]["sunrise"], tz=ATLANTA_TZ).hour
+        sunset = datetime.fromtimestamp(data["sys"]["sunset"], tz=ATLANTA_TZ).hour
         time_period = _period_from_hours(hour, sunrise, sunset)
         weather_condition = _condition(data["weather"][0]["id"])
         temp_f = round((data["main"]["temp"] - 273.15) * 9 / 5 + 32)
@@ -96,7 +99,9 @@ def get_theme_data():
     return result
 
 
-def _fallback(hour):
+def _fallback(hour=None):
+    if hour is None:
+        hour = datetime.now(ATLANTA_TZ).hour
     period = _period_simple(hour)
     return {
         "time_period": period,

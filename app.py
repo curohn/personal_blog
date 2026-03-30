@@ -30,7 +30,7 @@ def inject_theme():
                 data["is_dark"] = t in ("night", "dawn", "dusk")
             if w in VALID_CONDITIONS:
                 data["weather_condition"] = w
-    return {"theme_data": data}
+    return {"theme_data": data, "debug_mode": app.debug}
 
 def read_markdown_file(file_path):
     """Read and convert a markdown file to HTML."""
