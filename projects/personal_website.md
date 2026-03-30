@@ -4,15 +4,21 @@ A portfolio site to showcase my work, research, and professional journey — and
 
 ## Features
 
-- **Home**: Featured projects, currently working on, and to-do sections.
+- **Home**: Featured projects, currently working on, and to-do sections rendered as frosted glass cards over the live background.
 
-- **Projects**: Markdown-rendered writeups for each project, with tool/language tags and GitHub links. Sidebar navigation between projects.
+- **Projects**: Markdown-rendered writeups for each project, with tool/language tags, GitHub links, and a sticky sidebar for navigation between projects.
 
-- **Murmuration**: Live boid flocking simulation with user-adjustable separation, alignment, and cohesion weights and radii.
+- **Murmuration**: Controls panel for the live boid flocking simulation running in the background. Adjust separation, alignment, cohesion weights and radii to shape the flock visible across every page.
 
-- **About Me**: Compact left-aligned timeline of work experience and education, with resume download.
+- **About Me**: Left-aligned timeline of work experience and education with resume download.
 
-- **Weather-based theming**: The site themes itself based on Atlanta's real-time weather and time of day. Six time-of-day palettes (night, dawn, morning, noon, afternoon, dusk) with weather condition overlays (clear, clouds, rain, storm, snow, fog). Rain, snow, storm, and fog are rendered as canvas animations. A sun/glow orb shifts position and color across the day. A live Atlanta weather badge shows in the nav.
+- **Landscape background**: A procedurally drawn canvas scene — rolling foreground hills, a mid-range layer for depth, and a distant mountain range clustered on the right. Rendered on every page behind all content.
+
+- **Weather-based theming**: The site themes itself based on Atlanta's real-time weather and time of day. Six time-of-day palettes (night, dawn, morning, noon, afternoon, dusk) derived from actual sunrise/sunset times. Weather condition overlays (clear, clouds, rain, storm, snow, fog) shift the palette and drive canvas effects — rain drops, wind streaks, snow flakes, lightning flashes, and drifting fog. A sun/moon orb shifts position and opacity across the day.
+
+- **Frosted glass UI**: All cards, the header, footer, and sidebars use `backdrop-filter` blur over the canvas, giving a semi-transparent glass appearance that changes with the scene behind it.
+
+- **Live Atlanta weather badge**: Pulsing green dot in the nav showing current temperature and conditions.
 
 ## Technologies
 

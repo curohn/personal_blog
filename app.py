@@ -74,14 +74,24 @@ def research_and_projects():
 
 projects = [
     {
+        "id": 11,
+        "title": "Weather API",
+        "description": "How the site uses OpenWeatherMap to drive its live weather theming.",
+        "detail_url": "/projects/weather_api",
+        "github_url": "",
+        "tools": ["Python", "OpenWeatherMap API"],
+        "date": "2025",
+        "featured": False
+    },
+    {
         "id": 10,
         "title": "Murmuration",
-        "description": "A real-time boid flocking simulation inspired by starling murmurations.",
+        "description": "A real-time boid flocking simulation, for this website, inspired by starling murmurations. You can edit the parameters for the boids here.",
         "detail_url": "/projects/murmuration",
         "github_url": "",
         "tools": ["JavaScript", "Canvas API"],
         "date": "In Progress",
-        "featured": False
+        "featured": True
     },
     {
         "id": 9,

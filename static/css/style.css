@@ -10,12 +10,12 @@
     --button-bg: #1c2035;
     --button-text: #dce2f0;
     --highlight-color: rgba(124, 140, 238, 0.08);
-    --header-color: #0c0e14;
+    --header-color: rgba(12, 14, 20, 0.82);
     --header-text-color: #dce2f0;
-    --footer-color: #0a0c12;
+    --footer-color: rgba(10, 12, 18, 0.82);
     --footer-text-color: #8892a8;
     --alt-color: #7c8cee;
-    --card-bg: #141720;
+    --card-bg: rgba(20, 23, 32, 0.38);
     --border-color: rgba(255, 255, 255, 0.07);
     --shadow-color: rgba(0, 0, 0, 0.5);
 }
@@ -23,16 +23,16 @@
 /* ── NIGHT (9pm – 5am) ── deep navy/indigo */
 body.time-night {
     --bg-color: #0c0e14;
-    --card-bg: #141720;
+    --card-bg: rgba(20, 23, 32, 0.38);
     --text-color: #dce2f0;
     --text-secondary: #8892a8;
     --alt-color: #7c8cee;
     --button-bg: #1c2035;
     --button-text: #dce2f0;
     --highlight-color: rgba(124, 140, 238, 0.08);
-    --header-color: #0c0e14;
+    --header-color: rgba(12, 14, 20, 0.82);
     --header-text-color: #dce2f0;
-    --footer-color: #0a0c12;
+    --footer-color: rgba(10, 12, 18, 0.82);
     --footer-text-color: #8892a8;
     --border-color: rgba(255, 255, 255, 0.07);
     --shadow-color: rgba(0, 0, 0, 0.5);
@@ -41,16 +41,16 @@ body.time-night {
 /* ── DAWN (5am – 7am) ── dark violet/purple */
 body.time-dawn {
     --bg-color: #120e1c;
-    --card-bg: #1c1528;
+    --card-bg: rgba(28, 21, 40, 0.38);
     --text-color: #eddeff;
     --text-secondary: #b89cd6;
     --alt-color: #b87cee;
     --button-bg: #261940;
     --button-text: #eddeff;
     --highlight-color: rgba(184, 124, 238, 0.1);
-    --header-color: #120e1c;
+    --header-color: rgba(18, 14, 28, 0.82);
     --header-text-color: #eddeff;
-    --footer-color: #0e0b16;
+    --footer-color: rgba(14, 11, 22, 0.82);
     --footer-text-color: #b89cd6;
     --border-color: rgba(184, 124, 238, 0.18);
     --shadow-color: rgba(0, 0, 0, 0.55);
@@ -59,16 +59,16 @@ body.time-dawn {
 /* ── MORNING (7am – 11am) ── warm amber/gold light */
 body.time-morning {
     --bg-color: #fef7ec;
-    --card-bg: #fffdf5;
+    --card-bg: rgba(255, 253, 245, 0.22);
     --text-color: #1e1708;
     --text-secondary: #776048;
     --alt-color: #d4820a;
     --button-bg: #1e1708;
     --button-text: #fef7ec;
     --highlight-color: rgba(212, 130, 10, 0.08);
-    --header-color: rgba(254, 247, 236, 0.93);
+    --header-color: rgba(254, 247, 236, 0.82);
     --header-text-color: #1e1708;
-    --footer-color: #f5f0e4;
+    --footer-color: rgba(245, 240, 228, 0.82);
     --footer-text-color: #776048;
     --border-color: rgba(0, 0, 0, 0.09);
     --shadow-color: rgba(0, 0, 0, 0.05);
@@ -77,16 +77,16 @@ body.time-morning {
 /* ── NOON (11am – 2pm) ── clear sky blue */
 body.time-noon {
     --bg-color: #eef4ff;
-    --card-bg: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.22);
     --text-color: #0d1a35;
     --text-secondary: #5a7090;
     --alt-color: #1d5fcc;
     --button-bg: #0d1a35;
     --button-text: #eef4ff;
     --highlight-color: rgba(29, 95, 204, 0.06);
-    --header-color: rgba(238, 244, 255, 0.93);
+    --header-color: rgba(238, 244, 255, 0.82);
     --header-text-color: #0d1a35;
-    --footer-color: #e4eeff;
+    --footer-color: rgba(228, 238, 255, 0.82);
     --footer-text-color: #5a7090;
     --border-color: rgba(0, 0, 0, 0.08);
     --shadow-color: rgba(0, 0, 0, 0.04);
@@ -95,16 +95,16 @@ body.time-noon {
 /* ── AFTERNOON (2pm – 6pm) ── golden warm */
 body.time-afternoon {
     --bg-color: #fffbf0;
-    --card-bg: #fff9e8;
+    --card-bg: rgba(255, 249, 232, 0.22);
     --text-color: #1a1500;
     --text-secondary: #7a6830;
     --alt-color: #e8920e;
     --button-bg: #1a1500;
     --button-text: #fffbf0;
     --highlight-color: rgba(232, 146, 14, 0.08);
-    --header-color: rgba(255, 251, 240, 0.93);
+    --header-color: rgba(255, 251, 240, 0.82);
     --header-text-color: #1a1500;
-    --footer-color: #f5f0e0;
+    --footer-color: rgba(245, 240, 224, 0.82);
     --footer-text-color: #7a6830;
     --border-color: rgba(0, 0, 0, 0.09);
     --shadow-color: rgba(0, 0, 0, 0.05);
@@ -113,16 +113,16 @@ body.time-afternoon {
 /* ── DUSK (6pm – 9pm) ── deep orange/fire */
 body.time-dusk {
     --bg-color: #14100a;
-    --card-bg: #1e1810;
+    --card-bg: rgba(30, 24, 16, 0.38);
     --text-color: #f0dfc0;
     --text-secondary: #c0a078;
     --alt-color: #f07020;
     --button-bg: #281e0e;
     --button-text: #f0dfc0;
     --highlight-color: rgba(240, 112, 32, 0.1);
-    --header-color: #14100a;
+    --header-color: rgba(20, 16, 10, 0.82);
     --header-text-color: #f0dfc0;
-    --footer-color: #0e0c08;
+    --footer-color: rgba(14, 12, 8, 0.82);
     --footer-text-color: #c0a078;
     --border-color: rgba(240, 112, 32, 0.18);
     --shadow-color: rgba(0, 0, 0, 0.55);
@@ -137,11 +137,11 @@ body.time-morning.weather-clouds,
 body.time-noon.weather-clouds,
 body.time-afternoon.weather-clouds {
     --bg-color: #ece8e4;
-    --card-bg: #f5f2ee;
+    --card-bg: rgba(245, 242, 238, 0.22);
     --alt-color: #6b7c8a;
     --text-secondary: #6e7a85;
     --header-color: rgba(236, 232, 228, 0.93);
-    --footer-color: #e0ddd8;
+    --footer-color: rgba(224, 221, 216, 0.82);
     --footer-text-color: #6e7a85;
 }
 
@@ -158,11 +158,11 @@ body.time-morning.weather-rain,
 body.time-noon.weather-rain,
 body.time-afternoon.weather-rain {
     --bg-color: #e8eff8;
-    --card-bg: #f2f6ff;
+    --card-bg: rgba(242, 246, 255, 0.22);
     --alt-color: #3a7ccc;
     --text-secondary: #587098;
     --header-color: rgba(232, 239, 248, 0.93);
-    --footer-color: #dde5f5;
+    --footer-color: rgba(221, 229, 245, 0.82);
     --footer-text-color: #587098;
 }
 
@@ -179,16 +179,16 @@ body.time-morning.weather-storm,
 body.time-noon.weather-storm,
 body.time-afternoon.weather-storm {
     --bg-color: #111420;
-    --card-bg: #1a1e2e;
+    --card-bg: rgba(26, 30, 46, 0.40);
     --text-color: #d8dff0;
     --text-secondary: #8090b0;
     --alt-color: #6672e8;
     --button-bg: #1a1e2e;
     --button-text: #d8dff0;
     --highlight-color: rgba(102, 114, 232, 0.1);
-    --header-color: #111420;
+    --header-color: rgba(17, 20, 32, 0.82);
     --header-text-color: #d8dff0;
-    --footer-color: #0d1018;
+    --footer-color: rgba(13, 16, 24, 0.82);
     --footer-text-color: #8090b0;
     --border-color: rgba(102, 114, 232, 0.2);
     --shadow-color: rgba(0, 0, 0, 0.5);
@@ -207,11 +207,11 @@ body.time-morning.weather-snow,
 body.time-noon.weather-snow,
 body.time-afternoon.weather-snow {
     --bg-color: #f0f8ff;
-    --card-bg: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.22);
     --alt-color: #60a8e8;
     --text-secondary: #5880a0;
     --border-color: rgba(96, 168, 232, 0.2);
-    --footer-color: #e4f4ff;
+    --footer-color: rgba(228, 244, 255, 0.82);
 }
 
 /* SNOW — ice blue on dark times */
@@ -227,7 +227,7 @@ body.time-morning.weather-fog,
 body.time-noon.weather-fog,
 body.time-afternoon.weather-fog {
     --bg-color: #eae6e2;
-    --card-bg: #f4f1ee;
+    --card-bg: rgba(244, 241, 238, 0.22);
     --alt-color: #909aaa;
     --text-secondary: #7c8490;
     --border-color: rgba(0, 0, 0, 0.1);
@@ -283,11 +283,15 @@ body.time-dusk.weather-fog {
 }
 
 /* Use the variables for all theme colors */
+html {
+    background: transparent;
+}
+
 body {
-    background-color: var(--bg-color);
+    background: transparent;
     color: var(--text-color);
 	font-family: 'Helvetica Neue', Arial, sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease;	
+    transition: color 0.3s ease;
     line-height: 1.6;
 }
 
@@ -481,10 +485,8 @@ button:hover, .btn:hover {
 
 main {
     padding: 2rem;
-    background-color: var(--bg-color); 
-    color: var(--text-color); 
-    border-radius: 10px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    background: transparent;
+    color: var(--text-color);
 }
 
 /* =====================
@@ -496,6 +498,8 @@ footer {
     color: var(--footer-text-color);
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 
@@ -530,6 +534,8 @@ footer {
     position: relative;
     overflow: hidden;
     border: 1px solid var(--border-color);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .project-card::before {
@@ -598,6 +604,8 @@ footer {
     position: sticky;
     top: 100px;
     height: fit-content;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .project-sidebar h2 {
@@ -620,7 +628,7 @@ footer {
 
 .project-sidebar li a {
     text-decoration: none;
-    color: var(--text-secondary);
+    color: var(--text-color);
     font-weight: 500;
     font-size: 0.95rem;
     display: block;
@@ -656,11 +664,13 @@ footer {
 /* Main Content */
 .project-detail {
     flex: 1; /* Let main content take remaining space */
-    background-color: var(--bg-color);
+    background-color: var(--card-bg);
     color: var(--text-color);
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 /* Markdown Content */
@@ -889,6 +899,8 @@ iframe {
     padding: 1.5rem;
     text-align: left;
     transition: all 0.2s ease;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .task-card:hover {
@@ -1001,6 +1013,8 @@ iframe {
     padding: 0.85rem 1.1rem;
     max-width: 100%;
     box-shadow: none;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .timeline-content h3 {
@@ -1019,7 +1033,7 @@ iframe {
 
 .timeline-content em {
     font-size: 0.78rem;
-    color: var(--text-secondary);
+    color: var(--text-color);
     font-style: normal;
     display: block;
     margin-bottom: 0.5rem;
@@ -1027,7 +1041,7 @@ iframe {
 
 .timeline-content p:last-child {
     font-size: 0.875rem;
-    color: var(--text-secondary);
+    color: var(--text-color);
     margin: 0;
     line-height: 1.6;
 }
@@ -1222,6 +1236,8 @@ img {
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .ctrl-group h3 {
