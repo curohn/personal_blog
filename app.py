@@ -83,6 +83,16 @@ def writing():
 
 projects = [
     {
+        "id": 12,
+        "title": "Shot Scout",
+        "description": "A Flutter app for photographers to pin and remember ideal shooting locations, track gear, and plan around golden hour and weather conditions.",
+        "detail_url": "/projects/shot_scout",
+        "github_url": "https://github.com/curohn/shot_scout",
+        "tools": ["Flutter", "Dart", "Hive", "OpenStreetMap"],
+        "date": "In Progress",
+        "featured": True
+    },
+    {
         "id": 11,
         "title": "Weather API",
         "description": "How the site uses OpenWeatherMap to drive its live weather theming.",
