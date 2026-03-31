@@ -2,15 +2,15 @@
 
 {% block content %}
 <h1>About Me</h1>
-<p>I'm a data professional with expertise in SQL, Python, and cloud-based data platforms (Snowflake, AWS, GCP). Proven track
-record in designing scalable data solutions, optimizing workflows, and transforming complex datasets into actionable insights.
-Passionate about leveraging automation and engineering best practices to improve data accessibility and drive strategic
-decision-making.</p>
-<br>
 
-<!-- Download Button -->
-<a href="{{ url_for('download_resume') }}" class="btn">Download Resume</a>
-<h2>Work Experience, and Education</h2>
+<section class="about-intro">
+    <p>I work in data — building pipelines, warehouses, and dashboards — but I think of myself more as someone who's curious about how things work. Cities and how people move through them. Markets and how resources flow. Systems and the patterns that emerge when you look closely enough.</p>
+    <p>I started out studying International Affairs and Economics, spent a over a year in China, and found my way into data analytics through a mix of necessity and genuine interest in solving problems. Now I'm several years into that path, and still learning — which is partly why I'm back in school, working toward a Master's in Data Science at Georgia State.</p>
+    <p>The projects on this site are mostly things I built because I wanted them to exist. Some are serious analysis, some are experiments, some are just fun. The common thread is curiosity.</p>
+</section>
+
+<h2>Work Experience and Education</h2>
+<p class="resume-link">Looking for the short version? <a href="{{ url_for('download_resume') }}">Download my resume</a>.</p>
 
 <!-- Timeline -->
 <div class="timeline-wrapper">

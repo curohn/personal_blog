@@ -68,8 +68,17 @@ def home():
 
 
 @app.route('/research-and-projects')
+def research_and_projects_redirect():
+    return redirect(url_for('research_and_projects'), 301)
+
+@app.route('/projects')
 def research_and_projects():
-    return render_template('research_and_projects.html', projects=projects, title="Research and Projects - John Curran")
+    return render_template('research_and_projects.html', projects=projects, title="Projects - John Curran")
+
+
+@app.route('/writing')
+def writing():
+    return render_template('writing.html', writing_pieces=writing_pieces, title="Writing - John Curran")
 
 
 projects = [
@@ -180,6 +189,20 @@ projects = [
     
     # Add more projects as needed
 ]
+writing_pieces = [
+    # Writing pieces will be added here as essays and longer-form analysis are published.
+    # Each piece maps to a markdown file in /projects/ and renders via project_detail.
+    # Example:
+    # {
+    #     "id": 1,
+    #     "title": "...",
+    #     "description": "...",
+    #     "slug": "...",
+    #     "date": "YYYY-MM-DD",
+    #     "featured": False
+    # }
+]
+
 working_on = [
     {
         "task": "Work",
@@ -207,6 +230,24 @@ def murmuration():
 # Route to render project pages dynamically
 @app.route('/projects/<string:project_name>')
 def project_detail(project_name):
+    # Check writing pieces first, then projects
+    writing_piece = next((w for w in writing_pieces if w.get("slug") == project_name), None)
+    if writing_piece:
+        md_path = os.path.join(PROJECTS_DIR, f"{project_name}.md")
+        content_html = read_markdown_file(md_path)
+        if content_html is None:
+            return "Content not found", 404
+        return render_template(
+            'project_detail.html',
+            sidebar_items=sorted(writing_pieces, key=lambda w: w["id"], reverse=True),
+            sidebar_title="Writing",
+            sidebar_url_key="slug",
+            current_project_id=writing_piece["id"],
+            project={**writing_piece, "detail_url": f"/projects/{writing_piece['slug']}", "date": writing_piece.get("date", "")},
+            content=content_html,
+            section="writing"
+        )
+
     project = next((p for p in projects if p["detail_url"] == f"/projects/{project_name}"), None)
     if not project:
         return "Project not found", 404
@@ -218,16 +259,23 @@ def project_detail(project_name):
 
     return render_template(
         'project_detail.html',
-        projects=sorted(projects, key=lambda p: p["id"], reverse=True),
+        sidebar_items=sorted(projects, key=lambda p: p["id"], reverse=True),
+        sidebar_title="Projects",
+        sidebar_url_key="detail_url",
         current_project_id=project["id"],
         project=project,
-        content=content_html
+        content=content_html,
+        section="projects"
     )
 
 
 @app.route('/experience-and-education')
+def experience_and_education_redirect():
+    return redirect(url_for('experience_and_education'), 301)
+
+@app.route('/about')
 def experience_and_education():
-    return render_template('experience_and_education.html', work_experience=work_experience, title="Experience and Education - John Curran")
+    return render_template('experience_and_education.html', work_experience=work_experience, title="About - John Curran")
 
 work_experience = [
     {

@@ -55,8 +55,11 @@
                 <li class="{% if request.endpoint == 'research_and_projects' %}active{% endif %}">
                     <a href="{{ url_for('research_and_projects') }}">Projects</a>
                 </li>
+                <li class="{% if request.endpoint == 'writing' %}active{% endif %}">
+                    <a href="{{ url_for('writing') }}">Writing</a>
+                </li>
                 <li class="{% if request.endpoint == 'experience_and_education' %}active{% endif %}">
-                    <a href="{{ url_for('experience_and_education') }}">About Me</a>
+                    <a href="{{ url_for('experience_and_education') }}">About</a>
                 </li>
             </ul>
 

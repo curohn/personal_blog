@@ -2,13 +2,17 @@
 
 {% block content %}
 <div class="project-detail-page">
-    <!-- Sidebar for Projects -->
+    <!-- Sidebar -->
     <aside class="project-sidebar">
-        <h2>Projects</h2>
+        <h2>{{ sidebar_title }}</h2>
         <ul>
-            {% for other_project in projects %}
-            <li {% if other_project['id'] == project['id'] %}class="active"{% endif %}>
-                <a href="{{ other_project['detail_url'] }}">{{ other_project['title'] }}</a>
+            {% for item in sidebar_items %}
+            <li {% if item['id'] == current_project_id %}class="active"{% endif %}>
+                {% if sidebar_url_key == 'slug' %}
+                <a href="/projects/{{ item['slug'] }}">{{ item['title'] }}</a>
+                {% else %}
+                <a href="{{ item['detail_url'] }}">{{ item['title'] }}</a>
+                {% endif %}
             </li>
             {% endfor %}
         </ul>

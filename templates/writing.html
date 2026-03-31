@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Writing</h1>
+<p class="section-intro">Longer-form analysis, essays, and writeups — things that are more about the idea than the code.</p>
+
+{% if writing_pieces %}
+<div class="projects-grid">
+    {% for piece in writing_pieces %}
+    <div class="project-card writing-card">
+        <h3>{{ piece.title }}</h3>
+        <p class="writing-date">{{ piece.date }}</p>
+        <p>{{ piece.description }}</p>
+        <a href="/projects/{{ piece.slug }}" class="btn">Read &rarr;</a>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p class="writing-empty">Nothing published yet — check back soon.</p>
+{% endif %}
+
+{% endblock %}
