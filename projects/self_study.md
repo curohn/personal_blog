@@ -7,9 +7,3 @@ This page is to host all the things I'm currently working to learn, but don't qu
 - Fundamentals of Data Engineering, *Joe Reis & Matt Housley*
 - SQL Performance Explained, *Markus Winand*
 - Data Science from Scratch, *Joel Grus*
-
-## Classes
-
-
-## Future Work
-- Masters program in Fall
