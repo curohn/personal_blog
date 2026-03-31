@@ -423,9 +423,9 @@
 
     // ── Global boid params (readable/writable by murmuration controls) ────────
     window.murmuParams = {
-        count:120, separation:1.5, alignment:1.0, cohesion:1.0,
+        count:200, separation:1.5, alignment:1.0, cohesion:1.0,
         separationRadius:28, alignmentRadius:60, cohesionRadius:60,
-        maxSpeed:3.2, maxForce:0.12, boidSize:4,
+        maxSpeed:1.5, maxForce:0.12, boidSize:4,
     };
 
     let boids = [];

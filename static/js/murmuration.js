@@ -47,7 +47,7 @@
         if (btnReset) {
             btnReset.addEventListener('click', function () {
                 const defaults = {
-                    count: 120, maxSpeed: 3.2,
+                    count: 200, maxSpeed: 1.5,
                     separation: 1.5, separationRadius: 28,
                     alignment: 1.0, alignmentRadius: 60,
                     cohesion: 1.0,  cohesionRadius: 60,
